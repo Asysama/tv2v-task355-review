@@ -1,0 +1,1678 @@
+{
+  "schema_version": "tv2v-stage-evidence/1",
+  "workflow": "engineering-workflow/3.5.0",
+  "stage": "gate-b",
+  "work_type": "pipeline",
+  "human_evaluator_login": "yilan-zhang",
+  "task": {
+    "id": "Task_355",
+    "name": "reference_guided_isolated_sign_word_caption_overlay",
+    "root": "pipelines/not_ready/Task_355_reference_guided_isolated_sign_word_caption_overlay_data-pipeline"
+  },
+  "pull_request": {
+    "number": 761,
+    "base_branch": "dev",
+    "base_sha": "1fbad2601dd4982278b679e2de4e279b4685d959"
+  },
+  "code": {
+    "producing_commit": "80b57c6c0b5f707126ba9731850d4655ec7595b8",
+    "generation_commit": null,
+    "generation_task_root": null,
+    "generation_tree_sha256": null,
+    "pipeline_name": "task355-popsign-word-caption-overlay",
+    "pipeline_version": "0.2.0",
+    "relevant_paths": [
+      "pipelines/not_ready/Task_355_reference_guided_isolated_sign_word_caption_overlay_data-pipeline"
+    ],
+    "relevant_tree_sha256": "130a1ff3fe053c52e92b06199b24d12820870be385a6d3a6ab713ec39c21cefb"
+  },
+  "data": {
+    "scope": "validation",
+    "s3_prefix": "s3://tv2v-data/validation/Task_355_reference_guided_isolated_sign_word_caption_overlay/runs/07a80b13ffc2aa80279e2434db4ca7568c815887ed61a593e91941ee6437806f/gate-b/",
+    "review_s3_prefix": "s3://tv2v-data/validation/Task_355_reference_guided_isolated_sign_word_caption_overlay/runs/07a80b13ffc2aa80279e2434db4ca7568c815887ed61a593e91941ee6437806f/gate-b/",
+    "sample_count": 8,
+    "payload_object_count": 32,
+    "payload_bytes": 557330124,
+    "auxiliary_object_count": 5,
+    "expected_full_units": {
+      "count": 3000,
+      "derivation": "Frozen source inventory selects 50 official PopSign labels and 60 participant-balanced game/train clips per label; ordinals are exactly 0 through 2999."
+    },
+    "dataset_identity": null
+  },
+  "generation_run": {
+    "schema_version": "tv2v-generation-run-manifest/1",
+    "workflow": "engineering-workflow/3.5.0",
+    "run_scope": "validation",
+    "work_type": "pipeline",
+    "task": {
+      "id": "Task_355",
+      "name": "reference_guided_isolated_sign_word_caption_overlay",
+      "root": "pipelines/not_ready/Task_355_reference_guided_isolated_sign_word_caption_overlay_data-pipeline"
+    },
+    "identity": {
+      "code_commit": "80b57c6c0b5f707126ba9731850d4655ec7595b8",
+      "task_tree_sha256": "130a1ff3fe053c52e92b06199b24d12820870be385a6d3a6ab713ec39c21cefb",
+      "dependency_lock_sha256": "daf489550ab52369200fe02f072c1881924e29e7b085f654bb0dd63c69ea9a06",
+      "container_image_digest": null,
+      "source_inventory_sha256": "5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5",
+      "entrypoint": "pipelines/not_ready/Task_355_reference_guided_isolated_sign_word_caption_overlay_data-pipeline/scripts/generate.py",
+      "arguments": [
+        "--inventory",
+        "${PINNED_SOURCE_INVENTORY}",
+        "--raw-cache",
+        "${RAW_CACHE}",
+        "--output",
+        "${VALIDATION_OUTPUT}",
+        "--ordinals",
+        "90",
+        "662",
+        "840",
+        "1148",
+        "1556",
+        "2270",
+        "2760",
+        "2913",
+        "--workers",
+        "4"
+      ],
+      "config_sha256": "5dd8c27caba3ba29e7f8b5ac248817680ffb734ff8340df5683f440c24462cac",
+      "seed": null,
+      "order": "ascending frozen source-inventory ordinal; exact Gate B ordinals 90,662,840,1148,1556,2270,2760,2913"
+    },
+    "environment": {
+      "python": "CPython 3.11.15",
+      "ffmpeg": "7.0.2",
+      "tools": {
+        "boto3": "1.40.1",
+        "imageio-ffmpeg": "0.6.0",
+        "numpy": "2.2.6",
+        "opencv-python-headless": "4.12.0.88",
+        "Pillow": "12.3.0"
+      }
+    },
+    "sources": {
+      "inventory_uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json",
+      "inventory_sha256": "5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5",
+      "object_count": 50,
+      "total_bytes": 129657405440,
+      "versioned": true
+    },
+    "invocation": {
+      "command": "python scripts/generate.py --inventory design/2026-08-27_popsign-source-inventory.json --raw-cache ${RAW_CACHE} --output ${VALIDATION_OUTPUT} --ordinals 90 662 840 1148 1556 2270 2760 2913 --workers 4",
+      "config": {
+        "caption_background_rgba": [
+          0,
+          0,
+          0,
+          190
+        ],
+        "caption_height_fraction": 0.2,
+        "caption_horizontal_padding_fraction": 0.06,
+        "caption_min_height": 64,
+        "caption_stroke_rgba": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "caption_stroke_width": 2,
+        "caption_text_rgba": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "display_label_overrides": {
+          "glasswindow": "GLASS / WINDOW"
+        },
+        "expected_full_units": 3000,
+        "ordinals": [
+          90,
+          662,
+          840,
+          1148,
+          1556,
+          2270,
+          2760,
+          2913
+        ],
+        "pipeline_version": "0.2.0",
+        "workers": 4
+      },
+      "credentials_mode": "environment"
+    },
+    "outputs": {
+      "s3_prefix": "s3://tv2v-data/validation/Task_355_reference_guided_isolated_sign_word_caption_overlay/runs/07a80b13ffc2aa80279e2434db4ca7568c815887ed61a593e91941ee6437806f/gate-b/",
+      "sample_count": 8,
+      "payload_object_count": 32,
+      "payload_bytes": 557330124,
+      "inventory_uri": "s3://tv2v-data/validation/Task_355_reference_guided_isolated_sign_word_caption_overlay/runs/07a80b13ffc2aa80279e2434db4ca7568c815887ed61a593e91941ee6437806f/gate-b/_records/output-inventory-7c556ea5dec31d829b7239e926118c3a2e844a8e22c11892a4cd4b1dd310feb1.json",
+      "inventory_sha256": "7c556ea5dec31d829b7239e926118c3a2e844a8e22c11892a4cd4b1dd310feb1"
+    },
+    "reproducibility": {
+      "resume_verified": true,
+      "no_overwrite_verified": true,
+      "clean_checkout_verified": true,
+      "equivalence": "byte-identical",
+      "audit_uri": "s3://tv2v-data/validation/Task_355_reference_guided_isolated_sign_word_caption_overlay/runs/07a80b13ffc2aa80279e2434db4ca7568c815887ed61a593e91941ee6437806f/gate-b/_records/audit-763c87719671613b6ba500221929200e7728cf06d7f968eb5653f3b729d44913.json",
+      "audit_sha256": "763c87719671613b6ba500221929200e7728cf06d7f968eb5653f3b729d44913"
+    },
+    "created_at_utc": "2026-08-27T14:26:25Z",
+    "generation_run_id": "07a80b13ffc2aa80279e2434db4ca7568c815887ed61a593e91941ee6437806f",
+    "manifest_digest": "d622c932feb767cd217c75543c677e7c26fff762b563faf24d63f004d872bfcf"
+  },
+  "samples": [
+    {
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000090",
+      "strata": [
+        "most-participants",
+        "label:another",
+        "caption-chars:7",
+        "participant-count:31",
+        "official-game-train"
+      ],
+      "selection_reason": "Most represented source participants",
+      "viewing_cues": [
+        "Read the exact official English word in the Prompt and match it to the Target caption.",
+        "Confirm Input and Target remain synchronized for the entire isolated sign.",
+        "Inspect the area above the bottom caption for any unintended scene change."
+      ],
+      "source": {
+        "dataset": "Georgia Tech PopSign ASL v1.0",
+        "sample_id": "another/gtsignstudy4a.8050-another-2023_01_27_16_02_03.933-0.mp4",
+        "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#another/gtsignstudy4a.8050-another-2023_01_27_16_02_03.933-0.mp4"
+      },
+      "prompt": "Preserve the complete Input video, including its timing, framing, and scene. Overlay the exact English caption 'ANOTHER' as a readable bottom caption throughout the video. Do not add, remove, or alter anything outside that caption overlay.",
+      "metadata": {
+        "schema_version": "1.2",
+        "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000090",
+        "task": {
+          "id": "Task_355",
+          "name": "reference_guided_isolated_sign_word_caption_overlay",
+          "modality": "v2v"
+        },
+        "source": {
+          "dataset": "Georgia Tech PopSign ASL v1.0",
+          "split": "game/train",
+          "sample_id": "another/gtsignstudy4a.8050-another-2023_01_27_16_02_03.933-0.mp4",
+          "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#another/gtsignstudy4a.8050-another-2023_01_27_16_02_03.933-0.mp4"
+        },
+        "media": {
+          "input": {
+            "file": "input_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 30.0,
+            "num_frames": 84
+          },
+          "target": {
+            "file": "target_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 30.0,
+            "num_frames": 84
+          }
+        },
+        "pipeline": {
+          "name": "task355-popsign-word-caption-overlay",
+          "version": "0.2.0",
+          "commit": "80b57c6c0b5f707126ba9731850d4655ec7595b8"
+        },
+        "optional": {
+          "source_inventory_sha256": "5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5",
+          "source_catalog_sha256": "5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b",
+          "source_page_sha256": "7c5aecd208b8301cacc9d41cb8ecbbc7d18f2b9eb3e55c944ec91de459097df5",
+          "source_tar_etag": "3748270934",
+          "source_tar_content_length": 3153049600,
+          "source_original_member": "gtsignstudy4a.8050-another-2023_01_27_16_02_03.933-0.mp4",
+          "source_preview_name": "298-another.mp4",
+          "anonymous_participant_id": "gtsignstudy4a.8050",
+          "official_sign_slug": "another",
+          "display_label": "ANOTHER",
+          "caption_card_height": 518,
+          "input_video_sha256": "dcd92cc96df2898bd87fd26202b321d9e188bac361bd0698dd67713c62ff0dc7",
+          "decoded_frame_count": 84,
+          "outside_overlay_max_channel_delta": 3,
+          "changed_overlay_pixels": 84587326
+        },
+        "identity": {
+          "sample_fingerprint": "b06a3651997fb6bad4279689bb44e80d231f72b3e98510526a7af7972848e195"
+        }
+      },
+      "metadata_text": "{\n  \"schema_version\": \"1.2\",\n  \"sample_id\": \"Task_355_reference_guided_isolated_sign_word_caption_overlay_000000090\",\n  \"task\": {\n    \"id\": \"Task_355\",\n    \"name\": \"reference_guided_isolated_sign_word_caption_overlay\",\n    \"modality\": \"v2v\"\n  },\n  \"source\": {\n    \"dataset\": \"Georgia Tech PopSign ASL v1.0\",\n    \"split\": \"game/train\",\n    \"sample_id\": \"another/gtsignstudy4a.8050-another-2023_01_27_16_02_03.933-0.mp4\",\n    \"uri\": \"s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#another/gtsignstudy4a.8050-another-2023_01_27_16_02_03.933-0.mp4\"\n  },\n  \"media\": {\n    \"input\": {\n      \"file\": \"input_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 30.0,\n      \"num_frames\": 84\n    },\n    \"target\": {\n      \"file\": \"target_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 30.0,\n      \"num_frames\": 84\n    }\n  },\n  \"pipeline\": {\n    \"name\": \"task355-popsign-word-caption-overlay\",\n    \"version\": \"0.2.0\",\n    \"commit\": \"80b57c6c0b5f707126ba9731850d4655ec7595b8\"\n  },\n  \"optional\": {\n    \"source_inventory_sha256\": \"5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5\",\n    \"source_catalog_sha256\": \"5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b\",\n    \"source_page_sha256\": \"7c5aecd208b8301cacc9d41cb8ecbbc7d18f2b9eb3e55c944ec91de459097df5\",\n    \"source_tar_etag\": \"3748270934\",\n    \"source_tar_content_length\": 3153049600,\n    \"source_original_member\": \"gtsignstudy4a.8050-another-2023_01_27_16_02_03.933-0.mp4\",\n    \"source_preview_name\": \"298-another.mp4\",\n    \"anonymous_participant_id\": \"gtsignstudy4a.8050\",\n    \"official_sign_slug\": \"another\",\n    \"display_label\": \"ANOTHER\",\n    \"caption_card_height\": 518,\n    \"input_video_sha256\": \"dcd92cc96df2898bd87fd26202b321d9e188bac361bd0698dd67713c62ff0dc7\",\n    \"decoded_frame_count\": 84,\n    \"outside_overlay_max_channel_delta\": 3,\n    \"changed_overlay_pixels\": 84587326\n  },\n  \"identity\": {\n    \"sample_fingerprint\": \"b06a3651997fb6bad4279689bb44e80d231f72b3e98510526a7af7972848e195\"\n  }\n}\n",
+      "files": {
+        "input_video.mp4": {
+          "bytes": 5485693,
+          "sha256": "dcd92cc96df2898bd87fd26202b321d9e188bac361bd0698dd67713c62ff0dc7"
+        },
+        "target_video.mp4": {
+          "bytes": 80420786,
+          "sha256": "0d39b1e790c3afe67a7357da2aa5541351edf3d49b088292ef379cad338a87c1"
+        },
+        "prompt.txt": {
+          "bytes": 239,
+          "sha256": "c76552739649334ffaad1579148fd2e6d2ec66e632f5948558a82a0fe2149020"
+        },
+        "metadata.json": {
+          "bytes": 2100,
+          "sha256": "d3e135d36616010b24251832603ab62e2ea4093b1deab92c0a0fbaaee880a13a"
+        }
+      },
+      "media": {
+        "input": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000090__input_video.mp4",
+          "sha256": "dcd92cc96df2898bd87fd26202b321d9e188bac361bd0698dd67713c62ff0dc7",
+          "bytes": 5485693,
+          "width": 1944,
+          "height": 2592,
+          "fps": 30.0,
+          "num_frames": 84
+        },
+        "target": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000090__target_video.mp4",
+          "sha256": "0d39b1e790c3afe67a7357da2aa5541351edf3d49b088292ef379cad338a87c1",
+          "bytes": 80420786,
+          "width": 1944,
+          "height": 2592,
+          "fps": 30.0,
+          "num_frames": 84
+        }
+      },
+      "automated_checks": [
+        {
+          "id": "complete-frame-audit",
+          "status": "PASS",
+          "summary": "Every declared Input/Target frame decoded and was compared.",
+          "evidence": {
+            "decoded_frames": 84,
+            "declared_frames": 84
+          }
+        },
+        {
+          "id": "outside-caption-preservation",
+          "status": "PASS",
+          "summary": "Pixels above the frozen caption area remain within the lossless color-conversion tolerance.",
+          "evidence": {
+            "observed_max_channel_delta": 3,
+            "threshold": {
+              "maximum": 3
+            }
+          }
+        },
+        {
+          "id": "caption-overlay-present",
+          "status": "PASS",
+          "summary": "The bottom overlay changes visible pixels throughout the complete Target.",
+          "evidence": {
+            "changed_overlay_pixels": 84587326
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000662",
+      "strata": [
+        "largest-tar",
+        "label:dance",
+        "caption-chars:5",
+        "participant-count:31",
+        "official-game-train"
+      ],
+      "selection_reason": "Largest immutable source tar",
+      "viewing_cues": [
+        "Read the exact official English word in the Prompt and match it to the Target caption.",
+        "Confirm Input and Target remain synchronized for the entire isolated sign.",
+        "Inspect the area above the bottom caption for any unintended scene change."
+      ],
+      "source": {
+        "dataset": "Georgia Tech PopSign ASL v1.0",
+        "sample_id": "dance/4a.7005-dance-2022_12_19_18_09_34.143-0.mp4",
+        "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#dance/4a.7005-dance-2022_12_19_18_09_34.143-0.mp4"
+      },
+      "prompt": "Preserve the complete Input video, including its timing, framing, and scene. Overlay the exact English caption 'DANCE' as a readable bottom caption throughout the video. Do not add, remove, or alter anything outside that caption overlay.",
+      "metadata": {
+        "schema_version": "1.2",
+        "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000662",
+        "task": {
+          "id": "Task_355",
+          "name": "reference_guided_isolated_sign_word_caption_overlay",
+          "modality": "v2v"
+        },
+        "source": {
+          "dataset": "Georgia Tech PopSign ASL v1.0",
+          "split": "game/train",
+          "sample_id": "dance/4a.7005-dance-2022_12_19_18_09_34.143-0.mp4",
+          "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#dance/4a.7005-dance-2022_12_19_18_09_34.143-0.mp4"
+        },
+        "media": {
+          "input": {
+            "file": "input_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 120.0,
+            "num_frames": 228
+          },
+          "target": {
+            "file": "target_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 120.0,
+            "num_frames": 228
+          }
+        },
+        "pipeline": {
+          "name": "task355-popsign-word-caption-overlay",
+          "version": "0.2.0",
+          "commit": "80b57c6c0b5f707126ba9731850d4655ec7595b8"
+        },
+        "optional": {
+          "source_inventory_sha256": "5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5",
+          "source_catalog_sha256": "5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b",
+          "source_page_sha256": "a10baa8cac31d52d5fa97423922d839bb1b91863cc77cf214ea32338c6e6f79c",
+          "source_tar_etag": "2928313335",
+          "source_tar_content_length": 3606722560,
+          "source_original_member": "4a.7005-dance-2022_12_19_18_09_34.143-0.mp4",
+          "source_preview_name": "184-dance.mp4",
+          "anonymous_participant_id": "4a.7005",
+          "official_sign_slug": "dance",
+          "display_label": "DANCE",
+          "caption_card_height": 518,
+          "input_video_sha256": "c3ee2e68e38596196b6b3a969fa6b89740728191ca644d95be9163958a0f80b4",
+          "decoded_frame_count": 228,
+          "outside_overlay_max_channel_delta": 3,
+          "changed_overlay_pixels": 229594176
+        },
+        "identity": {
+          "sample_fingerprint": "767bb0eb947eedf4079810981ed5dce8700de0bc383cdcc97f407c1c1ca7fe8b"
+        }
+      },
+      "metadata_text": "{\n  \"schema_version\": \"1.2\",\n  \"sample_id\": \"Task_355_reference_guided_isolated_sign_word_caption_overlay_000000662\",\n  \"task\": {\n    \"id\": \"Task_355\",\n    \"name\": \"reference_guided_isolated_sign_word_caption_overlay\",\n    \"modality\": \"v2v\"\n  },\n  \"source\": {\n    \"dataset\": \"Georgia Tech PopSign ASL v1.0\",\n    \"split\": \"game/train\",\n    \"sample_id\": \"dance/4a.7005-dance-2022_12_19_18_09_34.143-0.mp4\",\n    \"uri\": \"s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#dance/4a.7005-dance-2022_12_19_18_09_34.143-0.mp4\"\n  },\n  \"media\": {\n    \"input\": {\n      \"file\": \"input_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 120.0,\n      \"num_frames\": 228\n    },\n    \"target\": {\n      \"file\": \"target_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 120.0,\n      \"num_frames\": 228\n    }\n  },\n  \"pipeline\": {\n    \"name\": \"task355-popsign-word-caption-overlay\",\n    \"version\": \"0.2.0\",\n    \"commit\": \"80b57c6c0b5f707126ba9731850d4655ec7595b8\"\n  },\n  \"optional\": {\n    \"source_inventory_sha256\": \"5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5\",\n    \"source_catalog_sha256\": \"5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b\",\n    \"source_page_sha256\": \"a10baa8cac31d52d5fa97423922d839bb1b91863cc77cf214ea32338c6e6f79c\",\n    \"source_tar_etag\": \"2928313335\",\n    \"source_tar_content_length\": 3606722560,\n    \"source_original_member\": \"4a.7005-dance-2022_12_19_18_09_34.143-0.mp4\",\n    \"source_preview_name\": \"184-dance.mp4\",\n    \"anonymous_participant_id\": \"4a.7005\",\n    \"official_sign_slug\": \"dance\",\n    \"display_label\": \"DANCE\",\n    \"caption_card_height\": 518,\n    \"input_video_sha256\": \"c3ee2e68e38596196b6b3a969fa6b89740728191ca644d95be9163958a0f80b4\",\n    \"decoded_frame_count\": 228,\n    \"outside_overlay_max_channel_delta\": 3,\n    \"changed_overlay_pixels\": 229594176\n  },\n  \"identity\": {\n    \"sample_fingerprint\": \"767bb0eb947eedf4079810981ed5dce8700de0bc383cdcc97f407c1c1ca7fe8b\"\n  }\n}\n",
+      "files": {
+        "input_video.mp4": {
+          "bytes": 4889305,
+          "sha256": "c3ee2e68e38596196b6b3a969fa6b89740728191ca644d95be9163958a0f80b4"
+        },
+        "target_video.mp4": {
+          "bytes": 50292742,
+          "sha256": "21e691812fff9d086a405df496c5421b122dadf8cd7c1b40b63c78118362f01c"
+        },
+        "prompt.txt": {
+          "bytes": 237,
+          "sha256": "9e4b36a5ec87cfc93fd83edff58e0c81a72491e4908753d42aa9e96d72520073"
+        },
+        "metadata.json": {
+          "bytes": 2046,
+          "sha256": "9c6cd8d9046cc57d8c7f83db9aeb6b8fd80a5548cd672a94e47445cd4a2c35b2"
+        }
+      },
+      "media": {
+        "input": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000662__input_video.mp4",
+          "sha256": "c3ee2e68e38596196b6b3a969fa6b89740728191ca644d95be9163958a0f80b4",
+          "bytes": 4889305,
+          "width": 1944,
+          "height": 2592,
+          "fps": 120.0,
+          "num_frames": 228
+        },
+        "target": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000662__target_video.mp4",
+          "sha256": "21e691812fff9d086a405df496c5421b122dadf8cd7c1b40b63c78118362f01c",
+          "bytes": 50292742,
+          "width": 1944,
+          "height": 2592,
+          "fps": 120.0,
+          "num_frames": 228
+        }
+      },
+      "automated_checks": [
+        {
+          "id": "complete-frame-audit",
+          "status": "PASS",
+          "summary": "Every declared Input/Target frame decoded and was compared.",
+          "evidence": {
+            "decoded_frames": 228,
+            "declared_frames": 228
+          }
+        },
+        {
+          "id": "outside-caption-preservation",
+          "status": "PASS",
+          "summary": "Pixels above the frozen caption area remain within the lossless color-conversion tolerance.",
+          "evidence": {
+            "observed_max_channel_delta": 3,
+            "threshold": {
+              "maximum": 3
+            }
+          }
+        },
+        {
+          "id": "caption-overlay-present",
+          "status": "PASS",
+          "summary": "The bottom overlay changes visible pixels throughout the complete Target.",
+          "evidence": {
+            "changed_overlay_pixels": 229594176
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000840",
+      "strata": [
+        "fewest-participants",
+        "label:every",
+        "caption-chars:5",
+        "participant-count:14",
+        "official-game-train"
+      ],
+      "selection_reason": "Fewest represented source participants",
+      "viewing_cues": [
+        "Read the exact official English word in the Prompt and match it to the Target caption.",
+        "Confirm Input and Target remain synchronized for the entire isolated sign.",
+        "Inspect the area above the bottom caption for any unintended scene change."
+      ],
+      "source": {
+        "dataset": "Georgia Tech PopSign ASL v1.0",
+        "sample_id": "every/4a.7003-every-2023_01_01_13_46_41.848-0.mp4",
+        "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#every/4a.7003-every-2023_01_01_13_46_41.848-0.mp4"
+      },
+      "prompt": "Preserve the complete Input video, including its timing, framing, and scene. Overlay the exact English caption 'EVERY' as a readable bottom caption throughout the video. Do not add, remove, or alter anything outside that caption overlay.",
+      "metadata": {
+        "schema_version": "1.2",
+        "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000840",
+        "task": {
+          "id": "Task_355",
+          "name": "reference_guided_isolated_sign_word_caption_overlay",
+          "modality": "v2v"
+        },
+        "source": {
+          "dataset": "Georgia Tech PopSign ASL v1.0",
+          "split": "game/train",
+          "sample_id": "every/4a.7003-every-2023_01_01_13_46_41.848-0.mp4",
+          "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#every/4a.7003-every-2023_01_01_13_46_41.848-0.mp4"
+        },
+        "media": {
+          "input": {
+            "file": "input_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 30.0,
+            "num_frames": 47
+          },
+          "target": {
+            "file": "target_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 30.0,
+            "num_frames": 47
+          }
+        },
+        "pipeline": {
+          "name": "task355-popsign-word-caption-overlay",
+          "version": "0.2.0",
+          "commit": "80b57c6c0b5f707126ba9731850d4655ec7595b8"
+        },
+        "optional": {
+          "source_inventory_sha256": "5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5",
+          "source_catalog_sha256": "5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b",
+          "source_page_sha256": "9cef08bd161a840da093b994691033f49d3e233e958cdb54093f9b35e3b04342",
+          "source_tar_etag": "500077576",
+          "source_tar_content_length": 1218488320,
+          "source_original_member": "4a.7003-every-2023_01_01_13_46_41.848-0.mp4",
+          "source_preview_name": "57-every.mp4",
+          "anonymous_participant_id": "4a.7003",
+          "official_sign_slug": "every",
+          "display_label": "EVERY",
+          "caption_card_height": 518,
+          "input_video_sha256": "866318dfadb63876205b6f16d9b89b90add4d069085f360ee78e4e1890ab9a7e",
+          "decoded_frame_count": 47,
+          "outside_overlay_max_channel_delta": 3,
+          "changed_overlay_pixels": 47328618
+        },
+        "identity": {
+          "sample_fingerprint": "d1b7cbefb9ed83078fd5b53707cd44a9cdb7f9de97275cab769d51c4f7d49d40"
+        }
+      },
+      "metadata_text": "{\n  \"schema_version\": \"1.2\",\n  \"sample_id\": \"Task_355_reference_guided_isolated_sign_word_caption_overlay_000000840\",\n  \"task\": {\n    \"id\": \"Task_355\",\n    \"name\": \"reference_guided_isolated_sign_word_caption_overlay\",\n    \"modality\": \"v2v\"\n  },\n  \"source\": {\n    \"dataset\": \"Georgia Tech PopSign ASL v1.0\",\n    \"split\": \"game/train\",\n    \"sample_id\": \"every/4a.7003-every-2023_01_01_13_46_41.848-0.mp4\",\n    \"uri\": \"s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#every/4a.7003-every-2023_01_01_13_46_41.848-0.mp4\"\n  },\n  \"media\": {\n    \"input\": {\n      \"file\": \"input_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 30.0,\n      \"num_frames\": 47\n    },\n    \"target\": {\n      \"file\": \"target_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 30.0,\n      \"num_frames\": 47\n    }\n  },\n  \"pipeline\": {\n    \"name\": \"task355-popsign-word-caption-overlay\",\n    \"version\": \"0.2.0\",\n    \"commit\": \"80b57c6c0b5f707126ba9731850d4655ec7595b8\"\n  },\n  \"optional\": {\n    \"source_inventory_sha256\": \"5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5\",\n    \"source_catalog_sha256\": \"5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b\",\n    \"source_page_sha256\": \"9cef08bd161a840da093b994691033f49d3e233e958cdb54093f9b35e3b04342\",\n    \"source_tar_etag\": \"500077576\",\n    \"source_tar_content_length\": 1218488320,\n    \"source_original_member\": \"4a.7003-every-2023_01_01_13_46_41.848-0.mp4\",\n    \"source_preview_name\": \"57-every.mp4\",\n    \"anonymous_participant_id\": \"4a.7003\",\n    \"official_sign_slug\": \"every\",\n    \"display_label\": \"EVERY\",\n    \"caption_card_height\": 518,\n    \"input_video_sha256\": \"866318dfadb63876205b6f16d9b89b90add4d069085f360ee78e4e1890ab9a7e\",\n    \"decoded_frame_count\": 47,\n    \"outside_overlay_max_channel_delta\": 3,\n    \"changed_overlay_pixels\": 47328618\n  },\n  \"identity\": {\n    \"sample_fingerprint\": \"d1b7cbefb9ed83078fd5b53707cd44a9cdb7f9de97275cab769d51c4f7d49d40\"\n  }\n}\n",
+      "files": {
+        "input_video.mp4": {
+          "bytes": 2716790,
+          "sha256": "866318dfadb63876205b6f16d9b89b90add4d069085f360ee78e4e1890ab9a7e"
+        },
+        "target_video.mp4": {
+          "bytes": 39937549,
+          "sha256": "69bf0501c9f629f7a45530ac322d995ee84ef20ce077544834e2aba76f26eb60"
+        },
+        "prompt.txt": {
+          "bytes": 237,
+          "sha256": "54f413c09069bfbab2a94e7e246e014e571a32755b495651c8b13cbb806aea5f"
+        },
+        "metadata.json": {
+          "bytes": 2038,
+          "sha256": "bacb8dfaf4dc2e0fe0eac7710fa629c36c81db96bb7cdd22d4c5d1daa65f3648"
+        }
+      },
+      "media": {
+        "input": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000840__input_video.mp4",
+          "sha256": "866318dfadb63876205b6f16d9b89b90add4d069085f360ee78e4e1890ab9a7e",
+          "bytes": 2716790,
+          "width": 1944,
+          "height": 2592,
+          "fps": 30.0,
+          "num_frames": 47
+        },
+        "target": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000840__target_video.mp4",
+          "sha256": "69bf0501c9f629f7a45530ac322d995ee84ef20ce077544834e2aba76f26eb60",
+          "bytes": 39937549,
+          "width": 1944,
+          "height": 2592,
+          "fps": 30.0,
+          "num_frames": 47
+        }
+      },
+      "automated_checks": [
+        {
+          "id": "complete-frame-audit",
+          "status": "PASS",
+          "summary": "Every declared Input/Target frame decoded and was compared.",
+          "evidence": {
+            "decoded_frames": 47,
+            "declared_frames": 47
+          }
+        },
+        {
+          "id": "outside-caption-preservation",
+          "status": "PASS",
+          "summary": "Pixels above the frozen caption area remain within the lossless color-conversion tolerance.",
+          "evidence": {
+            "observed_max_channel_delta": 3,
+            "threshold": {
+              "maximum": 3
+            }
+          }
+        },
+        {
+          "id": "caption-overlay-present",
+          "status": "PASS",
+          "summary": "The bottom overlay changes visible pixels throughout the complete Target.",
+          "evidence": {
+            "changed_overlay_pixels": 47328618
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001148",
+      "strata": [
+        "compound-caption",
+        "label:glasswindow",
+        "caption-chars:14",
+        "participant-count:18",
+        "official-game-train"
+      ],
+      "selection_reason": "Compound-word formatting override",
+      "viewing_cues": [
+        "Read the exact official English word in the Prompt and match it to the Target caption.",
+        "Confirm Input and Target remain synchronized for the entire isolated sign.",
+        "Inspect the area above the bottom caption for any unintended scene change."
+      ],
+      "source": {
+        "dataset": "Georgia Tech PopSign ASL v1.0",
+        "sample_id": "glasswindow/4a.8028-glasswindow-2023_01_10_15_10_43.540-1.mp4",
+        "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#glasswindow/4a.8028-glasswindow-2023_01_10_15_10_43.540-1.mp4"
+      },
+      "prompt": "Preserve the complete Input video, including its timing, framing, and scene. Overlay the exact English caption 'GLASS / WINDOW' as a readable bottom caption throughout the video. Do not add, remove, or alter anything outside that caption overlay.",
+      "metadata": {
+        "schema_version": "1.2",
+        "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001148",
+        "task": {
+          "id": "Task_355",
+          "name": "reference_guided_isolated_sign_word_caption_overlay",
+          "modality": "v2v"
+        },
+        "source": {
+          "dataset": "Georgia Tech PopSign ASL v1.0",
+          "split": "game/train",
+          "sample_id": "glasswindow/4a.8028-glasswindow-2023_01_10_15_10_43.540-1.mp4",
+          "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#glasswindow/4a.8028-glasswindow-2023_01_10_15_10_43.540-1.mp4"
+        },
+        "media": {
+          "input": {
+            "file": "input_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 29.916666666666668,
+            "num_frames": 75
+          },
+          "target": {
+            "file": "target_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 29.916666666666668,
+            "num_frames": 75
+          }
+        },
+        "pipeline": {
+          "name": "task355-popsign-word-caption-overlay",
+          "version": "0.2.0",
+          "commit": "80b57c6c0b5f707126ba9731850d4655ec7595b8"
+        },
+        "optional": {
+          "source_inventory_sha256": "5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5",
+          "source_catalog_sha256": "5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b",
+          "source_page_sha256": "00e7c0f0fb0db95c9c4007da997e94b30a53b761c8d41db26f7097719a31658f",
+          "source_tar_etag": "304472085",
+          "source_tar_content_length": 1651445760,
+          "source_original_member": "4a.8028-glasswindow-2023_01_10_15_10_43.540-1.mp4",
+          "source_preview_name": "176-glasswindow.mp4",
+          "anonymous_participant_id": "4a.8028",
+          "official_sign_slug": "glasswindow",
+          "display_label": "GLASS / WINDOW",
+          "caption_card_height": 518,
+          "input_video_sha256": "6fe9d3037fdea9d77871b3d815e618f9a41553c00890d2019f3f4c744ff47241",
+          "decoded_frame_count": 75,
+          "outside_overlay_max_channel_delta": 3,
+          "changed_overlay_pixels": 75524392
+        },
+        "identity": {
+          "sample_fingerprint": "075f548eceb107e4be894be9a006578e61cc2b40943499715911c4c24eb6d958"
+        }
+      },
+      "metadata_text": "{\n  \"schema_version\": \"1.2\",\n  \"sample_id\": \"Task_355_reference_guided_isolated_sign_word_caption_overlay_000001148\",\n  \"task\": {\n    \"id\": \"Task_355\",\n    \"name\": \"reference_guided_isolated_sign_word_caption_overlay\",\n    \"modality\": \"v2v\"\n  },\n  \"source\": {\n    \"dataset\": \"Georgia Tech PopSign ASL v1.0\",\n    \"split\": \"game/train\",\n    \"sample_id\": \"glasswindow/4a.8028-glasswindow-2023_01_10_15_10_43.540-1.mp4\",\n    \"uri\": \"s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#glasswindow/4a.8028-glasswindow-2023_01_10_15_10_43.540-1.mp4\"\n  },\n  \"media\": {\n    \"input\": {\n      \"file\": \"input_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 29.916666666666668,\n      \"num_frames\": 75\n    },\n    \"target\": {\n      \"file\": \"target_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 29.916666666666668,\n      \"num_frames\": 75\n    }\n  },\n  \"pipeline\": {\n    \"name\": \"task355-popsign-word-caption-overlay\",\n    \"version\": \"0.2.0\",\n    \"commit\": \"80b57c6c0b5f707126ba9731850d4655ec7595b8\"\n  },\n  \"optional\": {\n    \"source_inventory_sha256\": \"5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5\",\n    \"source_catalog_sha256\": \"5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b\",\n    \"source_page_sha256\": \"00e7c0f0fb0db95c9c4007da997e94b30a53b761c8d41db26f7097719a31658f\",\n    \"source_tar_etag\": \"304472085\",\n    \"source_tar_content_length\": 1651445760,\n    \"source_original_member\": \"4a.8028-glasswindow-2023_01_10_15_10_43.540-1.mp4\",\n    \"source_preview_name\": \"176-glasswindow.mp4\",\n    \"anonymous_participant_id\": \"4a.8028\",\n    \"official_sign_slug\": \"glasswindow\",\n    \"display_label\": \"GLASS / WINDOW\",\n    \"caption_card_height\": 518,\n    \"input_video_sha256\": \"6fe9d3037fdea9d77871b3d815e618f9a41553c00890d2019f3f4c744ff47241\",\n    \"decoded_frame_count\": 75,\n    \"outside_overlay_max_channel_delta\": 3,\n    \"changed_overlay_pixels\": 75524392\n  },\n  \"identity\": {\n    \"sample_fingerprint\": \"075f548eceb107e4be894be9a006578e61cc2b40943499715911c4c24eb6d958\"\n  }\n}\n",
+      "files": {
+        "input_video.mp4": {
+          "bytes": 7326036,
+          "sha256": "6fe9d3037fdea9d77871b3d815e618f9a41553c00890d2019f3f4c744ff47241"
+        },
+        "target_video.mp4": {
+          "bytes": 78241787,
+          "sha256": "73f319ee7a85d2f3d0ff3c96b16fc59894352b18b9f083ce6799b8836679c71b"
+        },
+        "prompt.txt": {
+          "bytes": 246,
+          "sha256": "de068dcda88cde24d32415d877e096a0a445387fd937eae1ba634e181d411965"
+        },
+        "metadata.json": {
+          "bytes": 2118,
+          "sha256": "7a6fa468364c71f378dd9cd4c816a6082152a9ad1c2e9361d8de4f012cdb67fa"
+        }
+      },
+      "media": {
+        "input": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001148__input_video.mp4",
+          "sha256": "6fe9d3037fdea9d77871b3d815e618f9a41553c00890d2019f3f4c744ff47241",
+          "bytes": 7326036,
+          "width": 1944,
+          "height": 2592,
+          "fps": 29.916666666666668,
+          "num_frames": 75
+        },
+        "target": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001148__target_video.mp4",
+          "sha256": "73f319ee7a85d2f3d0ff3c96b16fc59894352b18b9f083ce6799b8836679c71b",
+          "bytes": 78241787,
+          "width": 1944,
+          "height": 2592,
+          "fps": 29.916666666666668,
+          "num_frames": 75
+        }
+      },
+      "automated_checks": [
+        {
+          "id": "complete-frame-audit",
+          "status": "PASS",
+          "summary": "Every declared Input/Target frame decoded and was compared.",
+          "evidence": {
+            "decoded_frames": 75,
+            "declared_frames": 75
+          }
+        },
+        {
+          "id": "outside-caption-preservation",
+          "status": "PASS",
+          "summary": "Pixels above the frozen caption area remain within the lossless color-conversion tolerance.",
+          "evidence": {
+            "observed_max_channel_delta": 3,
+            "threshold": {
+              "maximum": 3
+            }
+          }
+        },
+        {
+          "id": "caption-overlay-present",
+          "status": "PASS",
+          "summary": "The bottom overlay changes visible pixels throughout the complete Target.",
+          "evidence": {
+            "changed_overlay_pixels": 75524392
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001556",
+      "strata": [
+        "middle-vocabulary",
+        "label:jeans",
+        "caption-chars:5",
+        "participant-count:18",
+        "official-game-train"
+      ],
+      "selection_reason": "Middle alphabetic vocabulary cell",
+      "viewing_cues": [
+        "Read the exact official English word in the Prompt and match it to the Target caption.",
+        "Confirm Input and Target remain synchronized for the entire isolated sign.",
+        "Inspect the area above the bottom caption for any unintended scene change."
+      ],
+      "source": {
+        "dataset": "Georgia Tech PopSign ASL v1.0",
+        "sample_id": "jeans/gtsignstudy4a.8048-jeans-2023_01_27_15_42_53.445-0.mp4",
+        "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#jeans/gtsignstudy4a.8048-jeans-2023_01_27_15_42_53.445-0.mp4"
+      },
+      "prompt": "Preserve the complete Input video, including its timing, framing, and scene. Overlay the exact English caption 'JEANS' as a readable bottom caption throughout the video. Do not add, remove, or alter anything outside that caption overlay.",
+      "metadata": {
+        "schema_version": "1.2",
+        "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001556",
+        "task": {
+          "id": "Task_355",
+          "name": "reference_guided_isolated_sign_word_caption_overlay",
+          "modality": "v2v"
+        },
+        "source": {
+          "dataset": "Georgia Tech PopSign ASL v1.0",
+          "split": "game/train",
+          "sample_id": "jeans/gtsignstudy4a.8048-jeans-2023_01_27_15_42_53.445-0.mp4",
+          "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#jeans/gtsignstudy4a.8048-jeans-2023_01_27_15_42_53.445-0.mp4"
+        },
+        "media": {
+          "input": {
+            "file": "input_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 120.0,
+            "num_frames": 294
+          },
+          "target": {
+            "file": "target_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 120.0,
+            "num_frames": 294
+          }
+        },
+        "pipeline": {
+          "name": "task355-popsign-word-caption-overlay",
+          "version": "0.2.0",
+          "commit": "80b57c6c0b5f707126ba9731850d4655ec7595b8"
+        },
+        "optional": {
+          "source_inventory_sha256": "5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5",
+          "source_catalog_sha256": "5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b",
+          "source_page_sha256": "a38c19b906b23506fa0a29002f105d977917889ddb161634f5717b4ed38ccd15",
+          "source_tar_etag": "2655918799",
+          "source_tar_content_length": 1313873920,
+          "source_original_member": "gtsignstudy4a.8048-jeans-2023_01_27_15_42_53.445-0.mp4",
+          "source_preview_name": "62-jeans.mp4",
+          "anonymous_participant_id": "gtsignstudy4a.8048",
+          "official_sign_slug": "jeans",
+          "display_label": "JEANS",
+          "caption_card_height": 518,
+          "input_video_sha256": "c84704cd25e382b74d06ac82dade9638094dbab207573ef90411abb0f4852369",
+          "decoded_frame_count": 294,
+          "outside_overlay_max_channel_delta": 3,
+          "changed_overlay_pixels": 296055639
+        },
+        "identity": {
+          "sample_fingerprint": "fba3dee1278acaf66d27e12f525a17648b3daa36aee59526008616fff2bca165"
+        }
+      },
+      "metadata_text": "{\n  \"schema_version\": \"1.2\",\n  \"sample_id\": \"Task_355_reference_guided_isolated_sign_word_caption_overlay_000001556\",\n  \"task\": {\n    \"id\": \"Task_355\",\n    \"name\": \"reference_guided_isolated_sign_word_caption_overlay\",\n    \"modality\": \"v2v\"\n  },\n  \"source\": {\n    \"dataset\": \"Georgia Tech PopSign ASL v1.0\",\n    \"split\": \"game/train\",\n    \"sample_id\": \"jeans/gtsignstudy4a.8048-jeans-2023_01_27_15_42_53.445-0.mp4\",\n    \"uri\": \"s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#jeans/gtsignstudy4a.8048-jeans-2023_01_27_15_42_53.445-0.mp4\"\n  },\n  \"media\": {\n    \"input\": {\n      \"file\": \"input_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 120.0,\n      \"num_frames\": 294\n    },\n    \"target\": {\n      \"file\": \"target_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 120.0,\n      \"num_frames\": 294\n    }\n  },\n  \"pipeline\": {\n    \"name\": \"task355-popsign-word-caption-overlay\",\n    \"version\": \"0.2.0\",\n    \"commit\": \"80b57c6c0b5f707126ba9731850d4655ec7595b8\"\n  },\n  \"optional\": {\n    \"source_inventory_sha256\": \"5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5\",\n    \"source_catalog_sha256\": \"5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b\",\n    \"source_page_sha256\": \"a38c19b906b23506fa0a29002f105d977917889ddb161634f5717b4ed38ccd15\",\n    \"source_tar_etag\": \"2655918799\",\n    \"source_tar_content_length\": 1313873920,\n    \"source_original_member\": \"gtsignstudy4a.8048-jeans-2023_01_27_15_42_53.445-0.mp4\",\n    \"source_preview_name\": \"62-jeans.mp4\",\n    \"anonymous_participant_id\": \"gtsignstudy4a.8048\",\n    \"official_sign_slug\": \"jeans\",\n    \"display_label\": \"JEANS\",\n    \"caption_card_height\": 518,\n    \"input_video_sha256\": \"c84704cd25e382b74d06ac82dade9638094dbab207573ef90411abb0f4852369\",\n    \"decoded_frame_count\": 294,\n    \"outside_overlay_max_channel_delta\": 3,\n    \"changed_overlay_pixels\": 296055639\n  },\n  \"identity\": {\n    \"sample_fingerprint\": \"fba3dee1278acaf66d27e12f525a17648b3daa36aee59526008616fff2bca165\"\n  }\n}\n",
+      "files": {
+        "input_video.mp4": {
+          "bytes": 4228257,
+          "sha256": "c84704cd25e382b74d06ac82dade9638094dbab207573ef90411abb0f4852369"
+        },
+        "target_video.mp4": {
+          "bytes": 59407304,
+          "sha256": "e585d5b4987b3916e39c5296e5124c212f13f7e3e791249d9b2c6ee2baa99c36"
+        },
+        "prompt.txt": {
+          "bytes": 237,
+          "sha256": "7c1abfd994ebe9029258d1009fbb4e810fa300e8a9f4db4921d976e3d1085484"
+        },
+        "metadata.json": {
+          "bytes": 2089,
+          "sha256": "daecde0194e86f782d10f9ba5e4e1717aa45e2eefa5a4b634d593dc63efdfade"
+        }
+      },
+      "media": {
+        "input": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001556__input_video.mp4",
+          "sha256": "c84704cd25e382b74d06ac82dade9638094dbab207573ef90411abb0f4852369",
+          "bytes": 4228257,
+          "width": 1944,
+          "height": 2592,
+          "fps": 120.0,
+          "num_frames": 294
+        },
+        "target": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001556__target_video.mp4",
+          "sha256": "e585d5b4987b3916e39c5296e5124c212f13f7e3e791249d9b2c6ee2baa99c36",
+          "bytes": 59407304,
+          "width": 1944,
+          "height": 2592,
+          "fps": 120.0,
+          "num_frames": 294
+        }
+      },
+      "automated_checks": [
+        {
+          "id": "complete-frame-audit",
+          "status": "PASS",
+          "summary": "Every declared Input/Target frame decoded and was compared.",
+          "evidence": {
+            "decoded_frames": 294,
+            "declared_frames": 294
+          }
+        },
+        {
+          "id": "outside-caption-preservation",
+          "status": "PASS",
+          "summary": "Pixels above the frozen caption area remain within the lossless color-conversion tolerance.",
+          "evidence": {
+            "observed_max_channel_delta": 3,
+            "threshold": {
+              "maximum": 3
+            }
+          }
+        },
+        {
+          "id": "caption-overlay-present",
+          "status": "PASS",
+          "summary": "The bottom overlay changes visible pixels throughout the complete Target.",
+          "evidence": {
+            "changed_overlay_pixels": 296055639
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002270",
+      "strata": [
+        "longest-caption",
+        "label:refrigerator",
+        "caption-chars:12",
+        "participant-count:17",
+        "official-game-train"
+      ],
+      "selection_reason": "Longest single-word frozen caption",
+      "viewing_cues": [
+        "Read the exact official English word in the Prompt and match it to the Target caption.",
+        "Confirm Input and Target remain synchronized for the entire isolated sign.",
+        "Inspect the area above the bottom caption for any unintended scene change."
+      ],
+      "source": {
+        "dataset": "Georgia Tech PopSign ASL v1.0",
+        "sample_id": "refrigerator/gtsignstudy4a.8049-refrigerator-2023_01_26_07_07_46.989-0.mp4",
+        "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#refrigerator/gtsignstudy4a.8049-refrigerator-2023_01_26_07_07_46.989-0.mp4"
+      },
+      "prompt": "Preserve the complete Input video, including its timing, framing, and scene. Overlay the exact English caption 'REFRIGERATOR' as a readable bottom caption throughout the video. Do not add, remove, or alter anything outside that caption overlay.",
+      "metadata": {
+        "schema_version": "1.2",
+        "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002270",
+        "task": {
+          "id": "Task_355",
+          "name": "reference_guided_isolated_sign_word_caption_overlay",
+          "modality": "v2v"
+        },
+        "source": {
+          "dataset": "Georgia Tech PopSign ASL v1.0",
+          "split": "game/train",
+          "sample_id": "refrigerator/gtsignstudy4a.8049-refrigerator-2023_01_26_07_07_46.989-0.mp4",
+          "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#refrigerator/gtsignstudy4a.8049-refrigerator-2023_01_26_07_07_46.989-0.mp4"
+        },
+        "media": {
+          "input": {
+            "file": "input_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 120.0,
+            "num_frames": 134
+          },
+          "target": {
+            "file": "target_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 120.0,
+            "num_frames": 134
+          }
+        },
+        "pipeline": {
+          "name": "task355-popsign-word-caption-overlay",
+          "version": "0.2.0",
+          "commit": "80b57c6c0b5f707126ba9731850d4655ec7595b8"
+        },
+        "optional": {
+          "source_inventory_sha256": "5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5",
+          "source_catalog_sha256": "5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b",
+          "source_page_sha256": "d2ff2c71d9961f68a9ea513a08b8bef9aa0b707dea3aedb6bd0bcaa3f40eced9",
+          "source_tar_etag": "3816426826",
+          "source_tar_content_length": 1647063040,
+          "source_original_member": "gtsignstudy4a.8049-refrigerator-2023_01_26_07_07_46.989-0.mp4",
+          "source_preview_name": "60-refrigerator.mp4",
+          "anonymous_participant_id": "gtsignstudy4a.8049",
+          "official_sign_slug": "refrigerator",
+          "display_label": "REFRIGERATOR",
+          "caption_card_height": 518,
+          "input_video_sha256": "b2b8e3953227b3e234353c03e2083d228952b2c5ea64600398ee780d648eeff6",
+          "decoded_frame_count": 134,
+          "outside_overlay_max_channel_delta": 3,
+          "changed_overlay_pixels": 134936855
+        },
+        "identity": {
+          "sample_fingerprint": "48b80c3b50fcf10716e9fcb14c8ee19f10d930cc8735ae59b0ecd42069c7587e"
+        }
+      },
+      "metadata_text": "{\n  \"schema_version\": \"1.2\",\n  \"sample_id\": \"Task_355_reference_guided_isolated_sign_word_caption_overlay_000002270\",\n  \"task\": {\n    \"id\": \"Task_355\",\n    \"name\": \"reference_guided_isolated_sign_word_caption_overlay\",\n    \"modality\": \"v2v\"\n  },\n  \"source\": {\n    \"dataset\": \"Georgia Tech PopSign ASL v1.0\",\n    \"split\": \"game/train\",\n    \"sample_id\": \"refrigerator/gtsignstudy4a.8049-refrigerator-2023_01_26_07_07_46.989-0.mp4\",\n    \"uri\": \"s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#refrigerator/gtsignstudy4a.8049-refrigerator-2023_01_26_07_07_46.989-0.mp4\"\n  },\n  \"media\": {\n    \"input\": {\n      \"file\": \"input_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 120.0,\n      \"num_frames\": 134\n    },\n    \"target\": {\n      \"file\": \"target_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 120.0,\n      \"num_frames\": 134\n    }\n  },\n  \"pipeline\": {\n    \"name\": \"task355-popsign-word-caption-overlay\",\n    \"version\": \"0.2.0\",\n    \"commit\": \"80b57c6c0b5f707126ba9731850d4655ec7595b8\"\n  },\n  \"optional\": {\n    \"source_inventory_sha256\": \"5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5\",\n    \"source_catalog_sha256\": \"5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b\",\n    \"source_page_sha256\": \"d2ff2c71d9961f68a9ea513a08b8bef9aa0b707dea3aedb6bd0bcaa3f40eced9\",\n    \"source_tar_etag\": \"3816426826\",\n    \"source_tar_content_length\": 1647063040,\n    \"source_original_member\": \"gtsignstudy4a.8049-refrigerator-2023_01_26_07_07_46.989-0.mp4\",\n    \"source_preview_name\": \"60-refrigerator.mp4\",\n    \"anonymous_participant_id\": \"gtsignstudy4a.8049\",\n    \"official_sign_slug\": \"refrigerator\",\n    \"display_label\": \"REFRIGERATOR\",\n    \"caption_card_height\": 518,\n    \"input_video_sha256\": \"b2b8e3953227b3e234353c03e2083d228952b2c5ea64600398ee780d648eeff6\",\n    \"decoded_frame_count\": 134,\n    \"outside_overlay_max_channel_delta\": 3,\n    \"changed_overlay_pixels\": 134936855\n  },\n  \"identity\": {\n    \"sample_fingerprint\": \"48b80c3b50fcf10716e9fcb14c8ee19f10d930cc8735ae59b0ecd42069c7587e\"\n  }\n}\n",
+      "files": {
+        "input_video.mp4": {
+          "bytes": 2809436,
+          "sha256": "b2b8e3953227b3e234353c03e2083d228952b2c5ea64600398ee780d648eeff6"
+        },
+        "target_video.mp4": {
+          "bytes": 34074915,
+          "sha256": "52c0f4ad1697a6afffff7025ee18bbb55bb0366a31d4341a2746ad6546c68779"
+        },
+        "prompt.txt": {
+          "bytes": 244,
+          "sha256": "b17982770bb7e8e523553170814d5e940f0c72b4eee2b20ec878d7955a32ebcf"
+        },
+        "metadata.json": {
+          "bytes": 2145,
+          "sha256": "e2974b41715fca9d7c4e4e03a29b83f4533899121d1157e56d5b363894ec6673"
+        }
+      },
+      "media": {
+        "input": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002270__input_video.mp4",
+          "sha256": "b2b8e3953227b3e234353c03e2083d228952b2c5ea64600398ee780d648eeff6",
+          "bytes": 2809436,
+          "width": 1944,
+          "height": 2592,
+          "fps": 120.0,
+          "num_frames": 134
+        },
+        "target": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002270__target_video.mp4",
+          "sha256": "52c0f4ad1697a6afffff7025ee18bbb55bb0366a31d4341a2746ad6546c68779",
+          "bytes": 34074915,
+          "width": 1944,
+          "height": 2592,
+          "fps": 120.0,
+          "num_frames": 134
+        }
+      },
+      "automated_checks": [
+        {
+          "id": "complete-frame-audit",
+          "status": "PASS",
+          "summary": "Every declared Input/Target frame decoded and was compared.",
+          "evidence": {
+            "decoded_frames": 134,
+            "declared_frames": 134
+          }
+        },
+        {
+          "id": "outside-caption-preservation",
+          "status": "PASS",
+          "summary": "Pixels above the frozen caption area remain within the lossless color-conversion tolerance.",
+          "evidence": {
+            "observed_max_channel_delta": 3,
+            "threshold": {
+              "maximum": 3
+            }
+          }
+        },
+        {
+          "id": "caption-overlay-present",
+          "status": "PASS",
+          "summary": "The bottom overlay changes visible pixels throughout the complete Target.",
+          "evidence": {
+            "changed_overlay_pixels": 134936855
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002760",
+      "strata": [
+        "shortest-caption",
+        "label:up",
+        "caption-chars:2",
+        "participant-count:31",
+        "official-game-train"
+      ],
+      "selection_reason": "Shortest frozen caption",
+      "viewing_cues": [
+        "Read the exact official English word in the Prompt and match it to the Target caption.",
+        "Confirm Input and Target remain synchronized for the entire isolated sign.",
+        "Inspect the area above the bottom caption for any unintended scene change."
+      ],
+      "source": {
+        "dataset": "Georgia Tech PopSign ASL v1.0",
+        "sample_id": "up/4a.6001-up-2022_12_14_14_41_44.611-0.mp4",
+        "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#up/4a.6001-up-2022_12_14_14_41_44.611-0.mp4"
+      },
+      "prompt": "Preserve the complete Input video, including its timing, framing, and scene. Overlay the exact English caption 'UP' as a readable bottom caption throughout the video. Do not add, remove, or alter anything outside that caption overlay.",
+      "metadata": {
+        "schema_version": "1.2",
+        "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002760",
+        "task": {
+          "id": "Task_355",
+          "name": "reference_guided_isolated_sign_word_caption_overlay",
+          "modality": "v2v"
+        },
+        "source": {
+          "dataset": "Georgia Tech PopSign ASL v1.0",
+          "split": "game/train",
+          "sample_id": "up/4a.6001-up-2022_12_14_14_41_44.611-0.mp4",
+          "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#up/4a.6001-up-2022_12_14_14_41_44.611-0.mp4"
+        },
+        "media": {
+          "input": {
+            "file": "input_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 30.0,
+            "num_frames": 62
+          },
+          "target": {
+            "file": "target_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 30.0,
+            "num_frames": 62
+          }
+        },
+        "pipeline": {
+          "name": "task355-popsign-word-caption-overlay",
+          "version": "0.2.0",
+          "commit": "80b57c6c0b5f707126ba9731850d4655ec7595b8"
+        },
+        "optional": {
+          "source_inventory_sha256": "5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5",
+          "source_catalog_sha256": "5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b",
+          "source_page_sha256": "52c08142b21acd73b49a78ab569cfaec0e24dce0216ebf380aaf3d4c4fab0ac8",
+          "source_tar_etag": "427957042",
+          "source_tar_content_length": 3130071040,
+          "source_original_member": "4a.6001-up-2022_12_14_14_41_44.611-0.mp4",
+          "source_preview_name": "275-up.mp4",
+          "anonymous_participant_id": "4a.6001",
+          "official_sign_slug": "up",
+          "display_label": "UP",
+          "caption_card_height": 518,
+          "input_video_sha256": "f5735177ab18d8ba0ea48bff359778e63098f76e1ef937d710f27de7f81255cd",
+          "decoded_frame_count": 62,
+          "outside_overlay_max_channel_delta": 3,
+          "changed_overlay_pixels": 62433504
+        },
+        "identity": {
+          "sample_fingerprint": "b218cda5470ad14430657b7600751bdfc4e3561205fffba58350afa15430cbe8"
+        }
+      },
+      "metadata_text": "{\n  \"schema_version\": \"1.2\",\n  \"sample_id\": \"Task_355_reference_guided_isolated_sign_word_caption_overlay_000002760\",\n  \"task\": {\n    \"id\": \"Task_355\",\n    \"name\": \"reference_guided_isolated_sign_word_caption_overlay\",\n    \"modality\": \"v2v\"\n  },\n  \"source\": {\n    \"dataset\": \"Georgia Tech PopSign ASL v1.0\",\n    \"split\": \"game/train\",\n    \"sample_id\": \"up/4a.6001-up-2022_12_14_14_41_44.611-0.mp4\",\n    \"uri\": \"s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#up/4a.6001-up-2022_12_14_14_41_44.611-0.mp4\"\n  },\n  \"media\": {\n    \"input\": {\n      \"file\": \"input_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 30.0,\n      \"num_frames\": 62\n    },\n    \"target\": {\n      \"file\": \"target_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 30.0,\n      \"num_frames\": 62\n    }\n  },\n  \"pipeline\": {\n    \"name\": \"task355-popsign-word-caption-overlay\",\n    \"version\": \"0.2.0\",\n    \"commit\": \"80b57c6c0b5f707126ba9731850d4655ec7595b8\"\n  },\n  \"optional\": {\n    \"source_inventory_sha256\": \"5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5\",\n    \"source_catalog_sha256\": \"5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b\",\n    \"source_page_sha256\": \"52c08142b21acd73b49a78ab569cfaec0e24dce0216ebf380aaf3d4c4fab0ac8\",\n    \"source_tar_etag\": \"427957042\",\n    \"source_tar_content_length\": 3130071040,\n    \"source_original_member\": \"4a.6001-up-2022_12_14_14_41_44.611-0.mp4\",\n    \"source_preview_name\": \"275-up.mp4\",\n    \"anonymous_participant_id\": \"4a.6001\",\n    \"official_sign_slug\": \"up\",\n    \"display_label\": \"UP\",\n    \"caption_card_height\": 518,\n    \"input_video_sha256\": \"f5735177ab18d8ba0ea48bff359778e63098f76e1ef937d710f27de7f81255cd\",\n    \"decoded_frame_count\": 62,\n    \"outside_overlay_max_channel_delta\": 3,\n    \"changed_overlay_pixels\": 62433504\n  },\n  \"identity\": {\n    \"sample_fingerprint\": \"b218cda5470ad14430657b7600751bdfc4e3561205fffba58350afa15430cbe8\"\n  }\n}\n",
+      "files": {
+        "input_video.mp4": {
+          "bytes": 3649857,
+          "sha256": "f5735177ab18d8ba0ea48bff359778e63098f76e1ef937d710f27de7f81255cd"
+        },
+        "target_video.mp4": {
+          "bytes": 62276074,
+          "sha256": "dc4a47a9e44fae4926aed64c4e83c85da5299449957172cc1f90190654bd5fcb"
+        },
+        "prompt.txt": {
+          "bytes": 234,
+          "sha256": "1b98c635709103336354177264b5791a99fa28db688706361f54f1d163809a47"
+        },
+        "metadata.json": {
+          "bytes": 2015,
+          "sha256": "44024a8c735fd9dbc6b3a6f862f2c04abf093b6d776ce1fe695a2db1ce59a156"
+        }
+      },
+      "media": {
+        "input": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002760__input_video.mp4",
+          "sha256": "f5735177ab18d8ba0ea48bff359778e63098f76e1ef937d710f27de7f81255cd",
+          "bytes": 3649857,
+          "width": 1944,
+          "height": 2592,
+          "fps": 30.0,
+          "num_frames": 62
+        },
+        "target": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002760__target_video.mp4",
+          "sha256": "dc4a47a9e44fae4926aed64c4e83c85da5299449957172cc1f90190654bd5fcb",
+          "bytes": 62276074,
+          "width": 1944,
+          "height": 2592,
+          "fps": 30.0,
+          "num_frames": 62
+        }
+      },
+      "automated_checks": [
+        {
+          "id": "complete-frame-audit",
+          "status": "PASS",
+          "summary": "Every declared Input/Target frame decoded and was compared.",
+          "evidence": {
+            "decoded_frames": 62,
+            "declared_frames": 62
+          }
+        },
+        {
+          "id": "outside-caption-preservation",
+          "status": "PASS",
+          "summary": "Pixels above the frozen caption area remain within the lossless color-conversion tolerance.",
+          "evidence": {
+            "observed_max_channel_delta": 3,
+            "threshold": {
+              "maximum": 3
+            }
+          }
+        },
+        {
+          "id": "caption-overlay-present",
+          "status": "PASS",
+          "summary": "The bottom overlay changes visible pixels throughout the complete Target.",
+          "evidence": {
+            "changed_overlay_pixels": 62433504
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002913",
+      "strata": [
+        "smallest-tar",
+        "label:why",
+        "caption-chars:3",
+        "participant-count:23",
+        "official-game-train"
+      ],
+      "selection_reason": "Smallest immutable source tar",
+      "viewing_cues": [
+        "Read the exact official English word in the Prompt and match it to the Target caption.",
+        "Confirm Input and Target remain synchronized for the entire isolated sign.",
+        "Inspect the area above the bottom caption for any unintended scene change."
+      ],
+      "source": {
+        "dataset": "Georgia Tech PopSign ASL v1.0",
+        "sample_id": "why/4a.8030-why-2023_01_26_19_41_22.980-0.mp4",
+        "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#why/4a.8030-why-2023_01_26_19_41_22.980-0.mp4"
+      },
+      "prompt": "Preserve the complete Input video, including its timing, framing, and scene. Overlay the exact English caption 'WHY' as a readable bottom caption throughout the video. Do not add, remove, or alter anything outside that caption overlay.",
+      "metadata": {
+        "schema_version": "1.2",
+        "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002913",
+        "task": {
+          "id": "Task_355",
+          "name": "reference_guided_isolated_sign_word_caption_overlay",
+          "modality": "v2v"
+        },
+        "source": {
+          "dataset": "Georgia Tech PopSign ASL v1.0",
+          "split": "game/train",
+          "sample_id": "why/4a.8030-why-2023_01_26_19_41_22.980-0.mp4",
+          "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#why/4a.8030-why-2023_01_26_19_41_22.980-0.mp4"
+        },
+        "media": {
+          "input": {
+            "file": "input_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 29.916666666666668,
+            "num_frames": 78
+          },
+          "target": {
+            "file": "target_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 29.916666666666668,
+            "num_frames": 78
+          }
+        },
+        "pipeline": {
+          "name": "task355-popsign-word-caption-overlay",
+          "version": "0.2.0",
+          "commit": "80b57c6c0b5f707126ba9731850d4655ec7595b8"
+        },
+        "optional": {
+          "source_inventory_sha256": "5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5",
+          "source_catalog_sha256": "5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b",
+          "source_page_sha256": "246d18dfb214ce55532f3023478b38da6e272413f21c35c6f8182fad2fa0f4ad",
+          "source_tar_etag": "2710139124",
+          "source_tar_content_length": 1264875520,
+          "source_original_member": "4a.8030-why-2023_01_26_19_41_22.980-0.mp4",
+          "source_preview_name": "184-why.mp4",
+          "anonymous_participant_id": "4a.8030",
+          "official_sign_slug": "why",
+          "display_label": "WHY",
+          "caption_card_height": 518,
+          "input_video_sha256": "775b22c95b27e81efde818c9cc8485e55bbdc058c1f29f5bf0a705a9fe63a555",
+          "decoded_frame_count": 78,
+          "outside_overlay_max_channel_delta": 3,
+          "changed_overlay_pixels": 78545376
+        },
+        "identity": {
+          "sample_fingerprint": "4d745f513ae291510433c038aefb0a3b359354879d05c56e72896a282d0ad343"
+        }
+      },
+      "metadata_text": "{\n  \"schema_version\": \"1.2\",\n  \"sample_id\": \"Task_355_reference_guided_isolated_sign_word_caption_overlay_000002913\",\n  \"task\": {\n    \"id\": \"Task_355\",\n    \"name\": \"reference_guided_isolated_sign_word_caption_overlay\",\n    \"modality\": \"v2v\"\n  },\n  \"source\": {\n    \"dataset\": \"Georgia Tech PopSign ASL v1.0\",\n    \"split\": \"game/train\",\n    \"sample_id\": \"why/4a.8030-why-2023_01_26_19_41_22.980-0.mp4\",\n    \"uri\": \"s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#why/4a.8030-why-2023_01_26_19_41_22.980-0.mp4\"\n  },\n  \"media\": {\n    \"input\": {\n      \"file\": \"input_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 29.916666666666668,\n      \"num_frames\": 78\n    },\n    \"target\": {\n      \"file\": \"target_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 29.916666666666668,\n      \"num_frames\": 78\n    }\n  },\n  \"pipeline\": {\n    \"name\": \"task355-popsign-word-caption-overlay\",\n    \"version\": \"0.2.0\",\n    \"commit\": \"80b57c6c0b5f707126ba9731850d4655ec7595b8\"\n  },\n  \"optional\": {\n    \"source_inventory_sha256\": \"5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5\",\n    \"source_catalog_sha256\": \"5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b\",\n    \"source_page_sha256\": \"246d18dfb214ce55532f3023478b38da6e272413f21c35c6f8182fad2fa0f4ad\",\n    \"source_tar_etag\": \"2710139124\",\n    \"source_tar_content_length\": 1264875520,\n    \"source_original_member\": \"4a.8030-why-2023_01_26_19_41_22.980-0.mp4\",\n    \"source_preview_name\": \"184-why.mp4\",\n    \"anonymous_participant_id\": \"4a.8030\",\n    \"official_sign_slug\": \"why\",\n    \"display_label\": \"WHY\",\n    \"caption_card_height\": 518,\n    \"input_video_sha256\": \"775b22c95b27e81efde818c9cc8485e55bbdc058c1f29f5bf0a705a9fe63a555\",\n    \"decoded_frame_count\": 78,\n    \"outside_overlay_max_channel_delta\": 3,\n    \"changed_overlay_pixels\": 78545376\n  },\n  \"identity\": {\n    \"sample_fingerprint\": \"4d745f513ae291510433c038aefb0a3b359354879d05c56e72896a282d0ad343\"\n  }\n}\n",
+      "files": {
+        "input_video.mp4": {
+          "bytes": 10713879,
+          "sha256": "775b22c95b27e81efde818c9cc8485e55bbdc058c1f29f5bf0a705a9fe63a555"
+        },
+        "target_video.mp4": {
+          "bytes": 110841202,
+          "sha256": "627ede609ca2da6bf7501d289813db180888625c9acec7c3cccd7071ba6c0e6e"
+        },
+        "prompt.txt": {
+          "bytes": 235,
+          "sha256": "4f53a8a5eeb0fdfdf59d81381615930c92b5092598008b97b7bd6c2c86e690af"
+        },
+        "metadata.json": {
+          "bytes": 2052,
+          "sha256": "ad76624ce37dc5422cd275c3db769d03abe0dc009e087ad92bc392a91606dcff"
+        }
+      },
+      "media": {
+        "input": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002913__input_video.mp4",
+          "sha256": "775b22c95b27e81efde818c9cc8485e55bbdc058c1f29f5bf0a705a9fe63a555",
+          "bytes": 10713879,
+          "width": 1944,
+          "height": 2592,
+          "fps": 29.916666666666668,
+          "num_frames": 78
+        },
+        "target": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002913__target_video.mp4",
+          "sha256": "627ede609ca2da6bf7501d289813db180888625c9acec7c3cccd7071ba6c0e6e",
+          "bytes": 110841202,
+          "width": 1944,
+          "height": 2592,
+          "fps": 29.916666666666668,
+          "num_frames": 78
+        }
+      },
+      "automated_checks": [
+        {
+          "id": "complete-frame-audit",
+          "status": "PASS",
+          "summary": "Every declared Input/Target frame decoded and was compared.",
+          "evidence": {
+            "decoded_frames": 78,
+            "declared_frames": 78
+          }
+        },
+        {
+          "id": "outside-caption-preservation",
+          "status": "PASS",
+          "summary": "Pixels above the frozen caption area remain within the lossless color-conversion tolerance.",
+          "evidence": {
+            "observed_max_channel_delta": 3,
+            "threshold": {
+              "maximum": 3
+            }
+          }
+        },
+        {
+          "id": "caption-overlay-present",
+          "status": "PASS",
+          "summary": "The bottom overlay changes visible pixels throughout the complete Target.",
+          "evidence": {
+            "changed_overlay_pixels": 78545376
+          }
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stratum": "caption-chars:12",
+      "count": 1,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002270"
+      ]
+    },
+    {
+      "stratum": "caption-chars:14",
+      "count": 1,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001148"
+      ]
+    },
+    {
+      "stratum": "caption-chars:2",
+      "count": 1,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002760"
+      ]
+    },
+    {
+      "stratum": "caption-chars:3",
+      "count": 1,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002913"
+      ]
+    },
+    {
+      "stratum": "caption-chars:5",
+      "count": 3,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000662",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000840",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001556"
+      ]
+    },
+    {
+      "stratum": "caption-chars:7",
+      "count": 1,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000090"
+      ]
+    },
+    {
+      "stratum": "compound-caption",
+      "count": 1,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001148"
+      ]
+    },
+    {
+      "stratum": "fewest-participants",
+      "count": 1,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000840"
+      ]
+    },
+    {
+      "stratum": "label:another",
+      "count": 1,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000090"
+      ]
+    },
+    {
+      "stratum": "label:dance",
+      "count": 1,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000662"
+      ]
+    },
+    {
+      "stratum": "label:every",
+      "count": 1,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000840"
+      ]
+    },
+    {
+      "stratum": "label:glasswindow",
+      "count": 1,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001148"
+      ]
+    },
+    {
+      "stratum": "label:jeans",
+      "count": 1,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001556"
+      ]
+    },
+    {
+      "stratum": "label:refrigerator",
+      "count": 1,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002270"
+      ]
+    },
+    {
+      "stratum": "label:up",
+      "count": 1,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002760"
+      ]
+    },
+    {
+      "stratum": "label:why",
+      "count": 1,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002913"
+      ]
+    },
+    {
+      "stratum": "largest-tar",
+      "count": 1,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000662"
+      ]
+    },
+    {
+      "stratum": "longest-caption",
+      "count": 1,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002270"
+      ]
+    },
+    {
+      "stratum": "middle-vocabulary",
+      "count": 1,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001556"
+      ]
+    },
+    {
+      "stratum": "most-participants",
+      "count": 1,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000090"
+      ]
+    },
+    {
+      "stratum": "official-game-train",
+      "count": 8,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000090",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000662",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000840",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001148",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001556",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002270",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002760",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002913"
+      ]
+    },
+    {
+      "stratum": "participant-count:14",
+      "count": 1,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000840"
+      ]
+    },
+    {
+      "stratum": "participant-count:17",
+      "count": 1,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002270"
+      ]
+    },
+    {
+      "stratum": "participant-count:18",
+      "count": 2,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001148",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001556"
+      ]
+    },
+    {
+      "stratum": "participant-count:23",
+      "count": 1,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002913"
+      ]
+    },
+    {
+      "stratum": "participant-count:31",
+      "count": 3,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000090",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000662",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002760"
+      ]
+    },
+    {
+      "stratum": "shortest-caption",
+      "count": 1,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002760"
+      ]
+    },
+    {
+      "stratum": "smallest-tar",
+      "count": 1,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002913"
+      ]
+    }
+  ],
+  "automated_checks": [
+    {
+      "id": "repository",
+      "status": "PASS",
+      "summary": "PR #761 is Draft at the exact producing head and control-plane CI passed.",
+      "evidence": {
+        "pull_request": 761,
+        "producing_commit": "80b57c6c0b5f707126ba9731850d4655ec7595b8",
+        "relevant_tree_sha256": "130a1ff3fe053c52e92b06199b24d12820870be385a6d3a6ab713ec39c21cefb",
+        "control_plane_ci": "PASS"
+      }
+    },
+    {
+      "id": "task-tests",
+      "status": "PASS",
+      "summary": "All task tests, compilation, and dependency integrity checks pass in the exact checkout.",
+      "evidence": {
+        "compileall": "PASS",
+        "pip_check": "PASS",
+        "unittest": "15/15 PASS"
+      }
+    },
+    {
+      "id": "four-file-contract",
+      "status": "PASS",
+      "summary": "Every sample contains exactly Input, Target, Prompt, and Metadata; no Reference asset exists.",
+      "evidence": {
+        "samples": 8,
+        "canonical_objects": 32,
+        "reference_objects": 0
+      }
+    },
+    {
+      "id": "metadata-1.2",
+      "status": "PASS",
+      "summary": "All eight samples use Metadata 1.2 with modality v2v and the exact producing commit.",
+      "evidence": {
+        "metadata_count": 8,
+        "modality": "v2v",
+        "pipeline_commit": "80b57c6c0b5f707126ba9731850d4655ec7595b8"
+      }
+    },
+    {
+      "id": "pipeline-commit",
+      "status": "PASS",
+      "summary": "Formal generation ran from a clean exact checkout at the producing commit.",
+      "evidence": {
+        "clean_checkout": true,
+        "commit": "80b57c6c0b5f707126ba9731850d4655ec7595b8"
+      }
+    },
+    {
+      "id": "source-pairing",
+      "status": "PASS",
+      "summary": "Each Input is the complete immutable PopSign source member bound by the source inventory, and its Prompt uses that member's official English annotation.",
+      "evidence": {
+        "source_inventory_sha256": "5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5",
+        "official_labels_reviewed": 8
+      }
+    },
+    {
+      "id": "task-semantics",
+      "status": "PASS",
+      "summary": "The task is V2V: complete sign video plus Prompt becomes the same complete video with the Prompt-bound bottom caption; no Reference input is used.",
+      "evidence": {
+        "modality": "v2v",
+        "direction": "complete isolated-sign video -> same video with official English bottom caption",
+        "reference_removed": true
+      }
+    },
+    {
+      "id": "coverage",
+      "status": "PASS",
+      "summary": "The eight frozen samples cover caption-length extremes, compound formatting, participant-count extrema, tar-size extrema, and the middle vocabulary cell.",
+      "evidence": {
+        "sample_count": 8,
+        "coverage_strata": 28
+      }
+    },
+    {
+      "id": "media",
+      "status": "PASS",
+      "summary": "All 1,002 Input/Target frame pairs decoded and were checked outside the caption region.",
+      "evidence": {
+        "sample_count": 8,
+        "decoded_frame_pairs": 1002,
+        "outside_overlay_max_channel_delta": 3
+      }
+    },
+    {
+      "id": "determinism-resume-no-overwrite",
+      "status": "PASS",
+      "summary": "Independent reconstruction is byte-identical, resume skips all eight valid samples, and no payload was overwritten.",
+      "evidence": {
+        "audit_sha256": "763c87719671613b6ba500221929200e7728cf06d7f968eb5653f3b729d44913",
+        "byte_identical_files": 32,
+        "resume_skipped_valid": 8,
+        "overwrites": 0
+      }
+    },
+    {
+      "id": "validation-s3-binding",
+      "status": "PASS",
+      "summary": "All 32 Validation payloads were create-only published, SHA-256 read back, and VersionId bound.",
+      "evidence": {
+        "s3_prefix": "s3://tv2v-data/validation/Task_355_reference_guided_isolated_sign_word_caption_overlay/runs/07a80b13ffc2aa80279e2434db4ca7568c815887ed61a593e91941ee6437806f/gate-b/",
+        "inventory_sha256": "7c556ea5dec31d829b7239e926118c3a2e844a8e22c11892a4cd4b1dd310feb1",
+        "payload_object_count": 32,
+        "payload_bytes": 557330124,
+        "versioned_objects": 32
+      }
+    }
+  ],
+  "presentation": {
+    "playback_mode": "synchronized",
+    "privacy_mode": "public",
+    "task_summary": "Add the exact official English PopSign word as a readable bottom caption throughout each complete isolated-sign Input video; no Reference input is used.",
+    "review_question": "Does every Target show the exact Prompt-bound English word clearly at the bottom while preserving the complete sign video, timing, framing, and all content above the caption?"
+  },
+  "audit": {
+    "report_uri": "s3://tv2v-data/validation/Task_355_reference_guided_isolated_sign_word_caption_overlay/runs/07a80b13ffc2aa80279e2434db4ca7568c815887ed61a593e91941ee6437806f/gate-b/_records/audit-763c87719671613b6ba500221929200e7728cf06d7f968eb5653f3b729d44913.json",
+    "sha256": "763c87719671613b6ba500221929200e7728cf06d7f968eb5653f3b729d44913"
+  },
+  "generated_at_utc": "2026-08-27T15:04:05.989558+00:00",
+  "evidence_digest": "e663bf38214413a6b41d05c5d50fa8f822b7b82ffe990e971b0b163f58ada47f"
+}
