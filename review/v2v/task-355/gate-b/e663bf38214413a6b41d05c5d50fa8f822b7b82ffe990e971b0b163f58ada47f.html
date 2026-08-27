@@ -1,0 +1,1792 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Task_355 · Gate B · TV2V Workflow 3.5.1</title>
+  <style>
+    :root{--bg:#071019;--panel:#0e2030;--panel2:#132b3e;--line:#2d526d;--text:#edf8ff;--muted:#a8bdcc;--cyan:#62dcff;--green:#56e0a4;--amber:#ffd06b;--red:#ff7c83}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 12% 0,#174767 0,transparent 28%),var(--bg);color:var(--text);font:15px/1.55 Inter,ui-sans-serif,system-ui,sans-serif}
+    main,.top{width:min(1440px,94vw);margin:auto} .top{padding:42px 0 18px} h1{font-size:clamp(34px,5vw,66px);line-height:1.02;margin:.15em 0} h2{overflow-wrap:anywhere}
+    .eyebrow{font:800 11px ui-monospace,monospace;letter-spacing:.12em;color:var(--cyan)} .lede{font-size:18px;max-width:1050px;color:#d7e6ef}
+    .notice{padding:14px 16px;border:1px solid #84671e;background:#2b210c;border-radius:13px;color:#ffe5a6}
+    .metrics{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:18px 0} .metric,.identity{border:1px solid var(--line);border-radius:14px;background:#091a28;padding:14px}
+    .metric b{display:block;color:var(--cyan);font-size:25px} code{overflow-wrap:anywhere;color:#ccecff} .identity{display:grid;grid-template-columns:180px 1fr;gap:6px 12px}
+    table{width:100%;border-collapse:collapse} th,td{padding:9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top} th{color:var(--muted);font-size:12px}
+    .status{font:800 11px ui-monospace,monospace;padding:3px 7px;border-radius:999px} .status.pass{color:var(--green);border:1px solid #278c68} .status.fail{color:var(--red);border:1px solid #9a3f47}
+    .sample{margin:28px 0;padding:20px;border:1px solid var(--line);border-radius:19px;background:linear-gradient(145deg,var(--panel2),#081622)} .sample-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start}
+    .chip{display:inline-block;margin:0 6px 5px 0;padding:3px 8px;border:1px solid #3e6f8f;border-radius:999px;color:#c8e5f5;font:700 11px ui-monospace,monospace}
+    .completion{color:var(--amber);font:700 12px ui-monospace,monospace} .completion.done{color:var(--green)} .playbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px;margin:14px 0;background:#06131e;border-radius:11px}
+    button{border:1px solid #477693;border-radius:9px;background:#123a54;color:var(--text);padding:9px 12px;font-weight:700;cursor:pointer} button:disabled{opacity:.35;cursor:not-allowed}
+    .pair{display:grid;grid-template-columns:1fr 1fr;gap:12px} figure{margin:0;overflow:hidden;border:1px solid var(--line);border-radius:12px;background:#02070b} figcaption{padding:9px 11px;color:var(--muted)} video{display:block;width:100%;max-height:560px;background:#000}
+    .media-controls{display:grid;grid-template-columns:auto minmax(120px,1fr) auto auto auto;gap:8px;align-items:center;padding:10px;background:#07131d;border-top:1px solid var(--line)} .media-controls input[type="range"]{width:100%;accent-color:var(--cyan)} .media-time{min-width:86px;color:var(--muted);font:700 11px ui-monospace,monospace;text-align:center}
+    figure:fullscreen,figure.media-expanded{display:flex;flex-direction:column;background:#000} figure:fullscreen video,figure.media-expanded video{flex:1;max-height:none;min-height:0;object-fit:contain} figure:fullscreen .media-controls,figure.media-expanded .media-controls{flex:0 0 auto} figure.media-expanded{position:fixed;inset:12px;z-index:1200;border-radius:14px;box-shadow:0 24px 80px #000}
+    .prompt{margin:14px 0;padding:15px;border-left:4px solid var(--cyan);background:#071824;font-size:18px;white-space:pre-wrap} .prompt span{display:block;color:var(--cyan);font:800 11px ui-monospace,monospace;margin-bottom:5px}
+    .cues{padding:12px 15px;background:#0a1a27;border-radius:10px} details{margin-top:12px;border:1px solid var(--line);border-radius:10px;padding:10px} summary{cursor:pointer;font-weight:700} pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#03101a;padding:12px;border-radius:8px}
+    .role-panel,.human-checklist{margin-top:14px;padding:14px;border:1px solid var(--line);border-radius:12px;background:#071824} .role-controls,.sample-check-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap} .sample-check-actions{margin:10px 0} .sample-check-actions span{color:var(--muted);font:700 12px ui-monospace,monospace} .sample-check-actions button.done{border-color:#278c68;background:#123f32;color:var(--green)} .role-controls button.active{outline:3px solid var(--cyan)} .human-cell{width:150px;text-align:center} .human-cell input{width:22px;height:22px;accent-color:var(--green)} .human-cell input:disabled{opacity:.55} .official{color:var(--green);font:700 12px ui-monospace,monospace}
+    .decision{position:sticky;bottom:12px;margin:35px 0;padding:17px;border:1px solid #4d7996;border-radius:16px;background:#071723ee;backdrop-filter:blur(12px);z-index:20;box-shadow:0 16px 42px #0008} .decision-head{display:flex;align-items:center;justify-content:space-between;gap:12px} .decision-head h2{margin:.15em 0} .decision-controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap} .decision button.selected{outline:3px solid var(--green)}
+    .decision.is-collapsed{position:fixed;right:max(12px,env(safe-area-inset-right));bottom:calc(76px + env(safe-area-inset-bottom));width:54px;height:54px;margin:0;padding:0;border-radius:50%;z-index:1000} .decision.is-collapsed .decision-body,.decision.is-collapsed h2{display:none} .decision.is-collapsed .decision-head{width:100%;height:100%;display:block} .decision.is-collapsed #decision-toggle{width:100%;height:100%;padding:0;border:0;border-radius:50%;font-size:22px}
+    .next-incomplete{position:fixed;right:max(12px,env(safe-area-inset-right));bottom:calc(12px + env(safe-area-inset-bottom));width:54px;height:54px;padding:0;border-radius:50%;z-index:1000;font-size:21px;box-shadow:0 10px 28px #0009} .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0} .review-focus{outline:4px solid var(--amber)!important;outline-offset:5px;animation:review-pulse 1.2s ease-out} @keyframes review-pulse{0%{box-shadow:0 0 0 0 #ffd06baa}100%{box-shadow:0 0 0 18px transparent}}
+    @media(max-width:900px){.metrics,.pair{grid-template-columns:1fr}.identity{grid-template-columns:1fr}.sample-head{display:block}.media-controls{grid-template-columns:auto minmax(90px,1fr) auto auto}.media-time{grid-column:2 / 3;grid-row:2}}
+  </style>
+</head>
+<body data-mode="synchronized"
+  data-evidence="e663bf38214413a6b41d05c5d50fa8f822b7b82ffe990e971b0b163f58ada47f"
+  data-workflow="engineering-workflow/3.5.0"
+  data-workflow-release="engineering-workflow/3.5.1">
+<header class="top">
+  <span class="eyebrow">HIPPOCAMPAL · TV2V · WORKFLOW 3.5.1 · GATE B</span>
+  <h1>Task_355<br>reference_guided_isolated_sign_word_caption_overlay</h1>
+  <p class="lede">Add the exact official English PopSign word as a readable bottom caption throughout each complete isolated-sign Input video; no Reference input is used.</p>
+  <p class="notice"><b>public review evidence.</b> Synchronized mode: Start, pause, and seek keep Input and Target aligned.
+    Owner must complete this page before requesting the Human Evaluator. Both people answer the
+    same evidence-bound PASS/FAIL question.</p>
+  <div class="metrics">
+    <div class="metric"><b>8</b>validation data units</div>
+    <div class="metric"><b>32</b>four-file objects</div>
+    <div class="metric"><b>557,330,124</b>payload bytes</div>
+    <div class="metric"><b>8</b>review samples</div>
+    <div class="metric"><b>28</b>declared strata</div>
+  </div>
+  <div class="identity">
+    <b>Repository / PR</b><span>hipo-dev/tv2v-reasoning · #761</span>
+    <b>Human Evaluator</b><code>yilan-zhang</code>
+    <b>Producing commit</b><code>80b57c6c0b5f707126ba9731850d4655ec7595b8</code>
+    <b>Full generation commit</b><code>not applicable at Gate B</code>
+    <b>Full generation task root</b><code>not applicable at Gate B</code>
+    <b>Full generation tree</b><code>not applicable at Gate B</code>
+    <b>Pipeline</b><span>task355-popsign-word-caption-overlay · 0.2.0</span>
+    <b>Generation run</b><code>07a80b13ffc2aa80279e2434db4ca7568c815887ed61a593e91941ee6437806f</code>
+    <b>Run manifest</b><code>d622c932feb767cd217c75543c677e7c26fff762b563faf24d63f004d872bfcf</code>
+    <b>Canonical data identity</b><code>s3://tv2v-data/validation/Task_355_reference_guided_isolated_sign_word_caption_overlay/runs/07a80b13ffc2aa80279e2434db4ca7568c815887ed61a593e91941ee6437806f/gate-b/</code>
+    <b>Review evidence identity</b><code>s3://tv2v-data/validation/Task_355_reference_guided_isolated_sign_word_caption_overlay/runs/07a80b13ffc2aa80279e2434db4ca7568c815887ed61a593e91941ee6437806f/gate-b/</code>
+    <b>Dataset identity</b><code>not applicable at Gate B</code>
+    <b>Evidence digest</b><code>e663bf38214413a6b41d05c5d50fa8f822b7b82ffe990e971b0b163f58ada47f</code>
+    <b>Generated</b><span>2026-08-27T15:04:05.989558+00:00</span>
+  </div>
+</header>
+<main>
+  <section class="role-panel">
+    <h2>Reviewer role</h2>
+    <p>The page stores each role separately in this browser. Owner completion
+      must be imported from the official Owner attestation before the Human
+      Evaluator column becomes editable.</p>
+    <div class="role-controls">
+      <button type="button" id="role-owner">Owner</button>
+      <button type="button" id="role-evaluator">Human Evaluator</button>
+      <label>Import official attestation
+        <input type="file" id="import-attestation" accept="application/json">
+      </label>
+      <span id="role-state"></span>
+    </div>
+  </section>
+  <section>
+    <h2>Machine result</h2>
+    <table><thead><tr><th>Check</th><th>Status</th><th>Summary</th></tr></thead>
+      <tbody><tr><td><code>repository</code></td><td><span class="status pass">PASS</span></td><td>PR #761 is Draft at the exact producing head and control-plane CI passed.</td></tr><tr><td><code>task-tests</code></td><td><span class="status pass">PASS</span></td><td>All task tests, compilation, and dependency integrity checks pass in the exact checkout.</td></tr><tr><td><code>four-file-contract</code></td><td><span class="status pass">PASS</span></td><td>Every sample contains exactly Input, Target, Prompt, and Metadata; no Reference asset exists.</td></tr><tr><td><code>metadata-1.2</code></td><td><span class="status pass">PASS</span></td><td>All eight samples use Metadata 1.2 with modality v2v and the exact producing commit.</td></tr><tr><td><code>pipeline-commit</code></td><td><span class="status pass">PASS</span></td><td>Formal generation ran from a clean exact checkout at the producing commit.</td></tr><tr><td><code>source-pairing</code></td><td><span class="status pass">PASS</span></td><td>Each Input is the complete immutable PopSign source member bound by the source inventory, and its Prompt uses that member&#x27;s official English annotation.</td></tr><tr><td><code>task-semantics</code></td><td><span class="status pass">PASS</span></td><td>The task is V2V: complete sign video plus Prompt becomes the same complete video with the Prompt-bound bottom caption; no Reference input is used.</td></tr><tr><td><code>coverage</code></td><td><span class="status pass">PASS</span></td><td>The eight frozen samples cover caption-length extremes, compound formatting, participant-count extrema, tar-size extrema, and the middle vocabulary cell.</td></tr><tr><td><code>media</code></td><td><span class="status pass">PASS</span></td><td>All 1,002 Input/Target frame pairs decoded and were checked outside the caption region.</td></tr><tr><td><code>determinism-resume-no-overwrite</code></td><td><span class="status pass">PASS</span></td><td>Independent reconstruction is byte-identical, resume skips all eight valid samples, and no payload was overwritten.</td></tr><tr><td><code>validation-s3-binding</code></td><td><span class="status pass">PASS</span></td><td>All 32 Validation payloads were create-only published, SHA-256 read back, and VersionId bound.</td></tr></tbody></table>
+  </section>
+  <section>
+    <h2>Coverage</h2>
+    <p>Expected full units: <b>3,000</b> ·
+      Frozen source inventory selects 50 official PopSign labels and 60 participant-balanced game/train clips per label; ordinals are exactly 0 through 2999.</p>
+    <table><thead><tr><th>Stratum</th><th>Count</th><th>Complete sample IDs</th></tr></thead>
+      <tbody><tr><td>caption-chars:12</td><td>1</td><td><code>Task_355_reference_guided_isolated_sign_word_caption_overlay_000002270</code></td></tr><tr><td>caption-chars:14</td><td>1</td><td><code>Task_355_reference_guided_isolated_sign_word_caption_overlay_000001148</code></td></tr><tr><td>caption-chars:2</td><td>1</td><td><code>Task_355_reference_guided_isolated_sign_word_caption_overlay_000002760</code></td></tr><tr><td>caption-chars:3</td><td>1</td><td><code>Task_355_reference_guided_isolated_sign_word_caption_overlay_000002913</code></td></tr><tr><td>caption-chars:5</td><td>3</td><td><code>Task_355_reference_guided_isolated_sign_word_caption_overlay_000000662, Task_355_reference_guided_isolated_sign_word_caption_overlay_000000840, Task_355_reference_guided_isolated_sign_word_caption_overlay_000001556</code></td></tr><tr><td>caption-chars:7</td><td>1</td><td><code>Task_355_reference_guided_isolated_sign_word_caption_overlay_000000090</code></td></tr><tr><td>compound-caption</td><td>1</td><td><code>Task_355_reference_guided_isolated_sign_word_caption_overlay_000001148</code></td></tr><tr><td>fewest-participants</td><td>1</td><td><code>Task_355_reference_guided_isolated_sign_word_caption_overlay_000000840</code></td></tr><tr><td>label:another</td><td>1</td><td><code>Task_355_reference_guided_isolated_sign_word_caption_overlay_000000090</code></td></tr><tr><td>label:dance</td><td>1</td><td><code>Task_355_reference_guided_isolated_sign_word_caption_overlay_000000662</code></td></tr><tr><td>label:every</td><td>1</td><td><code>Task_355_reference_guided_isolated_sign_word_caption_overlay_000000840</code></td></tr><tr><td>label:glasswindow</td><td>1</td><td><code>Task_355_reference_guided_isolated_sign_word_caption_overlay_000001148</code></td></tr><tr><td>label:jeans</td><td>1</td><td><code>Task_355_reference_guided_isolated_sign_word_caption_overlay_000001556</code></td></tr><tr><td>label:refrigerator</td><td>1</td><td><code>Task_355_reference_guided_isolated_sign_word_caption_overlay_000002270</code></td></tr><tr><td>label:up</td><td>1</td><td><code>Task_355_reference_guided_isolated_sign_word_caption_overlay_000002760</code></td></tr><tr><td>label:why</td><td>1</td><td><code>Task_355_reference_guided_isolated_sign_word_caption_overlay_000002913</code></td></tr><tr><td>largest-tar</td><td>1</td><td><code>Task_355_reference_guided_isolated_sign_word_caption_overlay_000000662</code></td></tr><tr><td>longest-caption</td><td>1</td><td><code>Task_355_reference_guided_isolated_sign_word_caption_overlay_000002270</code></td></tr><tr><td>middle-vocabulary</td><td>1</td><td><code>Task_355_reference_guided_isolated_sign_word_caption_overlay_000001556</code></td></tr><tr><td>most-participants</td><td>1</td><td><code>Task_355_reference_guided_isolated_sign_word_caption_overlay_000000090</code></td></tr><tr><td>official-game-train</td><td>8</td><td><code>Task_355_reference_guided_isolated_sign_word_caption_overlay_000000090, Task_355_reference_guided_isolated_sign_word_caption_overlay_000000662, Task_355_reference_guided_isolated_sign_word_caption_overlay_000000840, Task_355_reference_guided_isolated_sign_word_caption_overlay_000001148, Task_355_reference_guided_isolated_sign_word_caption_overlay_000001556, Task_355_reference_guided_isolated_sign_word_caption_overlay_000002270, Task_355_reference_guided_isolated_sign_word_caption_overlay_000002760, Task_355_reference_guided_isolated_sign_word_caption_overlay_000002913</code></td></tr><tr><td>participant-count:14</td><td>1</td><td><code>Task_355_reference_guided_isolated_sign_word_caption_overlay_000000840</code></td></tr><tr><td>participant-count:17</td><td>1</td><td><code>Task_355_reference_guided_isolated_sign_word_caption_overlay_000002270</code></td></tr><tr><td>participant-count:18</td><td>2</td><td><code>Task_355_reference_guided_isolated_sign_word_caption_overlay_000001148, Task_355_reference_guided_isolated_sign_word_caption_overlay_000001556</code></td></tr><tr><td>participant-count:23</td><td>1</td><td><code>Task_355_reference_guided_isolated_sign_word_caption_overlay_000002913</code></td></tr><tr><td>participant-count:31</td><td>3</td><td><code>Task_355_reference_guided_isolated_sign_word_caption_overlay_000000090, Task_355_reference_guided_isolated_sign_word_caption_overlay_000000662, Task_355_reference_guided_isolated_sign_word_caption_overlay_000002760</code></td></tr><tr><td>shortest-caption</td><td>1</td><td><code>Task_355_reference_guided_isolated_sign_word_caption_overlay_000002760</code></td></tr><tr><td>smallest-tar</td><td>1</td><td><code>Task_355_reference_guided_isolated_sign_word_caption_overlay_000002913</code></td></tr></tbody></table>
+  </section>
+  
+<article class="sample" data-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000000090">
+  <header class="sample-head">
+    <div><span class="eyebrow">SAMPLE 01</span>
+      <h2>Task_355_reference_guided_isolated_sign_word_caption_overlay_000000090</h2>
+      <div class="chips"><span class="chip">most-participants</span><span class="chip">label:another</span><span class="chip">caption-chars:7</span><span class="chip">participant-count:31</span><span class="chip">official-game-train</span></div>
+    </div>
+    <span class="completion" data-completion>not fully played</span>
+  </header>
+  <p><b>Source:</b> Georgia Tech PopSign ASL v1.0 ·
+    <code>another/gtsignstudy4a.8050-another-2023_01_27_16_02_03.933-0.mp4</code><br>
+    <b>Selection:</b> Most represented source participants</p>
+  <div class="playbar">
+    <button type="button" data-start>Start complete review</button>
+    <button type="button" data-replay>Replay pair</button>
+    <span data-play-status>Input and Target not completed.</span>
+  </div>
+  <div class="pair">
+    <figure data-media-shell><figcaption><b>INPUT</b> · 84 frames ·
+      1944×2592 · 30.0 fps</figcaption>
+      <video controls playsinline preload="metadata"
+        data-role="input" data-fps="30.0"
+        data-src="https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000090__input_video.mp4"></video>
+      <div class="media-controls" data-media-controls>
+        <button type="button" data-media-toggle aria-label="Play Input video">Play</button>
+        <input type="range" min="0" max="1000" value="0" step="1"
+          data-media-seek aria-label="Input video playback position">
+        <span class="media-time" data-media-time>0:00 / --:--</span>
+        <button type="button" data-media-mute aria-label="Mute Input video">Mute</button>
+        <button type="button" data-media-expand aria-label="Enlarge Input video">Enlarge</button>
+      </div>
+    </figure>
+    <figure data-media-shell><figcaption><b>TARGET</b> · 84 frames ·
+      1944×2592 · 30.0 fps</figcaption>
+      <video controls playsinline preload="metadata"
+        data-role="target" data-fps="30.0"
+        data-src="https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000090__target_video.mp4"></video>
+      <div class="media-controls" data-media-controls>
+        <button type="button" data-media-toggle aria-label="Play Target video">Play</button>
+        <input type="range" min="0" max="1000" value="0" step="1"
+          data-media-seek aria-label="Target video playback position">
+        <span class="media-time" data-media-time>0:00 / --:--</span>
+        <button type="button" data-media-mute aria-label="Mute Target video">Mute</button>
+        <button type="button" data-media-expand aria-label="Enlarge Target video">Enlarge</button>
+      </div>
+    </figure>
+  </div>
+  <section class="prompt"><span>EXACT PROMPT</span>Preserve the complete Input video, including its timing, framing, and scene. Overlay the exact English caption &#x27;ANOTHER&#x27; as a readable bottom caption throughout the video. Do not add, remove, or alter anything outside that caption overlay.</section>
+  <section class="cues"><b>Watch for</b><ol><li>Read the exact official English word in the Prompt and match it to the Target caption.</li><li>Confirm Input and Target remain synchronized for the entire isolated sign.</li><li>Inspect the area above the bottom caption for any unintended scene change.</li></ol></section>
+  <details><summary>Complete exact metadata.json</summary><pre>{
+  &quot;schema_version&quot;: &quot;1.2&quot;,
+  &quot;sample_id&quot;: &quot;Task_355_reference_guided_isolated_sign_word_caption_overlay_000000090&quot;,
+  &quot;task&quot;: {
+    &quot;id&quot;: &quot;Task_355&quot;,
+    &quot;name&quot;: &quot;reference_guided_isolated_sign_word_caption_overlay&quot;,
+    &quot;modality&quot;: &quot;v2v&quot;
+  },
+  &quot;source&quot;: {
+    &quot;dataset&quot;: &quot;Georgia Tech PopSign ASL v1.0&quot;,
+    &quot;split&quot;: &quot;game/train&quot;,
+    &quot;sample_id&quot;: &quot;another/gtsignstudy4a.8050-another-2023_01_27_16_02_03.933-0.mp4&quot;,
+    &quot;uri&quot;: &quot;s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#another/gtsignstudy4a.8050-another-2023_01_27_16_02_03.933-0.mp4&quot;
+  },
+  &quot;media&quot;: {
+    &quot;input&quot;: {
+      &quot;file&quot;: &quot;input_video.mp4&quot;,
+      &quot;width&quot;: 1944,
+      &quot;height&quot;: 2592,
+      &quot;fps&quot;: 30.0,
+      &quot;num_frames&quot;: 84
+    },
+    &quot;target&quot;: {
+      &quot;file&quot;: &quot;target_video.mp4&quot;,
+      &quot;width&quot;: 1944,
+      &quot;height&quot;: 2592,
+      &quot;fps&quot;: 30.0,
+      &quot;num_frames&quot;: 84
+    }
+  },
+  &quot;pipeline&quot;: {
+    &quot;name&quot;: &quot;task355-popsign-word-caption-overlay&quot;,
+    &quot;version&quot;: &quot;0.2.0&quot;,
+    &quot;commit&quot;: &quot;80b57c6c0b5f707126ba9731850d4655ec7595b8&quot;
+  },
+  &quot;optional&quot;: {
+    &quot;source_inventory_sha256&quot;: &quot;5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5&quot;,
+    &quot;source_catalog_sha256&quot;: &quot;5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b&quot;,
+    &quot;source_page_sha256&quot;: &quot;7c5aecd208b8301cacc9d41cb8ecbbc7d18f2b9eb3e55c944ec91de459097df5&quot;,
+    &quot;source_tar_etag&quot;: &quot;3748270934&quot;,
+    &quot;source_tar_content_length&quot;: 3153049600,
+    &quot;source_original_member&quot;: &quot;gtsignstudy4a.8050-another-2023_01_27_16_02_03.933-0.mp4&quot;,
+    &quot;source_preview_name&quot;: &quot;298-another.mp4&quot;,
+    &quot;anonymous_participant_id&quot;: &quot;gtsignstudy4a.8050&quot;,
+    &quot;official_sign_slug&quot;: &quot;another&quot;,
+    &quot;display_label&quot;: &quot;ANOTHER&quot;,
+    &quot;caption_card_height&quot;: 518,
+    &quot;input_video_sha256&quot;: &quot;dcd92cc96df2898bd87fd26202b321d9e188bac361bd0698dd67713c62ff0dc7&quot;,
+    &quot;decoded_frame_count&quot;: 84,
+    &quot;outside_overlay_max_channel_delta&quot;: 3,
+    &quot;changed_overlay_pixels&quot;: 84587326
+  },
+  &quot;identity&quot;: {
+    &quot;sample_fingerprint&quot;: &quot;b06a3651997fb6bad4279689bb44e80d231f72b3e98510526a7af7972848e195&quot;
+  }
+}
+</pre></details>
+  <details><summary>Per-sample automated checks</summary>
+    <table><thead><tr><th>Check</th><th>Status</th><th>Summary</th></tr></thead>
+    <tbody><tr><td><code>complete-frame-audit</code></td><td><span class="status pass">PASS</span></td><td>Every declared Input/Target frame decoded and was compared.</td></tr><tr><td><code>outside-caption-preservation</code></td><td><span class="status pass">PASS</span></td><td>Pixels above the frozen caption area remain within the lossless color-conversion tolerance.</td></tr><tr><td><code>caption-overlay-present</code></td><td><span class="status pass">PASS</span></td><td>The bottom overlay changes visible pixels throughout the complete Target.</td></tr></tbody></table>
+  </details>
+  <section class="human-checklist" aria-label="Human review checklist">
+    <h3>Required human checks</h3>
+    <p>Exactly three checks are required for this sample. The active human may
+      check only their own column.</p>
+    <div class="sample-check-actions">
+      <button type="button" data-complete-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000000090">
+        ✓ Check all for this sample
+      </button>
+      <span data-sample-check-state>0 / 3 checks complete</span>
+    </div>
+    <table>
+      <thead><tr><th>Question</th><th>Owner</th><th>Human Evaluator</th></tr></thead>
+      <tbody><tr><td>Did you completely watch this sample&#x27;s Input and Target in the required playback mode?</td><td class="human-cell"><input type="checkbox" aria-label="Owner: Did you completely watch this sample&#x27;s Input and Target in the required playback mode?" data-human-check data-review-role="owner" data-check-id="complete-playback" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000000090"></td><td class="human-cell"><input type="checkbox" aria-label="Human Evaluator: Did you completely watch this sample&#x27;s Input and Target in the required playback mode?" data-human-check data-review-role="human-evaluator" data-check-id="complete-playback" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000000090"></td></tr><tr><td>Does the exact Prompt describe the intended task and the visible Input-to-Target relationship?</td><td class="human-cell"><input type="checkbox" aria-label="Owner: Does the exact Prompt describe the intended task and the visible Input-to-Target relationship?" data-human-check data-review-role="owner" data-check-id="prompt-task-semantics" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000000090"></td><td class="human-cell"><input type="checkbox" aria-label="Human Evaluator: Does the exact Prompt describe the intended task and the visible Input-to-Target relationship?" data-human-check data-review-role="human-evaluator" data-check-id="prompt-task-semantics" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000000090"></td></tr><tr><td>Are the metadata, automated result, and sample-specific viewing cues consistent with the media?</td><td class="human-cell"><input type="checkbox" aria-label="Owner: Are the metadata, automated result, and sample-specific viewing cues consistent with the media?" data-human-check data-review-role="owner" data-check-id="metadata-automated-result" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000000090"></td><td class="human-cell"><input type="checkbox" aria-label="Human Evaluator: Are the metadata, automated result, and sample-specific viewing cues consistent with the media?" data-human-check data-review-role="human-evaluator" data-check-id="metadata-automated-result" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000000090"></td></tr></tbody>
+    </table>
+  </section>
+</article>
+<article class="sample" data-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000000662">
+  <header class="sample-head">
+    <div><span class="eyebrow">SAMPLE 02</span>
+      <h2>Task_355_reference_guided_isolated_sign_word_caption_overlay_000000662</h2>
+      <div class="chips"><span class="chip">largest-tar</span><span class="chip">label:dance</span><span class="chip">caption-chars:5</span><span class="chip">participant-count:31</span><span class="chip">official-game-train</span></div>
+    </div>
+    <span class="completion" data-completion>not fully played</span>
+  </header>
+  <p><b>Source:</b> Georgia Tech PopSign ASL v1.0 ·
+    <code>dance/4a.7005-dance-2022_12_19_18_09_34.143-0.mp4</code><br>
+    <b>Selection:</b> Largest immutable source tar</p>
+  <div class="playbar">
+    <button type="button" data-start>Start complete review</button>
+    <button type="button" data-replay>Replay pair</button>
+    <span data-play-status>Input and Target not completed.</span>
+  </div>
+  <div class="pair">
+    <figure data-media-shell><figcaption><b>INPUT</b> · 228 frames ·
+      1944×2592 · 120.0 fps</figcaption>
+      <video controls playsinline preload="metadata"
+        data-role="input" data-fps="120.0"
+        data-src="https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000662__input_video.mp4"></video>
+      <div class="media-controls" data-media-controls>
+        <button type="button" data-media-toggle aria-label="Play Input video">Play</button>
+        <input type="range" min="0" max="1000" value="0" step="1"
+          data-media-seek aria-label="Input video playback position">
+        <span class="media-time" data-media-time>0:00 / --:--</span>
+        <button type="button" data-media-mute aria-label="Mute Input video">Mute</button>
+        <button type="button" data-media-expand aria-label="Enlarge Input video">Enlarge</button>
+      </div>
+    </figure>
+    <figure data-media-shell><figcaption><b>TARGET</b> · 228 frames ·
+      1944×2592 · 120.0 fps</figcaption>
+      <video controls playsinline preload="metadata"
+        data-role="target" data-fps="120.0"
+        data-src="https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000662__target_video.mp4"></video>
+      <div class="media-controls" data-media-controls>
+        <button type="button" data-media-toggle aria-label="Play Target video">Play</button>
+        <input type="range" min="0" max="1000" value="0" step="1"
+          data-media-seek aria-label="Target video playback position">
+        <span class="media-time" data-media-time>0:00 / --:--</span>
+        <button type="button" data-media-mute aria-label="Mute Target video">Mute</button>
+        <button type="button" data-media-expand aria-label="Enlarge Target video">Enlarge</button>
+      </div>
+    </figure>
+  </div>
+  <section class="prompt"><span>EXACT PROMPT</span>Preserve the complete Input video, including its timing, framing, and scene. Overlay the exact English caption &#x27;DANCE&#x27; as a readable bottom caption throughout the video. Do not add, remove, or alter anything outside that caption overlay.</section>
+  <section class="cues"><b>Watch for</b><ol><li>Read the exact official English word in the Prompt and match it to the Target caption.</li><li>Confirm Input and Target remain synchronized for the entire isolated sign.</li><li>Inspect the area above the bottom caption for any unintended scene change.</li></ol></section>
+  <details><summary>Complete exact metadata.json</summary><pre>{
+  &quot;schema_version&quot;: &quot;1.2&quot;,
+  &quot;sample_id&quot;: &quot;Task_355_reference_guided_isolated_sign_word_caption_overlay_000000662&quot;,
+  &quot;task&quot;: {
+    &quot;id&quot;: &quot;Task_355&quot;,
+    &quot;name&quot;: &quot;reference_guided_isolated_sign_word_caption_overlay&quot;,
+    &quot;modality&quot;: &quot;v2v&quot;
+  },
+  &quot;source&quot;: {
+    &quot;dataset&quot;: &quot;Georgia Tech PopSign ASL v1.0&quot;,
+    &quot;split&quot;: &quot;game/train&quot;,
+    &quot;sample_id&quot;: &quot;dance/4a.7005-dance-2022_12_19_18_09_34.143-0.mp4&quot;,
+    &quot;uri&quot;: &quot;s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#dance/4a.7005-dance-2022_12_19_18_09_34.143-0.mp4&quot;
+  },
+  &quot;media&quot;: {
+    &quot;input&quot;: {
+      &quot;file&quot;: &quot;input_video.mp4&quot;,
+      &quot;width&quot;: 1944,
+      &quot;height&quot;: 2592,
+      &quot;fps&quot;: 120.0,
+      &quot;num_frames&quot;: 228
+    },
+    &quot;target&quot;: {
+      &quot;file&quot;: &quot;target_video.mp4&quot;,
+      &quot;width&quot;: 1944,
+      &quot;height&quot;: 2592,
+      &quot;fps&quot;: 120.0,
+      &quot;num_frames&quot;: 228
+    }
+  },
+  &quot;pipeline&quot;: {
+    &quot;name&quot;: &quot;task355-popsign-word-caption-overlay&quot;,
+    &quot;version&quot;: &quot;0.2.0&quot;,
+    &quot;commit&quot;: &quot;80b57c6c0b5f707126ba9731850d4655ec7595b8&quot;
+  },
+  &quot;optional&quot;: {
+    &quot;source_inventory_sha256&quot;: &quot;5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5&quot;,
+    &quot;source_catalog_sha256&quot;: &quot;5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b&quot;,
+    &quot;source_page_sha256&quot;: &quot;a10baa8cac31d52d5fa97423922d839bb1b91863cc77cf214ea32338c6e6f79c&quot;,
+    &quot;source_tar_etag&quot;: &quot;2928313335&quot;,
+    &quot;source_tar_content_length&quot;: 3606722560,
+    &quot;source_original_member&quot;: &quot;4a.7005-dance-2022_12_19_18_09_34.143-0.mp4&quot;,
+    &quot;source_preview_name&quot;: &quot;184-dance.mp4&quot;,
+    &quot;anonymous_participant_id&quot;: &quot;4a.7005&quot;,
+    &quot;official_sign_slug&quot;: &quot;dance&quot;,
+    &quot;display_label&quot;: &quot;DANCE&quot;,
+    &quot;caption_card_height&quot;: 518,
+    &quot;input_video_sha256&quot;: &quot;c3ee2e68e38596196b6b3a969fa6b89740728191ca644d95be9163958a0f80b4&quot;,
+    &quot;decoded_frame_count&quot;: 228,
+    &quot;outside_overlay_max_channel_delta&quot;: 3,
+    &quot;changed_overlay_pixels&quot;: 229594176
+  },
+  &quot;identity&quot;: {
+    &quot;sample_fingerprint&quot;: &quot;767bb0eb947eedf4079810981ed5dce8700de0bc383cdcc97f407c1c1ca7fe8b&quot;
+  }
+}
+</pre></details>
+  <details><summary>Per-sample automated checks</summary>
+    <table><thead><tr><th>Check</th><th>Status</th><th>Summary</th></tr></thead>
+    <tbody><tr><td><code>complete-frame-audit</code></td><td><span class="status pass">PASS</span></td><td>Every declared Input/Target frame decoded and was compared.</td></tr><tr><td><code>outside-caption-preservation</code></td><td><span class="status pass">PASS</span></td><td>Pixels above the frozen caption area remain within the lossless color-conversion tolerance.</td></tr><tr><td><code>caption-overlay-present</code></td><td><span class="status pass">PASS</span></td><td>The bottom overlay changes visible pixels throughout the complete Target.</td></tr></tbody></table>
+  </details>
+  <section class="human-checklist" aria-label="Human review checklist">
+    <h3>Required human checks</h3>
+    <p>Exactly three checks are required for this sample. The active human may
+      check only their own column.</p>
+    <div class="sample-check-actions">
+      <button type="button" data-complete-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000000662">
+        ✓ Check all for this sample
+      </button>
+      <span data-sample-check-state>0 / 3 checks complete</span>
+    </div>
+    <table>
+      <thead><tr><th>Question</th><th>Owner</th><th>Human Evaluator</th></tr></thead>
+      <tbody><tr><td>Did you completely watch this sample&#x27;s Input and Target in the required playback mode?</td><td class="human-cell"><input type="checkbox" aria-label="Owner: Did you completely watch this sample&#x27;s Input and Target in the required playback mode?" data-human-check data-review-role="owner" data-check-id="complete-playback" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000000662"></td><td class="human-cell"><input type="checkbox" aria-label="Human Evaluator: Did you completely watch this sample&#x27;s Input and Target in the required playback mode?" data-human-check data-review-role="human-evaluator" data-check-id="complete-playback" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000000662"></td></tr><tr><td>Does the exact Prompt describe the intended task and the visible Input-to-Target relationship?</td><td class="human-cell"><input type="checkbox" aria-label="Owner: Does the exact Prompt describe the intended task and the visible Input-to-Target relationship?" data-human-check data-review-role="owner" data-check-id="prompt-task-semantics" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000000662"></td><td class="human-cell"><input type="checkbox" aria-label="Human Evaluator: Does the exact Prompt describe the intended task and the visible Input-to-Target relationship?" data-human-check data-review-role="human-evaluator" data-check-id="prompt-task-semantics" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000000662"></td></tr><tr><td>Are the metadata, automated result, and sample-specific viewing cues consistent with the media?</td><td class="human-cell"><input type="checkbox" aria-label="Owner: Are the metadata, automated result, and sample-specific viewing cues consistent with the media?" data-human-check data-review-role="owner" data-check-id="metadata-automated-result" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000000662"></td><td class="human-cell"><input type="checkbox" aria-label="Human Evaluator: Are the metadata, automated result, and sample-specific viewing cues consistent with the media?" data-human-check data-review-role="human-evaluator" data-check-id="metadata-automated-result" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000000662"></td></tr></tbody>
+    </table>
+  </section>
+</article>
+<article class="sample" data-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000000840">
+  <header class="sample-head">
+    <div><span class="eyebrow">SAMPLE 03</span>
+      <h2>Task_355_reference_guided_isolated_sign_word_caption_overlay_000000840</h2>
+      <div class="chips"><span class="chip">fewest-participants</span><span class="chip">label:every</span><span class="chip">caption-chars:5</span><span class="chip">participant-count:14</span><span class="chip">official-game-train</span></div>
+    </div>
+    <span class="completion" data-completion>not fully played</span>
+  </header>
+  <p><b>Source:</b> Georgia Tech PopSign ASL v1.0 ·
+    <code>every/4a.7003-every-2023_01_01_13_46_41.848-0.mp4</code><br>
+    <b>Selection:</b> Fewest represented source participants</p>
+  <div class="playbar">
+    <button type="button" data-start>Start complete review</button>
+    <button type="button" data-replay>Replay pair</button>
+    <span data-play-status>Input and Target not completed.</span>
+  </div>
+  <div class="pair">
+    <figure data-media-shell><figcaption><b>INPUT</b> · 47 frames ·
+      1944×2592 · 30.0 fps</figcaption>
+      <video controls playsinline preload="metadata"
+        data-role="input" data-fps="30.0"
+        data-src="https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000840__input_video.mp4"></video>
+      <div class="media-controls" data-media-controls>
+        <button type="button" data-media-toggle aria-label="Play Input video">Play</button>
+        <input type="range" min="0" max="1000" value="0" step="1"
+          data-media-seek aria-label="Input video playback position">
+        <span class="media-time" data-media-time>0:00 / --:--</span>
+        <button type="button" data-media-mute aria-label="Mute Input video">Mute</button>
+        <button type="button" data-media-expand aria-label="Enlarge Input video">Enlarge</button>
+      </div>
+    </figure>
+    <figure data-media-shell><figcaption><b>TARGET</b> · 47 frames ·
+      1944×2592 · 30.0 fps</figcaption>
+      <video controls playsinline preload="metadata"
+        data-role="target" data-fps="30.0"
+        data-src="https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000840__target_video.mp4"></video>
+      <div class="media-controls" data-media-controls>
+        <button type="button" data-media-toggle aria-label="Play Target video">Play</button>
+        <input type="range" min="0" max="1000" value="0" step="1"
+          data-media-seek aria-label="Target video playback position">
+        <span class="media-time" data-media-time>0:00 / --:--</span>
+        <button type="button" data-media-mute aria-label="Mute Target video">Mute</button>
+        <button type="button" data-media-expand aria-label="Enlarge Target video">Enlarge</button>
+      </div>
+    </figure>
+  </div>
+  <section class="prompt"><span>EXACT PROMPT</span>Preserve the complete Input video, including its timing, framing, and scene. Overlay the exact English caption &#x27;EVERY&#x27; as a readable bottom caption throughout the video. Do not add, remove, or alter anything outside that caption overlay.</section>
+  <section class="cues"><b>Watch for</b><ol><li>Read the exact official English word in the Prompt and match it to the Target caption.</li><li>Confirm Input and Target remain synchronized for the entire isolated sign.</li><li>Inspect the area above the bottom caption for any unintended scene change.</li></ol></section>
+  <details><summary>Complete exact metadata.json</summary><pre>{
+  &quot;schema_version&quot;: &quot;1.2&quot;,
+  &quot;sample_id&quot;: &quot;Task_355_reference_guided_isolated_sign_word_caption_overlay_000000840&quot;,
+  &quot;task&quot;: {
+    &quot;id&quot;: &quot;Task_355&quot;,
+    &quot;name&quot;: &quot;reference_guided_isolated_sign_word_caption_overlay&quot;,
+    &quot;modality&quot;: &quot;v2v&quot;
+  },
+  &quot;source&quot;: {
+    &quot;dataset&quot;: &quot;Georgia Tech PopSign ASL v1.0&quot;,
+    &quot;split&quot;: &quot;game/train&quot;,
+    &quot;sample_id&quot;: &quot;every/4a.7003-every-2023_01_01_13_46_41.848-0.mp4&quot;,
+    &quot;uri&quot;: &quot;s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#every/4a.7003-every-2023_01_01_13_46_41.848-0.mp4&quot;
+  },
+  &quot;media&quot;: {
+    &quot;input&quot;: {
+      &quot;file&quot;: &quot;input_video.mp4&quot;,
+      &quot;width&quot;: 1944,
+      &quot;height&quot;: 2592,
+      &quot;fps&quot;: 30.0,
+      &quot;num_frames&quot;: 47
+    },
+    &quot;target&quot;: {
+      &quot;file&quot;: &quot;target_video.mp4&quot;,
+      &quot;width&quot;: 1944,
+      &quot;height&quot;: 2592,
+      &quot;fps&quot;: 30.0,
+      &quot;num_frames&quot;: 47
+    }
+  },
+  &quot;pipeline&quot;: {
+    &quot;name&quot;: &quot;task355-popsign-word-caption-overlay&quot;,
+    &quot;version&quot;: &quot;0.2.0&quot;,
+    &quot;commit&quot;: &quot;80b57c6c0b5f707126ba9731850d4655ec7595b8&quot;
+  },
+  &quot;optional&quot;: {
+    &quot;source_inventory_sha256&quot;: &quot;5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5&quot;,
+    &quot;source_catalog_sha256&quot;: &quot;5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b&quot;,
+    &quot;source_page_sha256&quot;: &quot;9cef08bd161a840da093b994691033f49d3e233e958cdb54093f9b35e3b04342&quot;,
+    &quot;source_tar_etag&quot;: &quot;500077576&quot;,
+    &quot;source_tar_content_length&quot;: 1218488320,
+    &quot;source_original_member&quot;: &quot;4a.7003-every-2023_01_01_13_46_41.848-0.mp4&quot;,
+    &quot;source_preview_name&quot;: &quot;57-every.mp4&quot;,
+    &quot;anonymous_participant_id&quot;: &quot;4a.7003&quot;,
+    &quot;official_sign_slug&quot;: &quot;every&quot;,
+    &quot;display_label&quot;: &quot;EVERY&quot;,
+    &quot;caption_card_height&quot;: 518,
+    &quot;input_video_sha256&quot;: &quot;866318dfadb63876205b6f16d9b89b90add4d069085f360ee78e4e1890ab9a7e&quot;,
+    &quot;decoded_frame_count&quot;: 47,
+    &quot;outside_overlay_max_channel_delta&quot;: 3,
+    &quot;changed_overlay_pixels&quot;: 47328618
+  },
+  &quot;identity&quot;: {
+    &quot;sample_fingerprint&quot;: &quot;d1b7cbefb9ed83078fd5b53707cd44a9cdb7f9de97275cab769d51c4f7d49d40&quot;
+  }
+}
+</pre></details>
+  <details><summary>Per-sample automated checks</summary>
+    <table><thead><tr><th>Check</th><th>Status</th><th>Summary</th></tr></thead>
+    <tbody><tr><td><code>complete-frame-audit</code></td><td><span class="status pass">PASS</span></td><td>Every declared Input/Target frame decoded and was compared.</td></tr><tr><td><code>outside-caption-preservation</code></td><td><span class="status pass">PASS</span></td><td>Pixels above the frozen caption area remain within the lossless color-conversion tolerance.</td></tr><tr><td><code>caption-overlay-present</code></td><td><span class="status pass">PASS</span></td><td>The bottom overlay changes visible pixels throughout the complete Target.</td></tr></tbody></table>
+  </details>
+  <section class="human-checklist" aria-label="Human review checklist">
+    <h3>Required human checks</h3>
+    <p>Exactly three checks are required for this sample. The active human may
+      check only their own column.</p>
+    <div class="sample-check-actions">
+      <button type="button" data-complete-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000000840">
+        ✓ Check all for this sample
+      </button>
+      <span data-sample-check-state>0 / 3 checks complete</span>
+    </div>
+    <table>
+      <thead><tr><th>Question</th><th>Owner</th><th>Human Evaluator</th></tr></thead>
+      <tbody><tr><td>Did you completely watch this sample&#x27;s Input and Target in the required playback mode?</td><td class="human-cell"><input type="checkbox" aria-label="Owner: Did you completely watch this sample&#x27;s Input and Target in the required playback mode?" data-human-check data-review-role="owner" data-check-id="complete-playback" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000000840"></td><td class="human-cell"><input type="checkbox" aria-label="Human Evaluator: Did you completely watch this sample&#x27;s Input and Target in the required playback mode?" data-human-check data-review-role="human-evaluator" data-check-id="complete-playback" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000000840"></td></tr><tr><td>Does the exact Prompt describe the intended task and the visible Input-to-Target relationship?</td><td class="human-cell"><input type="checkbox" aria-label="Owner: Does the exact Prompt describe the intended task and the visible Input-to-Target relationship?" data-human-check data-review-role="owner" data-check-id="prompt-task-semantics" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000000840"></td><td class="human-cell"><input type="checkbox" aria-label="Human Evaluator: Does the exact Prompt describe the intended task and the visible Input-to-Target relationship?" data-human-check data-review-role="human-evaluator" data-check-id="prompt-task-semantics" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000000840"></td></tr><tr><td>Are the metadata, automated result, and sample-specific viewing cues consistent with the media?</td><td class="human-cell"><input type="checkbox" aria-label="Owner: Are the metadata, automated result, and sample-specific viewing cues consistent with the media?" data-human-check data-review-role="owner" data-check-id="metadata-automated-result" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000000840"></td><td class="human-cell"><input type="checkbox" aria-label="Human Evaluator: Are the metadata, automated result, and sample-specific viewing cues consistent with the media?" data-human-check data-review-role="human-evaluator" data-check-id="metadata-automated-result" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000000840"></td></tr></tbody>
+    </table>
+  </section>
+</article>
+<article class="sample" data-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000001148">
+  <header class="sample-head">
+    <div><span class="eyebrow">SAMPLE 04</span>
+      <h2>Task_355_reference_guided_isolated_sign_word_caption_overlay_000001148</h2>
+      <div class="chips"><span class="chip">compound-caption</span><span class="chip">label:glasswindow</span><span class="chip">caption-chars:14</span><span class="chip">participant-count:18</span><span class="chip">official-game-train</span></div>
+    </div>
+    <span class="completion" data-completion>not fully played</span>
+  </header>
+  <p><b>Source:</b> Georgia Tech PopSign ASL v1.0 ·
+    <code>glasswindow/4a.8028-glasswindow-2023_01_10_15_10_43.540-1.mp4</code><br>
+    <b>Selection:</b> Compound-word formatting override</p>
+  <div class="playbar">
+    <button type="button" data-start>Start complete review</button>
+    <button type="button" data-replay>Replay pair</button>
+    <span data-play-status>Input and Target not completed.</span>
+  </div>
+  <div class="pair">
+    <figure data-media-shell><figcaption><b>INPUT</b> · 75 frames ·
+      1944×2592 · 29.916666666666668 fps</figcaption>
+      <video controls playsinline preload="metadata"
+        data-role="input" data-fps="29.916666666666668"
+        data-src="https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001148__input_video.mp4"></video>
+      <div class="media-controls" data-media-controls>
+        <button type="button" data-media-toggle aria-label="Play Input video">Play</button>
+        <input type="range" min="0" max="1000" value="0" step="1"
+          data-media-seek aria-label="Input video playback position">
+        <span class="media-time" data-media-time>0:00 / --:--</span>
+        <button type="button" data-media-mute aria-label="Mute Input video">Mute</button>
+        <button type="button" data-media-expand aria-label="Enlarge Input video">Enlarge</button>
+      </div>
+    </figure>
+    <figure data-media-shell><figcaption><b>TARGET</b> · 75 frames ·
+      1944×2592 · 29.916666666666668 fps</figcaption>
+      <video controls playsinline preload="metadata"
+        data-role="target" data-fps="29.916666666666668"
+        data-src="https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001148__target_video.mp4"></video>
+      <div class="media-controls" data-media-controls>
+        <button type="button" data-media-toggle aria-label="Play Target video">Play</button>
+        <input type="range" min="0" max="1000" value="0" step="1"
+          data-media-seek aria-label="Target video playback position">
+        <span class="media-time" data-media-time>0:00 / --:--</span>
+        <button type="button" data-media-mute aria-label="Mute Target video">Mute</button>
+        <button type="button" data-media-expand aria-label="Enlarge Target video">Enlarge</button>
+      </div>
+    </figure>
+  </div>
+  <section class="prompt"><span>EXACT PROMPT</span>Preserve the complete Input video, including its timing, framing, and scene. Overlay the exact English caption &#x27;GLASS / WINDOW&#x27; as a readable bottom caption throughout the video. Do not add, remove, or alter anything outside that caption overlay.</section>
+  <section class="cues"><b>Watch for</b><ol><li>Read the exact official English word in the Prompt and match it to the Target caption.</li><li>Confirm Input and Target remain synchronized for the entire isolated sign.</li><li>Inspect the area above the bottom caption for any unintended scene change.</li></ol></section>
+  <details><summary>Complete exact metadata.json</summary><pre>{
+  &quot;schema_version&quot;: &quot;1.2&quot;,
+  &quot;sample_id&quot;: &quot;Task_355_reference_guided_isolated_sign_word_caption_overlay_000001148&quot;,
+  &quot;task&quot;: {
+    &quot;id&quot;: &quot;Task_355&quot;,
+    &quot;name&quot;: &quot;reference_guided_isolated_sign_word_caption_overlay&quot;,
+    &quot;modality&quot;: &quot;v2v&quot;
+  },
+  &quot;source&quot;: {
+    &quot;dataset&quot;: &quot;Georgia Tech PopSign ASL v1.0&quot;,
+    &quot;split&quot;: &quot;game/train&quot;,
+    &quot;sample_id&quot;: &quot;glasswindow/4a.8028-glasswindow-2023_01_10_15_10_43.540-1.mp4&quot;,
+    &quot;uri&quot;: &quot;s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#glasswindow/4a.8028-glasswindow-2023_01_10_15_10_43.540-1.mp4&quot;
+  },
+  &quot;media&quot;: {
+    &quot;input&quot;: {
+      &quot;file&quot;: &quot;input_video.mp4&quot;,
+      &quot;width&quot;: 1944,
+      &quot;height&quot;: 2592,
+      &quot;fps&quot;: 29.916666666666668,
+      &quot;num_frames&quot;: 75
+    },
+    &quot;target&quot;: {
+      &quot;file&quot;: &quot;target_video.mp4&quot;,
+      &quot;width&quot;: 1944,
+      &quot;height&quot;: 2592,
+      &quot;fps&quot;: 29.916666666666668,
+      &quot;num_frames&quot;: 75
+    }
+  },
+  &quot;pipeline&quot;: {
+    &quot;name&quot;: &quot;task355-popsign-word-caption-overlay&quot;,
+    &quot;version&quot;: &quot;0.2.0&quot;,
+    &quot;commit&quot;: &quot;80b57c6c0b5f707126ba9731850d4655ec7595b8&quot;
+  },
+  &quot;optional&quot;: {
+    &quot;source_inventory_sha256&quot;: &quot;5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5&quot;,
+    &quot;source_catalog_sha256&quot;: &quot;5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b&quot;,
+    &quot;source_page_sha256&quot;: &quot;00e7c0f0fb0db95c9c4007da997e94b30a53b761c8d41db26f7097719a31658f&quot;,
+    &quot;source_tar_etag&quot;: &quot;304472085&quot;,
+    &quot;source_tar_content_length&quot;: 1651445760,
+    &quot;source_original_member&quot;: &quot;4a.8028-glasswindow-2023_01_10_15_10_43.540-1.mp4&quot;,
+    &quot;source_preview_name&quot;: &quot;176-glasswindow.mp4&quot;,
+    &quot;anonymous_participant_id&quot;: &quot;4a.8028&quot;,
+    &quot;official_sign_slug&quot;: &quot;glasswindow&quot;,
+    &quot;display_label&quot;: &quot;GLASS / WINDOW&quot;,
+    &quot;caption_card_height&quot;: 518,
+    &quot;input_video_sha256&quot;: &quot;6fe9d3037fdea9d77871b3d815e618f9a41553c00890d2019f3f4c744ff47241&quot;,
+    &quot;decoded_frame_count&quot;: 75,
+    &quot;outside_overlay_max_channel_delta&quot;: 3,
+    &quot;changed_overlay_pixels&quot;: 75524392
+  },
+  &quot;identity&quot;: {
+    &quot;sample_fingerprint&quot;: &quot;075f548eceb107e4be894be9a006578e61cc2b40943499715911c4c24eb6d958&quot;
+  }
+}
+</pre></details>
+  <details><summary>Per-sample automated checks</summary>
+    <table><thead><tr><th>Check</th><th>Status</th><th>Summary</th></tr></thead>
+    <tbody><tr><td><code>complete-frame-audit</code></td><td><span class="status pass">PASS</span></td><td>Every declared Input/Target frame decoded and was compared.</td></tr><tr><td><code>outside-caption-preservation</code></td><td><span class="status pass">PASS</span></td><td>Pixels above the frozen caption area remain within the lossless color-conversion tolerance.</td></tr><tr><td><code>caption-overlay-present</code></td><td><span class="status pass">PASS</span></td><td>The bottom overlay changes visible pixels throughout the complete Target.</td></tr></tbody></table>
+  </details>
+  <section class="human-checklist" aria-label="Human review checklist">
+    <h3>Required human checks</h3>
+    <p>Exactly three checks are required for this sample. The active human may
+      check only their own column.</p>
+    <div class="sample-check-actions">
+      <button type="button" data-complete-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000001148">
+        ✓ Check all for this sample
+      </button>
+      <span data-sample-check-state>0 / 3 checks complete</span>
+    </div>
+    <table>
+      <thead><tr><th>Question</th><th>Owner</th><th>Human Evaluator</th></tr></thead>
+      <tbody><tr><td>Did you completely watch this sample&#x27;s Input and Target in the required playback mode?</td><td class="human-cell"><input type="checkbox" aria-label="Owner: Did you completely watch this sample&#x27;s Input and Target in the required playback mode?" data-human-check data-review-role="owner" data-check-id="complete-playback" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000001148"></td><td class="human-cell"><input type="checkbox" aria-label="Human Evaluator: Did you completely watch this sample&#x27;s Input and Target in the required playback mode?" data-human-check data-review-role="human-evaluator" data-check-id="complete-playback" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000001148"></td></tr><tr><td>Does the exact Prompt describe the intended task and the visible Input-to-Target relationship?</td><td class="human-cell"><input type="checkbox" aria-label="Owner: Does the exact Prompt describe the intended task and the visible Input-to-Target relationship?" data-human-check data-review-role="owner" data-check-id="prompt-task-semantics" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000001148"></td><td class="human-cell"><input type="checkbox" aria-label="Human Evaluator: Does the exact Prompt describe the intended task and the visible Input-to-Target relationship?" data-human-check data-review-role="human-evaluator" data-check-id="prompt-task-semantics" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000001148"></td></tr><tr><td>Are the metadata, automated result, and sample-specific viewing cues consistent with the media?</td><td class="human-cell"><input type="checkbox" aria-label="Owner: Are the metadata, automated result, and sample-specific viewing cues consistent with the media?" data-human-check data-review-role="owner" data-check-id="metadata-automated-result" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000001148"></td><td class="human-cell"><input type="checkbox" aria-label="Human Evaluator: Are the metadata, automated result, and sample-specific viewing cues consistent with the media?" data-human-check data-review-role="human-evaluator" data-check-id="metadata-automated-result" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000001148"></td></tr></tbody>
+    </table>
+  </section>
+</article>
+<article class="sample" data-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000001556">
+  <header class="sample-head">
+    <div><span class="eyebrow">SAMPLE 05</span>
+      <h2>Task_355_reference_guided_isolated_sign_word_caption_overlay_000001556</h2>
+      <div class="chips"><span class="chip">middle-vocabulary</span><span class="chip">label:jeans</span><span class="chip">caption-chars:5</span><span class="chip">participant-count:18</span><span class="chip">official-game-train</span></div>
+    </div>
+    <span class="completion" data-completion>not fully played</span>
+  </header>
+  <p><b>Source:</b> Georgia Tech PopSign ASL v1.0 ·
+    <code>jeans/gtsignstudy4a.8048-jeans-2023_01_27_15_42_53.445-0.mp4</code><br>
+    <b>Selection:</b> Middle alphabetic vocabulary cell</p>
+  <div class="playbar">
+    <button type="button" data-start>Start complete review</button>
+    <button type="button" data-replay>Replay pair</button>
+    <span data-play-status>Input and Target not completed.</span>
+  </div>
+  <div class="pair">
+    <figure data-media-shell><figcaption><b>INPUT</b> · 294 frames ·
+      1944×2592 · 120.0 fps</figcaption>
+      <video controls playsinline preload="metadata"
+        data-role="input" data-fps="120.0"
+        data-src="https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001556__input_video.mp4"></video>
+      <div class="media-controls" data-media-controls>
+        <button type="button" data-media-toggle aria-label="Play Input video">Play</button>
+        <input type="range" min="0" max="1000" value="0" step="1"
+          data-media-seek aria-label="Input video playback position">
+        <span class="media-time" data-media-time>0:00 / --:--</span>
+        <button type="button" data-media-mute aria-label="Mute Input video">Mute</button>
+        <button type="button" data-media-expand aria-label="Enlarge Input video">Enlarge</button>
+      </div>
+    </figure>
+    <figure data-media-shell><figcaption><b>TARGET</b> · 294 frames ·
+      1944×2592 · 120.0 fps</figcaption>
+      <video controls playsinline preload="metadata"
+        data-role="target" data-fps="120.0"
+        data-src="https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001556__target_video.mp4"></video>
+      <div class="media-controls" data-media-controls>
+        <button type="button" data-media-toggle aria-label="Play Target video">Play</button>
+        <input type="range" min="0" max="1000" value="0" step="1"
+          data-media-seek aria-label="Target video playback position">
+        <span class="media-time" data-media-time>0:00 / --:--</span>
+        <button type="button" data-media-mute aria-label="Mute Target video">Mute</button>
+        <button type="button" data-media-expand aria-label="Enlarge Target video">Enlarge</button>
+      </div>
+    </figure>
+  </div>
+  <section class="prompt"><span>EXACT PROMPT</span>Preserve the complete Input video, including its timing, framing, and scene. Overlay the exact English caption &#x27;JEANS&#x27; as a readable bottom caption throughout the video. Do not add, remove, or alter anything outside that caption overlay.</section>
+  <section class="cues"><b>Watch for</b><ol><li>Read the exact official English word in the Prompt and match it to the Target caption.</li><li>Confirm Input and Target remain synchronized for the entire isolated sign.</li><li>Inspect the area above the bottom caption for any unintended scene change.</li></ol></section>
+  <details><summary>Complete exact metadata.json</summary><pre>{
+  &quot;schema_version&quot;: &quot;1.2&quot;,
+  &quot;sample_id&quot;: &quot;Task_355_reference_guided_isolated_sign_word_caption_overlay_000001556&quot;,
+  &quot;task&quot;: {
+    &quot;id&quot;: &quot;Task_355&quot;,
+    &quot;name&quot;: &quot;reference_guided_isolated_sign_word_caption_overlay&quot;,
+    &quot;modality&quot;: &quot;v2v&quot;
+  },
+  &quot;source&quot;: {
+    &quot;dataset&quot;: &quot;Georgia Tech PopSign ASL v1.0&quot;,
+    &quot;split&quot;: &quot;game/train&quot;,
+    &quot;sample_id&quot;: &quot;jeans/gtsignstudy4a.8048-jeans-2023_01_27_15_42_53.445-0.mp4&quot;,
+    &quot;uri&quot;: &quot;s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#jeans/gtsignstudy4a.8048-jeans-2023_01_27_15_42_53.445-0.mp4&quot;
+  },
+  &quot;media&quot;: {
+    &quot;input&quot;: {
+      &quot;file&quot;: &quot;input_video.mp4&quot;,
+      &quot;width&quot;: 1944,
+      &quot;height&quot;: 2592,
+      &quot;fps&quot;: 120.0,
+      &quot;num_frames&quot;: 294
+    },
+    &quot;target&quot;: {
+      &quot;file&quot;: &quot;target_video.mp4&quot;,
+      &quot;width&quot;: 1944,
+      &quot;height&quot;: 2592,
+      &quot;fps&quot;: 120.0,
+      &quot;num_frames&quot;: 294
+    }
+  },
+  &quot;pipeline&quot;: {
+    &quot;name&quot;: &quot;task355-popsign-word-caption-overlay&quot;,
+    &quot;version&quot;: &quot;0.2.0&quot;,
+    &quot;commit&quot;: &quot;80b57c6c0b5f707126ba9731850d4655ec7595b8&quot;
+  },
+  &quot;optional&quot;: {
+    &quot;source_inventory_sha256&quot;: &quot;5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5&quot;,
+    &quot;source_catalog_sha256&quot;: &quot;5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b&quot;,
+    &quot;source_page_sha256&quot;: &quot;a38c19b906b23506fa0a29002f105d977917889ddb161634f5717b4ed38ccd15&quot;,
+    &quot;source_tar_etag&quot;: &quot;2655918799&quot;,
+    &quot;source_tar_content_length&quot;: 1313873920,
+    &quot;source_original_member&quot;: &quot;gtsignstudy4a.8048-jeans-2023_01_27_15_42_53.445-0.mp4&quot;,
+    &quot;source_preview_name&quot;: &quot;62-jeans.mp4&quot;,
+    &quot;anonymous_participant_id&quot;: &quot;gtsignstudy4a.8048&quot;,
+    &quot;official_sign_slug&quot;: &quot;jeans&quot;,
+    &quot;display_label&quot;: &quot;JEANS&quot;,
+    &quot;caption_card_height&quot;: 518,
+    &quot;input_video_sha256&quot;: &quot;c84704cd25e382b74d06ac82dade9638094dbab207573ef90411abb0f4852369&quot;,
+    &quot;decoded_frame_count&quot;: 294,
+    &quot;outside_overlay_max_channel_delta&quot;: 3,
+    &quot;changed_overlay_pixels&quot;: 296055639
+  },
+  &quot;identity&quot;: {
+    &quot;sample_fingerprint&quot;: &quot;fba3dee1278acaf66d27e12f525a17648b3daa36aee59526008616fff2bca165&quot;
+  }
+}
+</pre></details>
+  <details><summary>Per-sample automated checks</summary>
+    <table><thead><tr><th>Check</th><th>Status</th><th>Summary</th></tr></thead>
+    <tbody><tr><td><code>complete-frame-audit</code></td><td><span class="status pass">PASS</span></td><td>Every declared Input/Target frame decoded and was compared.</td></tr><tr><td><code>outside-caption-preservation</code></td><td><span class="status pass">PASS</span></td><td>Pixels above the frozen caption area remain within the lossless color-conversion tolerance.</td></tr><tr><td><code>caption-overlay-present</code></td><td><span class="status pass">PASS</span></td><td>The bottom overlay changes visible pixels throughout the complete Target.</td></tr></tbody></table>
+  </details>
+  <section class="human-checklist" aria-label="Human review checklist">
+    <h3>Required human checks</h3>
+    <p>Exactly three checks are required for this sample. The active human may
+      check only their own column.</p>
+    <div class="sample-check-actions">
+      <button type="button" data-complete-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000001556">
+        ✓ Check all for this sample
+      </button>
+      <span data-sample-check-state>0 / 3 checks complete</span>
+    </div>
+    <table>
+      <thead><tr><th>Question</th><th>Owner</th><th>Human Evaluator</th></tr></thead>
+      <tbody><tr><td>Did you completely watch this sample&#x27;s Input and Target in the required playback mode?</td><td class="human-cell"><input type="checkbox" aria-label="Owner: Did you completely watch this sample&#x27;s Input and Target in the required playback mode?" data-human-check data-review-role="owner" data-check-id="complete-playback" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000001556"></td><td class="human-cell"><input type="checkbox" aria-label="Human Evaluator: Did you completely watch this sample&#x27;s Input and Target in the required playback mode?" data-human-check data-review-role="human-evaluator" data-check-id="complete-playback" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000001556"></td></tr><tr><td>Does the exact Prompt describe the intended task and the visible Input-to-Target relationship?</td><td class="human-cell"><input type="checkbox" aria-label="Owner: Does the exact Prompt describe the intended task and the visible Input-to-Target relationship?" data-human-check data-review-role="owner" data-check-id="prompt-task-semantics" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000001556"></td><td class="human-cell"><input type="checkbox" aria-label="Human Evaluator: Does the exact Prompt describe the intended task and the visible Input-to-Target relationship?" data-human-check data-review-role="human-evaluator" data-check-id="prompt-task-semantics" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000001556"></td></tr><tr><td>Are the metadata, automated result, and sample-specific viewing cues consistent with the media?</td><td class="human-cell"><input type="checkbox" aria-label="Owner: Are the metadata, automated result, and sample-specific viewing cues consistent with the media?" data-human-check data-review-role="owner" data-check-id="metadata-automated-result" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000001556"></td><td class="human-cell"><input type="checkbox" aria-label="Human Evaluator: Are the metadata, automated result, and sample-specific viewing cues consistent with the media?" data-human-check data-review-role="human-evaluator" data-check-id="metadata-automated-result" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000001556"></td></tr></tbody>
+    </table>
+  </section>
+</article>
+<article class="sample" data-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000002270">
+  <header class="sample-head">
+    <div><span class="eyebrow">SAMPLE 06</span>
+      <h2>Task_355_reference_guided_isolated_sign_word_caption_overlay_000002270</h2>
+      <div class="chips"><span class="chip">longest-caption</span><span class="chip">label:refrigerator</span><span class="chip">caption-chars:12</span><span class="chip">participant-count:17</span><span class="chip">official-game-train</span></div>
+    </div>
+    <span class="completion" data-completion>not fully played</span>
+  </header>
+  <p><b>Source:</b> Georgia Tech PopSign ASL v1.0 ·
+    <code>refrigerator/gtsignstudy4a.8049-refrigerator-2023_01_26_07_07_46.989-0.mp4</code><br>
+    <b>Selection:</b> Longest single-word frozen caption</p>
+  <div class="playbar">
+    <button type="button" data-start>Start complete review</button>
+    <button type="button" data-replay>Replay pair</button>
+    <span data-play-status>Input and Target not completed.</span>
+  </div>
+  <div class="pair">
+    <figure data-media-shell><figcaption><b>INPUT</b> · 134 frames ·
+      1944×2592 · 120.0 fps</figcaption>
+      <video controls playsinline preload="metadata"
+        data-role="input" data-fps="120.0"
+        data-src="https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002270__input_video.mp4"></video>
+      <div class="media-controls" data-media-controls>
+        <button type="button" data-media-toggle aria-label="Play Input video">Play</button>
+        <input type="range" min="0" max="1000" value="0" step="1"
+          data-media-seek aria-label="Input video playback position">
+        <span class="media-time" data-media-time>0:00 / --:--</span>
+        <button type="button" data-media-mute aria-label="Mute Input video">Mute</button>
+        <button type="button" data-media-expand aria-label="Enlarge Input video">Enlarge</button>
+      </div>
+    </figure>
+    <figure data-media-shell><figcaption><b>TARGET</b> · 134 frames ·
+      1944×2592 · 120.0 fps</figcaption>
+      <video controls playsinline preload="metadata"
+        data-role="target" data-fps="120.0"
+        data-src="https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002270__target_video.mp4"></video>
+      <div class="media-controls" data-media-controls>
+        <button type="button" data-media-toggle aria-label="Play Target video">Play</button>
+        <input type="range" min="0" max="1000" value="0" step="1"
+          data-media-seek aria-label="Target video playback position">
+        <span class="media-time" data-media-time>0:00 / --:--</span>
+        <button type="button" data-media-mute aria-label="Mute Target video">Mute</button>
+        <button type="button" data-media-expand aria-label="Enlarge Target video">Enlarge</button>
+      </div>
+    </figure>
+  </div>
+  <section class="prompt"><span>EXACT PROMPT</span>Preserve the complete Input video, including its timing, framing, and scene. Overlay the exact English caption &#x27;REFRIGERATOR&#x27; as a readable bottom caption throughout the video. Do not add, remove, or alter anything outside that caption overlay.</section>
+  <section class="cues"><b>Watch for</b><ol><li>Read the exact official English word in the Prompt and match it to the Target caption.</li><li>Confirm Input and Target remain synchronized for the entire isolated sign.</li><li>Inspect the area above the bottom caption for any unintended scene change.</li></ol></section>
+  <details><summary>Complete exact metadata.json</summary><pre>{
+  &quot;schema_version&quot;: &quot;1.2&quot;,
+  &quot;sample_id&quot;: &quot;Task_355_reference_guided_isolated_sign_word_caption_overlay_000002270&quot;,
+  &quot;task&quot;: {
+    &quot;id&quot;: &quot;Task_355&quot;,
+    &quot;name&quot;: &quot;reference_guided_isolated_sign_word_caption_overlay&quot;,
+    &quot;modality&quot;: &quot;v2v&quot;
+  },
+  &quot;source&quot;: {
+    &quot;dataset&quot;: &quot;Georgia Tech PopSign ASL v1.0&quot;,
+    &quot;split&quot;: &quot;game/train&quot;,
+    &quot;sample_id&quot;: &quot;refrigerator/gtsignstudy4a.8049-refrigerator-2023_01_26_07_07_46.989-0.mp4&quot;,
+    &quot;uri&quot;: &quot;s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#refrigerator/gtsignstudy4a.8049-refrigerator-2023_01_26_07_07_46.989-0.mp4&quot;
+  },
+  &quot;media&quot;: {
+    &quot;input&quot;: {
+      &quot;file&quot;: &quot;input_video.mp4&quot;,
+      &quot;width&quot;: 1944,
+      &quot;height&quot;: 2592,
+      &quot;fps&quot;: 120.0,
+      &quot;num_frames&quot;: 134
+    },
+    &quot;target&quot;: {
+      &quot;file&quot;: &quot;target_video.mp4&quot;,
+      &quot;width&quot;: 1944,
+      &quot;height&quot;: 2592,
+      &quot;fps&quot;: 120.0,
+      &quot;num_frames&quot;: 134
+    }
+  },
+  &quot;pipeline&quot;: {
+    &quot;name&quot;: &quot;task355-popsign-word-caption-overlay&quot;,
+    &quot;version&quot;: &quot;0.2.0&quot;,
+    &quot;commit&quot;: &quot;80b57c6c0b5f707126ba9731850d4655ec7595b8&quot;
+  },
+  &quot;optional&quot;: {
+    &quot;source_inventory_sha256&quot;: &quot;5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5&quot;,
+    &quot;source_catalog_sha256&quot;: &quot;5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b&quot;,
+    &quot;source_page_sha256&quot;: &quot;d2ff2c71d9961f68a9ea513a08b8bef9aa0b707dea3aedb6bd0bcaa3f40eced9&quot;,
+    &quot;source_tar_etag&quot;: &quot;3816426826&quot;,
+    &quot;source_tar_content_length&quot;: 1647063040,
+    &quot;source_original_member&quot;: &quot;gtsignstudy4a.8049-refrigerator-2023_01_26_07_07_46.989-0.mp4&quot;,
+    &quot;source_preview_name&quot;: &quot;60-refrigerator.mp4&quot;,
+    &quot;anonymous_participant_id&quot;: &quot;gtsignstudy4a.8049&quot;,
+    &quot;official_sign_slug&quot;: &quot;refrigerator&quot;,
+    &quot;display_label&quot;: &quot;REFRIGERATOR&quot;,
+    &quot;caption_card_height&quot;: 518,
+    &quot;input_video_sha256&quot;: &quot;b2b8e3953227b3e234353c03e2083d228952b2c5ea64600398ee780d648eeff6&quot;,
+    &quot;decoded_frame_count&quot;: 134,
+    &quot;outside_overlay_max_channel_delta&quot;: 3,
+    &quot;changed_overlay_pixels&quot;: 134936855
+  },
+  &quot;identity&quot;: {
+    &quot;sample_fingerprint&quot;: &quot;48b80c3b50fcf10716e9fcb14c8ee19f10d930cc8735ae59b0ecd42069c7587e&quot;
+  }
+}
+</pre></details>
+  <details><summary>Per-sample automated checks</summary>
+    <table><thead><tr><th>Check</th><th>Status</th><th>Summary</th></tr></thead>
+    <tbody><tr><td><code>complete-frame-audit</code></td><td><span class="status pass">PASS</span></td><td>Every declared Input/Target frame decoded and was compared.</td></tr><tr><td><code>outside-caption-preservation</code></td><td><span class="status pass">PASS</span></td><td>Pixels above the frozen caption area remain within the lossless color-conversion tolerance.</td></tr><tr><td><code>caption-overlay-present</code></td><td><span class="status pass">PASS</span></td><td>The bottom overlay changes visible pixels throughout the complete Target.</td></tr></tbody></table>
+  </details>
+  <section class="human-checklist" aria-label="Human review checklist">
+    <h3>Required human checks</h3>
+    <p>Exactly three checks are required for this sample. The active human may
+      check only their own column.</p>
+    <div class="sample-check-actions">
+      <button type="button" data-complete-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000002270">
+        ✓ Check all for this sample
+      </button>
+      <span data-sample-check-state>0 / 3 checks complete</span>
+    </div>
+    <table>
+      <thead><tr><th>Question</th><th>Owner</th><th>Human Evaluator</th></tr></thead>
+      <tbody><tr><td>Did you completely watch this sample&#x27;s Input and Target in the required playback mode?</td><td class="human-cell"><input type="checkbox" aria-label="Owner: Did you completely watch this sample&#x27;s Input and Target in the required playback mode?" data-human-check data-review-role="owner" data-check-id="complete-playback" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000002270"></td><td class="human-cell"><input type="checkbox" aria-label="Human Evaluator: Did you completely watch this sample&#x27;s Input and Target in the required playback mode?" data-human-check data-review-role="human-evaluator" data-check-id="complete-playback" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000002270"></td></tr><tr><td>Does the exact Prompt describe the intended task and the visible Input-to-Target relationship?</td><td class="human-cell"><input type="checkbox" aria-label="Owner: Does the exact Prompt describe the intended task and the visible Input-to-Target relationship?" data-human-check data-review-role="owner" data-check-id="prompt-task-semantics" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000002270"></td><td class="human-cell"><input type="checkbox" aria-label="Human Evaluator: Does the exact Prompt describe the intended task and the visible Input-to-Target relationship?" data-human-check data-review-role="human-evaluator" data-check-id="prompt-task-semantics" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000002270"></td></tr><tr><td>Are the metadata, automated result, and sample-specific viewing cues consistent with the media?</td><td class="human-cell"><input type="checkbox" aria-label="Owner: Are the metadata, automated result, and sample-specific viewing cues consistent with the media?" data-human-check data-review-role="owner" data-check-id="metadata-automated-result" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000002270"></td><td class="human-cell"><input type="checkbox" aria-label="Human Evaluator: Are the metadata, automated result, and sample-specific viewing cues consistent with the media?" data-human-check data-review-role="human-evaluator" data-check-id="metadata-automated-result" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000002270"></td></tr></tbody>
+    </table>
+  </section>
+</article>
+<article class="sample" data-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000002760">
+  <header class="sample-head">
+    <div><span class="eyebrow">SAMPLE 07</span>
+      <h2>Task_355_reference_guided_isolated_sign_word_caption_overlay_000002760</h2>
+      <div class="chips"><span class="chip">shortest-caption</span><span class="chip">label:up</span><span class="chip">caption-chars:2</span><span class="chip">participant-count:31</span><span class="chip">official-game-train</span></div>
+    </div>
+    <span class="completion" data-completion>not fully played</span>
+  </header>
+  <p><b>Source:</b> Georgia Tech PopSign ASL v1.0 ·
+    <code>up/4a.6001-up-2022_12_14_14_41_44.611-0.mp4</code><br>
+    <b>Selection:</b> Shortest frozen caption</p>
+  <div class="playbar">
+    <button type="button" data-start>Start complete review</button>
+    <button type="button" data-replay>Replay pair</button>
+    <span data-play-status>Input and Target not completed.</span>
+  </div>
+  <div class="pair">
+    <figure data-media-shell><figcaption><b>INPUT</b> · 62 frames ·
+      1944×2592 · 30.0 fps</figcaption>
+      <video controls playsinline preload="metadata"
+        data-role="input" data-fps="30.0"
+        data-src="https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002760__input_video.mp4"></video>
+      <div class="media-controls" data-media-controls>
+        <button type="button" data-media-toggle aria-label="Play Input video">Play</button>
+        <input type="range" min="0" max="1000" value="0" step="1"
+          data-media-seek aria-label="Input video playback position">
+        <span class="media-time" data-media-time>0:00 / --:--</span>
+        <button type="button" data-media-mute aria-label="Mute Input video">Mute</button>
+        <button type="button" data-media-expand aria-label="Enlarge Input video">Enlarge</button>
+      </div>
+    </figure>
+    <figure data-media-shell><figcaption><b>TARGET</b> · 62 frames ·
+      1944×2592 · 30.0 fps</figcaption>
+      <video controls playsinline preload="metadata"
+        data-role="target" data-fps="30.0"
+        data-src="https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002760__target_video.mp4"></video>
+      <div class="media-controls" data-media-controls>
+        <button type="button" data-media-toggle aria-label="Play Target video">Play</button>
+        <input type="range" min="0" max="1000" value="0" step="1"
+          data-media-seek aria-label="Target video playback position">
+        <span class="media-time" data-media-time>0:00 / --:--</span>
+        <button type="button" data-media-mute aria-label="Mute Target video">Mute</button>
+        <button type="button" data-media-expand aria-label="Enlarge Target video">Enlarge</button>
+      </div>
+    </figure>
+  </div>
+  <section class="prompt"><span>EXACT PROMPT</span>Preserve the complete Input video, including its timing, framing, and scene. Overlay the exact English caption &#x27;UP&#x27; as a readable bottom caption throughout the video. Do not add, remove, or alter anything outside that caption overlay.</section>
+  <section class="cues"><b>Watch for</b><ol><li>Read the exact official English word in the Prompt and match it to the Target caption.</li><li>Confirm Input and Target remain synchronized for the entire isolated sign.</li><li>Inspect the area above the bottom caption for any unintended scene change.</li></ol></section>
+  <details><summary>Complete exact metadata.json</summary><pre>{
+  &quot;schema_version&quot;: &quot;1.2&quot;,
+  &quot;sample_id&quot;: &quot;Task_355_reference_guided_isolated_sign_word_caption_overlay_000002760&quot;,
+  &quot;task&quot;: {
+    &quot;id&quot;: &quot;Task_355&quot;,
+    &quot;name&quot;: &quot;reference_guided_isolated_sign_word_caption_overlay&quot;,
+    &quot;modality&quot;: &quot;v2v&quot;
+  },
+  &quot;source&quot;: {
+    &quot;dataset&quot;: &quot;Georgia Tech PopSign ASL v1.0&quot;,
+    &quot;split&quot;: &quot;game/train&quot;,
+    &quot;sample_id&quot;: &quot;up/4a.6001-up-2022_12_14_14_41_44.611-0.mp4&quot;,
+    &quot;uri&quot;: &quot;s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#up/4a.6001-up-2022_12_14_14_41_44.611-0.mp4&quot;
+  },
+  &quot;media&quot;: {
+    &quot;input&quot;: {
+      &quot;file&quot;: &quot;input_video.mp4&quot;,
+      &quot;width&quot;: 1944,
+      &quot;height&quot;: 2592,
+      &quot;fps&quot;: 30.0,
+      &quot;num_frames&quot;: 62
+    },
+    &quot;target&quot;: {
+      &quot;file&quot;: &quot;target_video.mp4&quot;,
+      &quot;width&quot;: 1944,
+      &quot;height&quot;: 2592,
+      &quot;fps&quot;: 30.0,
+      &quot;num_frames&quot;: 62
+    }
+  },
+  &quot;pipeline&quot;: {
+    &quot;name&quot;: &quot;task355-popsign-word-caption-overlay&quot;,
+    &quot;version&quot;: &quot;0.2.0&quot;,
+    &quot;commit&quot;: &quot;80b57c6c0b5f707126ba9731850d4655ec7595b8&quot;
+  },
+  &quot;optional&quot;: {
+    &quot;source_inventory_sha256&quot;: &quot;5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5&quot;,
+    &quot;source_catalog_sha256&quot;: &quot;5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b&quot;,
+    &quot;source_page_sha256&quot;: &quot;52c08142b21acd73b49a78ab569cfaec0e24dce0216ebf380aaf3d4c4fab0ac8&quot;,
+    &quot;source_tar_etag&quot;: &quot;427957042&quot;,
+    &quot;source_tar_content_length&quot;: 3130071040,
+    &quot;source_original_member&quot;: &quot;4a.6001-up-2022_12_14_14_41_44.611-0.mp4&quot;,
+    &quot;source_preview_name&quot;: &quot;275-up.mp4&quot;,
+    &quot;anonymous_participant_id&quot;: &quot;4a.6001&quot;,
+    &quot;official_sign_slug&quot;: &quot;up&quot;,
+    &quot;display_label&quot;: &quot;UP&quot;,
+    &quot;caption_card_height&quot;: 518,
+    &quot;input_video_sha256&quot;: &quot;f5735177ab18d8ba0ea48bff359778e63098f76e1ef937d710f27de7f81255cd&quot;,
+    &quot;decoded_frame_count&quot;: 62,
+    &quot;outside_overlay_max_channel_delta&quot;: 3,
+    &quot;changed_overlay_pixels&quot;: 62433504
+  },
+  &quot;identity&quot;: {
+    &quot;sample_fingerprint&quot;: &quot;b218cda5470ad14430657b7600751bdfc4e3561205fffba58350afa15430cbe8&quot;
+  }
+}
+</pre></details>
+  <details><summary>Per-sample automated checks</summary>
+    <table><thead><tr><th>Check</th><th>Status</th><th>Summary</th></tr></thead>
+    <tbody><tr><td><code>complete-frame-audit</code></td><td><span class="status pass">PASS</span></td><td>Every declared Input/Target frame decoded and was compared.</td></tr><tr><td><code>outside-caption-preservation</code></td><td><span class="status pass">PASS</span></td><td>Pixels above the frozen caption area remain within the lossless color-conversion tolerance.</td></tr><tr><td><code>caption-overlay-present</code></td><td><span class="status pass">PASS</span></td><td>The bottom overlay changes visible pixels throughout the complete Target.</td></tr></tbody></table>
+  </details>
+  <section class="human-checklist" aria-label="Human review checklist">
+    <h3>Required human checks</h3>
+    <p>Exactly three checks are required for this sample. The active human may
+      check only their own column.</p>
+    <div class="sample-check-actions">
+      <button type="button" data-complete-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000002760">
+        ✓ Check all for this sample
+      </button>
+      <span data-sample-check-state>0 / 3 checks complete</span>
+    </div>
+    <table>
+      <thead><tr><th>Question</th><th>Owner</th><th>Human Evaluator</th></tr></thead>
+      <tbody><tr><td>Did you completely watch this sample&#x27;s Input and Target in the required playback mode?</td><td class="human-cell"><input type="checkbox" aria-label="Owner: Did you completely watch this sample&#x27;s Input and Target in the required playback mode?" data-human-check data-review-role="owner" data-check-id="complete-playback" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000002760"></td><td class="human-cell"><input type="checkbox" aria-label="Human Evaluator: Did you completely watch this sample&#x27;s Input and Target in the required playback mode?" data-human-check data-review-role="human-evaluator" data-check-id="complete-playback" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000002760"></td></tr><tr><td>Does the exact Prompt describe the intended task and the visible Input-to-Target relationship?</td><td class="human-cell"><input type="checkbox" aria-label="Owner: Does the exact Prompt describe the intended task and the visible Input-to-Target relationship?" data-human-check data-review-role="owner" data-check-id="prompt-task-semantics" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000002760"></td><td class="human-cell"><input type="checkbox" aria-label="Human Evaluator: Does the exact Prompt describe the intended task and the visible Input-to-Target relationship?" data-human-check data-review-role="human-evaluator" data-check-id="prompt-task-semantics" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000002760"></td></tr><tr><td>Are the metadata, automated result, and sample-specific viewing cues consistent with the media?</td><td class="human-cell"><input type="checkbox" aria-label="Owner: Are the metadata, automated result, and sample-specific viewing cues consistent with the media?" data-human-check data-review-role="owner" data-check-id="metadata-automated-result" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000002760"></td><td class="human-cell"><input type="checkbox" aria-label="Human Evaluator: Are the metadata, automated result, and sample-specific viewing cues consistent with the media?" data-human-check data-review-role="human-evaluator" data-check-id="metadata-automated-result" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000002760"></td></tr></tbody>
+    </table>
+  </section>
+</article>
+<article class="sample" data-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000002913">
+  <header class="sample-head">
+    <div><span class="eyebrow">SAMPLE 08</span>
+      <h2>Task_355_reference_guided_isolated_sign_word_caption_overlay_000002913</h2>
+      <div class="chips"><span class="chip">smallest-tar</span><span class="chip">label:why</span><span class="chip">caption-chars:3</span><span class="chip">participant-count:23</span><span class="chip">official-game-train</span></div>
+    </div>
+    <span class="completion" data-completion>not fully played</span>
+  </header>
+  <p><b>Source:</b> Georgia Tech PopSign ASL v1.0 ·
+    <code>why/4a.8030-why-2023_01_26_19_41_22.980-0.mp4</code><br>
+    <b>Selection:</b> Smallest immutable source tar</p>
+  <div class="playbar">
+    <button type="button" data-start>Start complete review</button>
+    <button type="button" data-replay>Replay pair</button>
+    <span data-play-status>Input and Target not completed.</span>
+  </div>
+  <div class="pair">
+    <figure data-media-shell><figcaption><b>INPUT</b> · 78 frames ·
+      1944×2592 · 29.916666666666668 fps</figcaption>
+      <video controls playsinline preload="metadata"
+        data-role="input" data-fps="29.916666666666668"
+        data-src="https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002913__input_video.mp4"></video>
+      <div class="media-controls" data-media-controls>
+        <button type="button" data-media-toggle aria-label="Play Input video">Play</button>
+        <input type="range" min="0" max="1000" value="0" step="1"
+          data-media-seek aria-label="Input video playback position">
+        <span class="media-time" data-media-time>0:00 / --:--</span>
+        <button type="button" data-media-mute aria-label="Mute Input video">Mute</button>
+        <button type="button" data-media-expand aria-label="Enlarge Input video">Enlarge</button>
+      </div>
+    </figure>
+    <figure data-media-shell><figcaption><b>TARGET</b> · 78 frames ·
+      1944×2592 · 29.916666666666668 fps</figcaption>
+      <video controls playsinline preload="metadata"
+        data-role="target" data-fps="29.916666666666668"
+        data-src="https://github.com/Asysama/tv2v-task355-review/releases/download/gate-b-07a80b13/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002913__target_video.mp4"></video>
+      <div class="media-controls" data-media-controls>
+        <button type="button" data-media-toggle aria-label="Play Target video">Play</button>
+        <input type="range" min="0" max="1000" value="0" step="1"
+          data-media-seek aria-label="Target video playback position">
+        <span class="media-time" data-media-time>0:00 / --:--</span>
+        <button type="button" data-media-mute aria-label="Mute Target video">Mute</button>
+        <button type="button" data-media-expand aria-label="Enlarge Target video">Enlarge</button>
+      </div>
+    </figure>
+  </div>
+  <section class="prompt"><span>EXACT PROMPT</span>Preserve the complete Input video, including its timing, framing, and scene. Overlay the exact English caption &#x27;WHY&#x27; as a readable bottom caption throughout the video. Do not add, remove, or alter anything outside that caption overlay.</section>
+  <section class="cues"><b>Watch for</b><ol><li>Read the exact official English word in the Prompt and match it to the Target caption.</li><li>Confirm Input and Target remain synchronized for the entire isolated sign.</li><li>Inspect the area above the bottom caption for any unintended scene change.</li></ol></section>
+  <details><summary>Complete exact metadata.json</summary><pre>{
+  &quot;schema_version&quot;: &quot;1.2&quot;,
+  &quot;sample_id&quot;: &quot;Task_355_reference_guided_isolated_sign_word_caption_overlay_000002913&quot;,
+  &quot;task&quot;: {
+    &quot;id&quot;: &quot;Task_355&quot;,
+    &quot;name&quot;: &quot;reference_guided_isolated_sign_word_caption_overlay&quot;,
+    &quot;modality&quot;: &quot;v2v&quot;
+  },
+  &quot;source&quot;: {
+    &quot;dataset&quot;: &quot;Georgia Tech PopSign ASL v1.0&quot;,
+    &quot;split&quot;: &quot;game/train&quot;,
+    &quot;sample_id&quot;: &quot;why/4a.8030-why-2023_01_26_19_41_22.980-0.mp4&quot;,
+    &quot;uri&quot;: &quot;s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#why/4a.8030-why-2023_01_26_19_41_22.980-0.mp4&quot;
+  },
+  &quot;media&quot;: {
+    &quot;input&quot;: {
+      &quot;file&quot;: &quot;input_video.mp4&quot;,
+      &quot;width&quot;: 1944,
+      &quot;height&quot;: 2592,
+      &quot;fps&quot;: 29.916666666666668,
+      &quot;num_frames&quot;: 78
+    },
+    &quot;target&quot;: {
+      &quot;file&quot;: &quot;target_video.mp4&quot;,
+      &quot;width&quot;: 1944,
+      &quot;height&quot;: 2592,
+      &quot;fps&quot;: 29.916666666666668,
+      &quot;num_frames&quot;: 78
+    }
+  },
+  &quot;pipeline&quot;: {
+    &quot;name&quot;: &quot;task355-popsign-word-caption-overlay&quot;,
+    &quot;version&quot;: &quot;0.2.0&quot;,
+    &quot;commit&quot;: &quot;80b57c6c0b5f707126ba9731850d4655ec7595b8&quot;
+  },
+  &quot;optional&quot;: {
+    &quot;source_inventory_sha256&quot;: &quot;5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5&quot;,
+    &quot;source_catalog_sha256&quot;: &quot;5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b&quot;,
+    &quot;source_page_sha256&quot;: &quot;246d18dfb214ce55532f3023478b38da6e272413f21c35c6f8182fad2fa0f4ad&quot;,
+    &quot;source_tar_etag&quot;: &quot;2710139124&quot;,
+    &quot;source_tar_content_length&quot;: 1264875520,
+    &quot;source_original_member&quot;: &quot;4a.8030-why-2023_01_26_19_41_22.980-0.mp4&quot;,
+    &quot;source_preview_name&quot;: &quot;184-why.mp4&quot;,
+    &quot;anonymous_participant_id&quot;: &quot;4a.8030&quot;,
+    &quot;official_sign_slug&quot;: &quot;why&quot;,
+    &quot;display_label&quot;: &quot;WHY&quot;,
+    &quot;caption_card_height&quot;: 518,
+    &quot;input_video_sha256&quot;: &quot;775b22c95b27e81efde818c9cc8485e55bbdc058c1f29f5bf0a705a9fe63a555&quot;,
+    &quot;decoded_frame_count&quot;: 78,
+    &quot;outside_overlay_max_channel_delta&quot;: 3,
+    &quot;changed_overlay_pixels&quot;: 78545376
+  },
+  &quot;identity&quot;: {
+    &quot;sample_fingerprint&quot;: &quot;4d745f513ae291510433c038aefb0a3b359354879d05c56e72896a282d0ad343&quot;
+  }
+}
+</pre></details>
+  <details><summary>Per-sample automated checks</summary>
+    <table><thead><tr><th>Check</th><th>Status</th><th>Summary</th></tr></thead>
+    <tbody><tr><td><code>complete-frame-audit</code></td><td><span class="status pass">PASS</span></td><td>Every declared Input/Target frame decoded and was compared.</td></tr><tr><td><code>outside-caption-preservation</code></td><td><span class="status pass">PASS</span></td><td>Pixels above the frozen caption area remain within the lossless color-conversion tolerance.</td></tr><tr><td><code>caption-overlay-present</code></td><td><span class="status pass">PASS</span></td><td>The bottom overlay changes visible pixels throughout the complete Target.</td></tr></tbody></table>
+  </details>
+  <section class="human-checklist" aria-label="Human review checklist">
+    <h3>Required human checks</h3>
+    <p>Exactly three checks are required for this sample. The active human may
+      check only their own column.</p>
+    <div class="sample-check-actions">
+      <button type="button" data-complete-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000002913">
+        ✓ Check all for this sample
+      </button>
+      <span data-sample-check-state>0 / 3 checks complete</span>
+    </div>
+    <table>
+      <thead><tr><th>Question</th><th>Owner</th><th>Human Evaluator</th></tr></thead>
+      <tbody><tr><td>Did you completely watch this sample&#x27;s Input and Target in the required playback mode?</td><td class="human-cell"><input type="checkbox" aria-label="Owner: Did you completely watch this sample&#x27;s Input and Target in the required playback mode?" data-human-check data-review-role="owner" data-check-id="complete-playback" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000002913"></td><td class="human-cell"><input type="checkbox" aria-label="Human Evaluator: Did you completely watch this sample&#x27;s Input and Target in the required playback mode?" data-human-check data-review-role="human-evaluator" data-check-id="complete-playback" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000002913"></td></tr><tr><td>Does the exact Prompt describe the intended task and the visible Input-to-Target relationship?</td><td class="human-cell"><input type="checkbox" aria-label="Owner: Does the exact Prompt describe the intended task and the visible Input-to-Target relationship?" data-human-check data-review-role="owner" data-check-id="prompt-task-semantics" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000002913"></td><td class="human-cell"><input type="checkbox" aria-label="Human Evaluator: Does the exact Prompt describe the intended task and the visible Input-to-Target relationship?" data-human-check data-review-role="human-evaluator" data-check-id="prompt-task-semantics" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000002913"></td></tr><tr><td>Are the metadata, automated result, and sample-specific viewing cues consistent with the media?</td><td class="human-cell"><input type="checkbox" aria-label="Owner: Are the metadata, automated result, and sample-specific viewing cues consistent with the media?" data-human-check data-review-role="owner" data-check-id="metadata-automated-result" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000002913"></td><td class="human-cell"><input type="checkbox" aria-label="Human Evaluator: Are the metadata, automated result, and sample-specific viewing cues consistent with the media?" data-human-check data-review-role="human-evaluator" data-check-id="metadata-automated-result" data-check-sample="Task_355_reference_guided_isolated_sign_word_caption_overlay_000002913"></td></tr></tbody>
+    </table>
+  </section>
+</article>
+  <section class="decision" id="review-decision">
+    <div class="decision-head">
+      <h2>One decision</h2>
+      <button type="button" id="decision-toggle" aria-expanded="true"
+        aria-controls="decision-body" title="Collapse decision panel">Collapse</button>
+    </div>
+    <div class="decision-body" id="decision-body">
+      <p><b>Does every Target show the exact Prompt-bound English word clearly at the bottom while preserving the complete sign video, timing, framing, and all content above the caption?</b></p>
+      <p><span id="complete-count">0</span> / 8 samples fully played;
+        <span id="check-count">0</span> / 24
+        required checks complete for the active role. PASS/FAIL remain disabled
+        until all three checks are complete for every sample.</p>
+      <div class="decision-controls">
+        <button type="button" id="pass" disabled>PASS</button>
+        <button type="button" id="fail" disabled>FAIL</button>
+        <button type="button" id="export" disabled>Export evidence-bound response</button>
+        <span id="decision-state">No decision selected.</span>
+      </div>
+    </div>
+  </section>
+  <button type="button" class="next-incomplete" id="next-incomplete"
+    aria-label="Go to nearest incomplete review item"
+    title="Go to nearest incomplete review item">⌖</button>
+  <span class="sr-only" id="review-nav-status" role="status" aria-live="polite"></span>
+</main>
+<script>
+(() => {
+  const schema = "tv2v-human-review-export/1";
+  const workflow = document.body.dataset.workflow;
+  const digest = document.body.dataset.evidence;
+  const mode = document.body.dataset.mode;
+  const storageKey = `tv2v-review-${digest}`;
+  const uiStorageKey = `tv2v-review-ui-${digest}`;
+  const cards = [...document.querySelectorAll("[data-sample]")];
+  const sampleIds = cards.map(card => card.dataset.sample);
+  const checkIds = ["complete-playback", "prompt-task-semantics", "metadata-automated-result"];
+  let saved = {};
+  let uiSaved = {};
+  try {
+    saved = JSON.parse(localStorage.getItem(storageKey) || "{}");
+  } catch (_error) {
+    saved = {};
+  }
+  try {
+    uiSaved = JSON.parse(localStorage.getItem(uiStorageKey) || "{}");
+  } catch (_error) {
+    uiSaved = {};
+  }
+  saved.roles ||= {};
+  saved.official ||= {};
+  let activeRole = location.hash.includes("role=human-evaluator")
+    ? "human-evaluator"
+    : (saved.activeRole || "owner");
+  const roleState = role => {
+    saved.roles[role] ||= {completed: {}, checks: {}, decision: ""};
+    return saved.roles[role];
+  };
+  const ensureLoaded = video => {
+    if (!video.src) {
+      video.src = video.dataset.src;
+      video.load();
+    }
+  };
+  const persist = () => {
+    saved.activeRole = activeRole;
+    try {
+      localStorage.setItem(storageKey, JSON.stringify(saved));
+    } catch (_error) {
+      document.getElementById("role-state").textContent =
+        "Browser storage unavailable; export before leaving.";
+    }
+  };
+  const persistUI = () => {
+    try {
+      localStorage.setItem(uiStorageKey, JSON.stringify(uiSaved));
+    } catch (_error) {
+      // UI preferences are optional and never part of review evidence.
+    }
+  };
+  const decisionPanel = document.getElementById("review-decision");
+  const decisionToggle = document.getElementById("decision-toggle");
+  const setDecisionCollapsed = collapsed => {
+    uiSaved.decisionCollapsed = Boolean(collapsed);
+    decisionPanel.classList.toggle("is-collapsed", uiSaved.decisionCollapsed);
+    decisionToggle.setAttribute("aria-expanded", String(!uiSaved.decisionCollapsed));
+    decisionToggle.setAttribute(
+      "title",
+      uiSaved.decisionCollapsed ? "Open decision panel" : "Collapse decision panel"
+    );
+    decisionToggle.setAttribute(
+      "aria-label",
+      uiSaved.decisionCollapsed ? "Open decision panel" : "Collapse decision panel"
+    );
+    decisionToggle.textContent = uiSaved.decisionCollapsed ? "✎" : "Collapse";
+    persistUI();
+  };
+  const roleLabel = role => role === "owner" ? "Owner" : "Human Evaluator";
+  const roleAdmitted = role => role === "owner"
+    || saved.official.owner?.result === "PASS";
+  const isOfficial = role => Boolean(saved.official[role]);
+  const completeFor = (role, sampleId) => Boolean(
+    roleState(role).completed?.[sampleId]?.pair
+  );
+  const checklistFor = role => sampleIds.map(sampleId => ({
+    sample_id: sampleId,
+    checks: Object.fromEntries(checkIds.map(checkId => [
+      checkId,
+      Boolean(roleState(role).checks?.[sampleId]?.[checkId])
+    ]))
+  }));
+  const allChecksFor = role => checklistFor(role).every(item =>
+    checkIds.every(checkId => item.checks[checkId] === true)
+  );
+  const decisionResponse = decision => decision
+    ? `Decision selected in the Gate review page: ${decision}.`
+    : "";
+  const buildExport = () => {
+    const state = roleState(activeRole);
+    if (!roleAdmitted(activeRole)) throw new Error("Owner official PASS is not imported.");
+    if (!sampleIds.every(sampleId => completeFor(activeRole, sampleId))) {
+      throw new Error("Complete Input and Target playback is required for every sample.");
+    }
+    if (!allChecksFor(activeRole)) {
+      throw new Error("All three checks are required for every sample.");
+    }
+    if (!["PASS", "FAIL"].includes(state.decision)) {
+      throw new Error("Select PASS or FAIL.");
+    }
+    return {
+      schema_version: schema,
+      workflow,
+      role: activeRole,
+      evidence_digest: digest,
+      reviewed_sample_ids: sampleIds,
+      checklist: checklistFor(activeRole),
+      checklist_digest: null,
+      decision: state.decision,
+      response: decisionResponse(state.decision),
+      exported_at_utc: new Date().toISOString(),
+      review_export_digest: null
+    };
+  };
+  const importAttestation = value => {
+    if (!value || value.schema_version !== "tv2v-human-attestation/1") {
+      throw new Error("Not a Workflow 3.5 human attestation.");
+    }
+    if (value.workflow !== workflow || value.evidence_digest !== digest) {
+      throw new Error("Attestation does not bind this workflow/evidence.");
+    }
+    if (!["owner", "human-evaluator"].includes(value.role)) {
+      throw new Error("Attestation role is invalid.");
+    }
+    if (!["PASS", "FAIL"].includes(value.result)) {
+      throw new Error("Attestation result is invalid.");
+    }
+    if (JSON.stringify(value.reviewed_sample_ids) !== JSON.stringify(sampleIds)) {
+      throw new Error("Attestation sample order differs.");
+    }
+    if (!Array.isArray(value.checklist) || value.checklist.length !== sampleIds.length) {
+      throw new Error("Attestation checklist is incomplete.");
+    }
+    value.checklist.forEach((item, index) => {
+      if (item.sample_id !== sampleIds[index]
+          || !checkIds.every(checkId => item.checks?.[checkId] === true)) {
+        throw new Error("Attestation checklist content differs.");
+      }
+    });
+    saved.official[value.role] = value;
+    const state = roleState(value.role);
+    value.checklist.forEach(item => {
+      state.checks[item.sample_id] = Object.fromEntries(
+        checkIds.map(checkId => [checkId, true])
+      );
+      state.completed[item.sample_id] = {pair: true, mode: "official-attestation"};
+    });
+    state.decision = value.result;
+    persist();
+    update();
+    return getState();
+  };
+  const setRole = role => {
+    if (!["owner", "human-evaluator"].includes(role)) {
+      throw new Error("Unknown review role.");
+    }
+    cards.forEach(card => {
+      const session = playbackSessions.get(card);
+      if (session) session.active = false;
+      playbackSessions.delete(card);
+      card.querySelectorAll("video").forEach(video => video.pause());
+    });
+    activeRole = role;
+    update();
+    return getState();
+  };
+  const getState = () => {
+    const state = roleState(activeRole);
+    const played = sampleIds.filter(sampleId => completeFor(activeRole, sampleId)).length;
+    const checked = checklistFor(activeRole).reduce(
+      (total, item) => total + checkIds.filter(checkId => item.checks[checkId]).length,
+      0
+    );
+    return JSON.parse(JSON.stringify({
+      schema_version: "tv2v-human-review-page-state/1",
+      workflow,
+      evidence_digest: digest,
+      active_role: activeRole,
+      admitted: roleAdmitted(activeRole),
+      official_owner_pass: saved.official.owner?.result === "PASS",
+      official_evaluator_pass: saved.official["human-evaluator"]?.result === "PASS",
+      sample_count: sampleIds.length,
+      played_sample_count: played,
+      required_check_count: sampleIds.length * checkIds.length,
+      completed_check_count: checked,
+      decision: state.decision,
+      response: decisionResponse(state.decision),
+      export_ready: played === sampleIds.length
+        && checked === sampleIds.length * checkIds.length
+        && ["PASS", "FAIL"].includes(state.decision),
+      checklist: checklistFor(activeRole)
+    }));
+  };
+  const distanceFromViewport = element => {
+    const rect = element.getBoundingClientRect();
+    if (rect.bottom < 0) return -rect.bottom;
+    if (rect.top > window.innerHeight) return rect.top - window.innerHeight;
+    return Math.abs((rect.top + rect.bottom) / 2 - window.innerHeight / 2) / 1000;
+  };
+  const nearestIncomplete = () => {
+    const status = document.getElementById("review-nav-status");
+    if (!roleAdmitted(activeRole)) {
+      status.textContent = `${roleLabel(activeRole)} review is currently locked.`;
+      return null;
+    }
+    const candidates = [];
+    cards.forEach((card, order) => {
+      const sampleId = card.dataset.sample;
+      if (!completeFor(activeRole, sampleId)) {
+        candidates.push({
+          element: card.querySelector(".playbar"),
+          label: `${sampleId} complete playback`,
+          order
+        });
+        return;
+      }
+      const box = checkIds.map(checkId => card.querySelector(
+        `[data-human-check][data-review-role="${activeRole}"]`+
+        `[data-check-id="${checkId}"]`
+      )).find(candidate => candidate && !candidate.checked);
+      if (box) {
+        candidates.push({
+          element: box.closest("tr"),
+          label: `${sampleId} · ${box.getAttribute("aria-label")}`,
+          order
+        });
+      }
+    });
+    if (!candidates.length) {
+      status.textContent = `All required ${roleLabel(activeRole)} review items are complete.`;
+      return null;
+    }
+    candidates.sort((left, right) =>
+      distanceFromViewport(left.element) - distanceFromViewport(right.element)
+      || left.order - right.order
+    );
+    const selected = candidates[0];
+    selected.element.scrollIntoView({
+      behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      block: "center"
+    });
+    selected.element.setAttribute("tabindex", "-1");
+    selected.element.focus({preventScroll: true});
+    selected.element.classList.remove("review-focus");
+    void selected.element.offsetWidth;
+    selected.element.classList.add("review-focus");
+    setTimeout(() => {
+      selected.element.classList.remove("review-focus");
+      selected.element.removeAttribute("tabindex");
+    }, 1400);
+    status.textContent = `Moved to nearest incomplete item: ${selected.label}.`;
+    return selected.element;
+  };
+  const update = () => {
+    const state = roleState(activeRole);
+    let playedCount = 0;
+    cards.forEach(card => {
+      const id = card.dataset.sample;
+      const complete = completeFor(activeRole, id);
+      const badge = card.querySelector("[data-completion]");
+      badge.textContent = complete
+        ? `${roleLabel(activeRole)} complete playback recorded`
+        : `${roleLabel(activeRole)} has not fully played this pair`;
+      badge.classList.toggle("done", Boolean(complete));
+      card.querySelector("[data-play-status]").textContent = complete
+        ? "Input and Target completed."
+        : "Input and Target not completed.";
+      if (complete) playedCount += 1;
+    });
+    let checkCount = 0;
+    document.querySelectorAll("[data-human-check]").forEach(box => {
+      const role = box.dataset.reviewRole;
+      const sampleId = box.dataset.checkSample;
+      const checkId = box.dataset.checkId;
+      const official = isOfficial(role);
+      const checked = official
+        ? true
+        : Boolean(roleState(role).checks?.[sampleId]?.[checkId]);
+      box.checked = checked;
+      const playbackLocked = checkId === "complete-playback"
+        && !completeFor(role, sampleId);
+      box.disabled = role !== activeRole
+        || official
+        || !roleAdmitted(role)
+        || playbackLocked;
+      if (role === activeRole && checked) checkCount += 1;
+    });
+    document.querySelectorAll("[data-complete-sample]").forEach(button => {
+      const sampleId = button.dataset.completeSample;
+      const completed = checkIds.filter(checkId =>
+        Boolean(roleState(activeRole).checks?.[sampleId]?.[checkId])
+        || isOfficial(activeRole)
+      ).length;
+      const allComplete = completed === checkIds.length;
+      button.disabled = !roleAdmitted(activeRole)
+        || isOfficial(activeRole)
+        || !completeFor(activeRole, sampleId)
+        || allComplete;
+      button.classList.toggle("done", allComplete);
+      button.textContent = allComplete
+        ? "✓ Sample checks complete"
+        : "✓ Check all for this sample";
+      const stateLabel = button.parentElement.querySelector("[data-sample-check-state]");
+      stateLabel.textContent = `${completed} / ${checkIds.length} checks complete`;
+    });
+    const admitted = roleAdmitted(activeRole);
+    const complete = playedCount === cards.length
+      && checkCount === cards.length * checkIds.length;
+    document.getElementById("complete-count").textContent = playedCount;
+    document.getElementById("check-count").textContent = checkCount;
+    document.getElementById("pass").disabled = !admitted || !complete || isOfficial(activeRole);
+    document.getElementById("fail").disabled = !admitted || !complete || isOfficial(activeRole);
+    document.getElementById("export").disabled = !admitted
+      || !complete
+      || !state.decision
+      || isOfficial(activeRole);
+    document.getElementById("decision-state").textContent =
+      isOfficial(activeRole)
+        ? `${roleLabel(activeRole)} official ${saved.official[activeRole].result} imported.`
+        : (state.decision ? `${state.decision} selected.` : "No decision selected.");
+    ["pass","fail"].forEach(id => document.getElementById(id).classList.toggle(
+      "selected", state.decision === id.toUpperCase()));
+    document.getElementById("role-owner").classList.toggle("active", activeRole === "owner");
+    document.getElementById("role-evaluator").classList.toggle(
+      "active", activeRole === "human-evaluator"
+    );
+    document.getElementById("role-state").textContent = !admitted
+      ? "Human Evaluator is locked until an official Owner PASS is imported."
+      : `${roleLabel(activeRole)} · ${isOfficial(activeRole) ? "official record" : "local draft"}`;
+    persist();
+  };
+  const playbackSessions = new WeakMap();
+  const pairEndTolerance = video => {
+    const fps = Number(video.dataset.fps);
+    const frameSeconds = Number.isFinite(fps) && fps > 0 ? 1 / fps : .06;
+    return Math.min(.125, Math.max(.06, frameSeconds));
+  };
+  const activePairSession = card => {
+    const session = playbackSessions.get(card);
+    if (!session || !session.active || session.role !== activeRole) return null;
+    return session;
+  };
+  const cancelPairSession = card => {
+    const session = playbackSessions.get(card);
+    if (session) session.active = false;
+    playbackSessions.delete(card);
+  };
+  const markPairCompleted = (card, session) => {
+    if (activePairSession(card) !== session) return;
+    const id = card.dataset.sample;
+    const state = roleState(session.role);
+    state.completed[id] = {pair: true, mode: session.mode};
+    session.active = false;
+    playbackSessions.delete(card);
+    update();
+  };
+  const atPlaybackEnd = video => video.ended || (
+    video.paused
+    && Number.isFinite(video.duration)
+    && video.duration > 0
+    && video.currentTime >= 0
+    && video.duration - video.currentTime >= 0
+    && video.duration - video.currentTime <= pairEndTolerance(video)
+  );
+  const formatMediaTime = seconds => {
+    if (!Number.isFinite(seconds) || seconds < 0) return "--:--";
+    const rounded = Math.floor(seconds);
+    const minutes = Math.floor(rounded / 60);
+    return `${minutes}:${String(rounded % 60).padStart(2, "0")}`;
+  };
+  const updateMediaControls = video => {
+    const shell = video.closest("[data-media-shell]");
+    const controls = shell.querySelector("[data-media-controls]");
+    const toggle = controls.querySelector("[data-media-toggle]");
+    const seek = controls.querySelector("[data-media-seek]");
+    const mute = controls.querySelector("[data-media-mute]");
+    const duration = Number.isFinite(video.duration) ? video.duration : 0;
+    seek.value = duration > 0 ? String(Math.round(video.currentTime / duration * 1000)) : "0";
+    seek.disabled = duration <= 0;
+    controls.querySelector("[data-media-time]").textContent =
+      `${formatMediaTime(video.currentTime)} / ${formatMediaTime(video.duration)}`;
+    toggle.textContent = video.paused ? "Play" : "Pause";
+    toggle.setAttribute("aria-label", `${video.paused ? "Play" : "Pause"} ${video.dataset.role} video`);
+    mute.textContent = video.muted ? "Unmute" : "Mute";
+    mute.setAttribute("aria-label", `${video.muted ? "Unmute" : "Mute"} ${video.dataset.role} video`);
+  };
+  let fallbackExpandedShell = null;
+  let lastExpandButton = null;
+  const updateExpandControls = () => {
+    document.querySelectorAll("[data-media-shell]").forEach(shell => {
+      const button = shell.querySelector("[data-media-expand]");
+      const expanded = document.fullscreenElement === shell
+        || shell.classList.contains("media-expanded");
+      button.textContent = expanded ? "Close" : "Enlarge";
+      button.setAttribute(
+        "aria-label",
+        `${expanded ? "Close enlarged" : "Enlarge"} ${shell.querySelector("video").dataset.role} video`
+      );
+      button.setAttribute("aria-pressed", String(expanded));
+    });
+  };
+  const closeFallbackExpanded = () => {
+    if (!fallbackExpandedShell) return;
+    fallbackExpandedShell.classList.remove("media-expanded");
+    fallbackExpandedShell = null;
+    document.body.style.overflow = "";
+    updateExpandControls();
+    lastExpandButton?.focus();
+    lastExpandButton = null;
+  };
+  const toggleExpanded = async (shell, button) => {
+    lastExpandButton = button;
+    if (document.fullscreenElement === shell) {
+      await document.exitFullscreen();
+      return;
+    }
+    if (shell.classList.contains("media-expanded")) {
+      closeFallbackExpanded();
+      return;
+    }
+    try {
+      if (!shell.requestFullscreen) throw new Error("Fullscreen API unavailable");
+      await shell.requestFullscreen();
+      updateExpandControls();
+    } catch (_error) {
+      closeFallbackExpanded();
+      fallbackExpandedShell = shell;
+      shell.classList.add("media-expanded");
+      document.body.style.overflow = "hidden";
+      updateExpandControls();
+    }
+  };
+  const bindMediaControls = (card, video) => {
+    const shell = video.closest("[data-media-shell]");
+    const controls = shell.querySelector("[data-media-controls]");
+    const input = card.querySelector('[data-role="input"]');
+    const target = card.querySelector('[data-role="target"]');
+    controls.querySelector("[data-media-toggle]").addEventListener("click", async () => {
+      const session = activePairSession(card);
+      if (mode === "continuation" && session) {
+        const expectedRole = session.phase === "input" ? "input" : "target";
+        if (video.dataset.role !== expectedRole) cancelPairSession(card);
+      }
+      const master = mode === "synchronized" ? input : video;
+      [input, target].forEach(ensureLoaded);
+      if (master.paused) {
+        if (mode === "synchronized") {
+          target.currentTime = Math.min(master.currentTime, target.duration || master.currentTime);
+          await Promise.all([master.play(), target.play()]);
+        } else {
+          await master.play();
+        }
+      } else if (mode === "synchronized") {
+        input.pause();
+        target.pause();
+      } else {
+        master.pause();
+      }
+    });
+    controls.querySelector("[data-media-seek]").addEventListener("input", event => {
+      cancelPairSession(card);
+      [input, target].forEach(ensureLoaded);
+      const master = mode === "synchronized" ? input : video;
+      if (!Number.isFinite(master.duration) || master.duration <= 0) return;
+      const nextTime = master.duration * Number(event.target.value) / 1000;
+      master.currentTime = nextTime;
+      if (mode === "synchronized" && Number.isFinite(target.duration)) {
+        target.currentTime = Math.min(nextTime, target.duration);
+      }
+    });
+    controls.querySelector("[data-media-mute]").addEventListener("click", () => {
+      video.muted = !video.muted;
+      updateMediaControls(video);
+    });
+    controls.querySelector("[data-media-expand]").addEventListener(
+      "click",
+      event => toggleExpanded(shell, event.currentTarget)
+    );
+    ["loadedmetadata", "durationchange", "timeupdate", "play", "pause", "ended", "volumechange"]
+      .forEach(name => video.addEventListener(name, () => updateMediaControls(video)));
+    video.controls = false;
+    updateMediaControls(video);
+  };
+  const startCard = async card => {
+    const input = card.querySelector('[data-role="input"]');
+    const target = card.querySelector('[data-role="target"]');
+    cancelPairSession(card);
+    [input,target].forEach(video => {
+      ensureLoaded(video);
+      video.pause();
+      video.currentTime = 0;
+    });
+    const session = {
+      active: true,
+      role: activeRole,
+      mode,
+      phase: mode === "continuation" ? "input" : "synchronized",
+      inputEnded: false,
+      targetEnded: false
+    };
+    playbackSessions.set(card, session);
+    const currentSession = () => activePairSession(card) === session;
+    if (mode === "continuation") {
+      const advanceToTarget = async () => {
+        if (!currentSession() || session.phase !== "input") return;
+        if (!atPlaybackEnd(input)) return;
+        session.inputEnded = true;
+        session.phase = "target";
+        target.currentTime = 0;
+        await target.play().catch(() => {});
+      };
+      const completeTarget = () => {
+        if (!currentSession() || session.phase !== "target" || !session.inputEnded) return;
+        if (!atPlaybackEnd(target)) return;
+        session.targetEnded = true;
+        markPairCompleted(card, session);
+      };
+      input.onended = advanceToTarget;
+      input.onpause = advanceToTarget;
+      target.onended = completeTarget;
+      target.onpause = completeTarget;
+      await input.play();
+    } else {
+      const sync = () => {
+        if (!currentSession() || session.inputEnded || session.targetEnded
+            || input.ended || target.ended) return;
+        if (Math.abs(target.currentTime - input.currentTime) > .04) {
+          target.currentTime = Math.min(input.currentTime, target.duration || input.currentTime);
+        }
+      };
+      const finishIfReady = () => {
+        if (currentSession() && session.inputEnded && session.targetEnded) {
+          markPairCompleted(card, session);
+        }
+      };
+      input.onseeking = sync;
+      input.ontimeupdate = sync;
+      input.onpause = () => {
+        if (!currentSession()) return;
+        if (atPlaybackEnd(input)) {
+          session.inputEnded = true;
+          if (!session.targetEnded && !target.ended) target.play().catch(() => {});
+          finishIfReady();
+        } else {
+          target.pause();
+        }
+      };
+      input.onplay = () => {
+        if (currentSession() && !session.targetEnded && !target.ended) {
+          target.play().catch(() => {});
+        }
+      };
+      input.onended = () => {
+        if (!currentSession()) return;
+        session.inputEnded = true;
+        if (!session.targetEnded && !target.ended) target.play().catch(() => {});
+        finishIfReady();
+      };
+      const completeSynchronizedTarget = () => {
+        if (!currentSession()) return;
+        if (!atPlaybackEnd(target)) return;
+        session.targetEnded = true;
+        finishIfReady();
+      };
+      target.onended = completeSynchronizedTarget;
+      target.onpause = completeSynchronizedTarget;
+      await Promise.all([input.play(), target.play()]);
+    }
+  };
+  const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.querySelectorAll("video").forEach(ensureLoaded);
+    observer.unobserve(entry.target);
+  }), {rootMargin:"700px 0px"});
+  cards.forEach(card => {
+    observer.observe(card);
+    card.querySelector("[data-start]").onclick = () => startCard(card);
+    card.querySelector("[data-replay]").onclick = () => startCard(card);
+    card.querySelectorAll("video").forEach(video => {
+      bindMediaControls(card, video);
+    });
+  });
+  decisionToggle.addEventListener("click", () => {
+    setDecisionCollapsed(!decisionPanel.classList.contains("is-collapsed"));
+  });
+  document.getElementById("next-incomplete").addEventListener(
+    "click",
+    nearestIncomplete
+  );
+  document.addEventListener("fullscreenchange", () => {
+    updateExpandControls();
+    if (!document.fullscreenElement && lastExpandButton) {
+      lastExpandButton.focus();
+      lastExpandButton = null;
+    }
+  });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && fallbackExpandedShell) closeFallbackExpanded();
+  });
+  document.querySelectorAll("[data-human-check]").forEach(box => {
+    box.addEventListener("change", () => {
+      const state = roleState(activeRole);
+      const sampleId = box.dataset.checkSample;
+      const checkId = box.dataset.checkId;
+      state.checks[sampleId] ||= {};
+      state.checks[sampleId][checkId] = box.checked;
+      update();
+    });
+  });
+  document.querySelectorAll("[data-complete-sample]").forEach(button => {
+    button.addEventListener("click", () => {
+      const sampleId = button.dataset.completeSample;
+      if (!roleAdmitted(activeRole) || isOfficial(activeRole)) return;
+      if (!completeFor(activeRole, sampleId)) {
+        throw new Error("Complete Input and Target playback before checking this sample.");
+      }
+      const state = roleState(activeRole);
+      state.checks[sampleId] = Object.fromEntries(
+        checkIds.map(checkId => [checkId, true])
+      );
+      update();
+    });
+  });
+  document.getElementById("role-owner").onclick = () => setRole("owner");
+  document.getElementById("role-evaluator").onclick = () => setRole("human-evaluator");
+  document.getElementById("pass").onclick = () => {
+    roleState(activeRole).decision = "PASS";
+    update();
+  };
+  document.getElementById("fail").onclick = () => {
+    roleState(activeRole).decision = "FAIL";
+    update();
+  };
+  document.getElementById("export").onclick = () => {
+    const value = buildExport();
+    const blob = new Blob([JSON.stringify(value,null,2)+"\n"],{type:"application/json"});
+    const link=document.createElement("a");
+    link.href=URL.createObjectURL(blob);
+    link.download=`tv2v-${digest.slice(0,12)}-${activeRole}-${
+      value.decision.toLowerCase()
+    }.json`;
+    link.click();
+    URL.revokeObjectURL(link.href);
+  };
+  document.getElementById("import-attestation").addEventListener("change", async event => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    try {
+      importAttestation(JSON.parse(await file.text()));
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      event.target.value = "";
+    }
+  });
+  window.tv2vReview = Object.freeze({
+    getState,
+    setRole,
+    importAttestation,
+    buildExport
+  });
+  window.tv2vReviewState = getState;
+  setDecisionCollapsed(Boolean(uiSaved.decisionCollapsed));
+  updateExpandControls();
+  update();
+})();
+</script>
+</body>
+</html>
