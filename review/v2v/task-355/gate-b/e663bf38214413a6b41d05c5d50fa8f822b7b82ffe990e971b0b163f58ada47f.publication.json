@@ -1,0 +1,17 @@
+{
+  "schema_version": "tv2v-publication-receipt/1",
+  "workflow": "engineering-workflow/3.5.0",
+  "stage": "gate-b",
+  "pull_request_number": 761,
+  "producing_commit": "80b57c6c0b5f707126ba9731850d4655ec7595b8",
+  "evidence_digest": "e663bf38214413a6b41d05c5d50fa8f822b7b82ffe990e971b0b163f58ada47f",
+  "hosted_url": "https://asysama.github.io/tv2v-task355-review/review/v2v/task-355/gate-b/e663bf38214413a6b41d05c5d50fa8f822b7b82ffe990e971b0b163f58ada47f.html",
+  "html_sha256": "4487880a2fd47100a93fa3c2ed0fa6b9ea023e922d02e6ab9fed1f29b6cc191b",
+  "html_bytes": 127971,
+  "resource_count": 17,
+  "resources_sha256": "60d312f0375f9a7f3ae8fd80812ea6126d32f811f6a785336a9fa2551326ebb7",
+  "http_verification_digest": "9f748d040acdf3deadf7f8ac566e9cbd6e3f4415883538f4d8bc2e94f7b2930a",
+  "http_verified": true,
+  "verified_at_utc": "2026-08-27T15:30:41.601047+00:00",
+  "publication_digest": "48345ffed91c2d78182eb3675f0ffee93862fb633a36d3c8196d9ae73ce9d62d"
+}
