@@ -1,0 +1,818 @@
+{
+  "schema_version": "tv2v-http-verification/1",
+  "workflow": "engineering-workflow/3.5.0",
+  "evidence_digest": "1d980fe607357282791d0471e5a232fd32e26ac565c0e978355cf53fae8dd130",
+  "hosted_url": "https://asysama.github.io/tv2v-task355-review/reviews/pipeline/task-355/gate-c/1d980fe607357282791d0471e5a232fd32e26ac565c0e978355cf53fae8dd130.html",
+  "resources": [
+    {
+      "kind": "html",
+      "sample_id": null,
+      "url": "https://asysama.github.io/tv2v-task355-review/reviews/pipeline/task-355/gate-c/1d980fe607357282791d0471e5a232fd32e26ac565c0e978355cf53fae8dd130.html",
+      "bytes": 626345,
+      "sha256": "5d0083850504c4dcf22de0d81d1547144a9d641492db652e47f8c8538356cac1",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000040",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000040__input_video.mp4",
+      "bytes": 896247,
+      "sha256": "a1dd4c9b098bd14b80f1e4b1026f8245f9288851df29b03a9c271be308059629",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000040",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000040__target_video.mp4",
+      "bytes": 15293812,
+      "sha256": "43cb4f6f6b6ec6e3761c3a5f3aa628dea550b32fb1d645dab6157bde39ec1812",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000112",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000112__input_video.mp4",
+      "bytes": 6559448,
+      "sha256": "af602a1072a72c663d863fadbcf2b8d8dfb7cf01c2529a92903a9baf0d705a35",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000112",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000112__target_video.mp4",
+      "bytes": 77173199,
+      "sha256": "62e2c6f85775086b5455bc27c50aedaa855a1d6783d38a35d240c8560c77d0ca",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000127",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000127__input_video.mp4",
+      "bytes": 21626293,
+      "sha256": "be8b3e0b678783b1534b43557e593bbca16694fbdf3015a3cf11adbe8ba9942c",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000127",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000127__target_video.mp4",
+      "bytes": 248384231,
+      "sha256": "996cd6b9af43f92ea558e08e6538f6998b884af48ad5bd9e9ee63a4d7f2cd47f",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000197",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000197__input_video.mp4",
+      "bytes": 1100193,
+      "sha256": "0254ac2e960eb083bd67f41d26699aa651ea574201b2574b3bb52b5ed5a18ec3",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000197",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000197__target_video.mp4",
+      "bytes": 19021363,
+      "sha256": "ab06e4f98058461f12fe6720bf655721084fbb3872805e53d4daf418aab59035",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000293",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000293__input_video.mp4",
+      "bytes": 5724993,
+      "sha256": "603fb99119ce80c77916643a071fd62a07c284a1878da550d35799edbfa7e382",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000293",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000293__target_video.mp4",
+      "bytes": 74791993,
+      "sha256": "6c45ffc43961fe5e6c79c64fbfe43d2c753d1ed7b44a671bc5011b36a35231b7",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000307",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000307__input_video.mp4",
+      "bytes": 14265702,
+      "sha256": "402ce2a9216a40f420742e01844d1e8f9bc427cf8a7e725e90e0e1cc3df76c00",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000307",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000307__target_video.mp4",
+      "bytes": 159498535,
+      "sha256": "92a3bdd40fde6995c581d83ad395c74af16636d306a1ef4f171556e9d00bc890",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000378",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000378__input_video.mp4",
+      "bytes": 998237,
+      "sha256": "04123ed7d5e897f02ea7b004da5ad79b2f6bab90f39c4920795f0292ae082636",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000378",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000378__target_video.mp4",
+      "bytes": 17652533,
+      "sha256": "da5ead367288687d65e335ce44fcdaa143708d88febb57bde704179bba8ee6bf",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000429",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000429__input_video.mp4",
+      "bytes": 6595437,
+      "sha256": "aeaed9e252e729643db415f5e879410910284890b7fc375757c13379a32b0d57",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000429",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000429__target_video.mp4",
+      "bytes": 69388117,
+      "sha256": "c12f6b788fb38c1c1230d967d9df98a8a861607111b44c854a67dc27d13b7b61",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000520",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000520__input_video.mp4",
+      "bytes": 32689969,
+      "sha256": "efaa7172b7a9cc6552ec6a84130370d6278523e5827d5aade82ae8dc978006b0",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000520",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000520__target_video.mp4",
+      "bytes": 349352784,
+      "sha256": "4a26b6177638ea94b6fae9290d55ad58e88e3756d6f72de22ab2dff1394417ea",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000575",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000575__input_video.mp4",
+      "bytes": 699080,
+      "sha256": "d9b13289136c5e4108bc1aa46fafe023d2de120605faa8943f3b33cef86751b8",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000575",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000575__target_video.mp4",
+      "bytes": 15696881,
+      "sha256": "d7289b322b069fe1175a5b4275e722d1a401f9ea86831bc1579a8062ab5aa9df",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000656",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000656__input_video.mp4",
+      "bytes": 7452626,
+      "sha256": "d8a3e7a30c107317e038da468ba3e5abd9431e59cbcfc7d2d6988df756bb3329",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000656",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000656__target_video.mp4",
+      "bytes": 86827480,
+      "sha256": "02f9b31a3ca44670be1018076e6bfb88f619469fe4fff281e3cf8d1161d31e3f",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000667",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000667__input_video.mp4",
+      "bytes": 22039472,
+      "sha256": "9d31301a42e36ee7e4b7e7e349da7f95ad1f107085a195424ea6a8738321a238",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000667",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000667__target_video.mp4",
+      "bytes": 228632879,
+      "sha256": "2fddcb3cc4af69286ee3aa42a67a9eea87f034eb60c1021cdfa4b3bd2cf54c98",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000769",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000769__input_video.mp4",
+      "bytes": 680316,
+      "sha256": "ba18f1815b8c018085ebe636f03af3f257b79a0b5330c0da6ab2331489ad198f",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000769",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000769__target_video.mp4",
+      "bytes": 15017331,
+      "sha256": "6b083c4f7b59c7b392eafd1bf35cf558f8897cf146362f8ed775f936670905ec",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000801",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000801__input_video.mp4",
+      "bytes": 6404898,
+      "sha256": "2fc643bc34eb6ef272a4ebdecf8ffd20c02f58177010bda1f527e58f97b2e38c",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000801",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000801__target_video.mp4",
+      "bytes": 87640803,
+      "sha256": "fc76ffffdaddf365f92e2acdad6d2ef9fb0f03c9f9bf9d6ce2d137d18abddca9",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000867",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000867__input_video.mp4",
+      "bytes": 31746266,
+      "sha256": "4063c9e934e7d07a3125fcad49853350a602bc148ae229fb2018f47f427db30d",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000867",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000867__target_video.mp4",
+      "bytes": 322867797,
+      "sha256": "9241192dac47745c71c62be001d87c9d40a3ecb314d8e89207a753db2b1b57c8",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000914",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000914__input_video.mp4",
+      "bytes": 770076,
+      "sha256": "ab1bb60397943ff9031824b0eb1d35ad36693654128834fb3ba739085cc112a0",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000914",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000914__target_video.mp4",
+      "bytes": 13459019,
+      "sha256": "7121e17c4446db60fbe82278ff2a7f3d6738e7a3e468f8c847065bf37f45841d",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000985",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000985__input_video.mp4",
+      "bytes": 6044196,
+      "sha256": "9980daab5c650900856afc6389b25a49af126c0afeb8ddf6c4e8bfb61d6f4dbe",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000985",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000985__target_video.mp4",
+      "bytes": 57433531,
+      "sha256": "9c45f40cf3525140fac8421f36e6d8b18e6da2081c1603f68dd1685b9c0689bb",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001027",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001027__input_video.mp4",
+      "bytes": 15983286,
+      "sha256": "2c05f103ee14320b015b312aea57eaf4d7295f49e5d4c061e2a6b06cd4c7b8c7",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001027",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001027__target_video.mp4",
+      "bytes": 158091125,
+      "sha256": "ffb257819ac1b47ec7f000f7e95b1ed3e806eb85d1ac8cd1731a4a53f8b3f99c",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001112",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001112__input_video.mp4",
+      "bytes": 915307,
+      "sha256": "078a8198727b1bf3645a4f5a44ab48356fbdaad3974a23d1d404ff5a72b8fd57",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001112",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001112__target_video.mp4",
+      "bytes": 19369207,
+      "sha256": "1fbee3dcfbd70100eca7df397520d64d997d30fc203b47320a0b9a61dbcdb68d",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001146",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001146__input_video.mp4",
+      "bytes": 6063719,
+      "sha256": "451eb23db721a11f3172e3c9606529aabd9fff11c0ae81ed7dbf3559ce5d4cc7",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001146",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001146__target_video.mp4",
+      "bytes": 80420259,
+      "sha256": "ef250dc45e9305444bcad3288b9960c37d379a0833cf7427565df3f1a70863a8",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001207",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001207__input_video.mp4",
+      "bytes": 21021706,
+      "sha256": "45aac2e3f9b9fa1f23ef4b6e3a44d88f8b485b2bda0d3bca6aa5c97fc787ec2b",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001207",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001207__target_video.mp4",
+      "bytes": 226583055,
+      "sha256": "e1409d615f8500874833f1638a49e9e727dc50cb37a5d0fece2dfe6dc64c9fd4",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001304",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001304__input_video.mp4",
+      "bytes": 915182,
+      "sha256": "db28709d88f07c9ee3f3d7321842b8bf89bb7099b0518d92cf85993bc315ac04",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001304",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001304__target_video.mp4",
+      "bytes": 19409893,
+      "sha256": "7b3d05cbcf5fe78c2ee6a5df54b9914d9e8b77eee183d4e29ee5231219098c19",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001366",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001366__input_video.mp4",
+      "bytes": 6269662,
+      "sha256": "39d72df4558b55567eef4b150f5df2a32e4315aaf8975519ca6052f712a99381",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001366",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001366__target_video.mp4",
+      "bytes": 72528710,
+      "sha256": "b2b8d9edc668b75088a0cc37c5d3bdd2d7c239019218d419278a9847161b1fd6",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001385",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001385__input_video.mp4",
+      "bytes": 28516423,
+      "sha256": "2513ab9a2df9aca5d29067e2a226ee3dd9085aaf47182a8a12d7f7778ce49808",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001385",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001385__target_video.mp4",
+      "bytes": 309947093,
+      "sha256": "a5ff17708c5e761f48f2be0cc4e897c941210b8fd96e070cf73ed40a1f0f85ad",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001489",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001489__input_video.mp4",
+      "bytes": 877117,
+      "sha256": "a70f48fb2b25080da879fa6679072136bed3f1a6453c0d7734856687570a9257",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001489",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001489__target_video.mp4",
+      "bytes": 16872966,
+      "sha256": "007612e79dfffe0bd9f69cfb2c16dda2249114efb453af0ed810c1fb86d5d4e4",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001519",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001519__input_video.mp4",
+      "bytes": 7472072,
+      "sha256": "1665850b554839f73e9df114661f2121914ce467613fc737834adc9e69e46494",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001519",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001519__target_video.mp4",
+      "bytes": 95632820,
+      "sha256": "473022f8cc3de8d8d78704efce84b5d1293844819951b2accc7dcec19a6f0fa9",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001598",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001598__input_video.mp4",
+      "bytes": 27181863,
+      "sha256": "1a53eb24ed7ca6a2a27ac60bbef8342115b2d4e9152c3460c4805477f4eb5e76",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001598",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001598__target_video.mp4",
+      "bytes": 280030922,
+      "sha256": "6fa6ac192f60917c1de5727bd4a9b27c66e7a529d64b2ca64718c6a1c69ecbea",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001666",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001666__input_video.mp4",
+      "bytes": 760870,
+      "sha256": "a0d8a3f93e267aa27cfbc256f72feb0718666a06abd8e5bda9a210818be4633e",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001666",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001666__target_video.mp4",
+      "bytes": 17396038,
+      "sha256": "383df9aa5a2bb0637553231fff0b7f5736cb98037f0ffdd86610f3c43614bac9",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001705",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001705__input_video.mp4",
+      "bytes": 6519700,
+      "sha256": "0722f3dd28e6ec46e7301cac92a9a9ca87af1832f6a359f7cff2e00dd831e378",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001705",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001705__target_video.mp4",
+      "bytes": 63524217,
+      "sha256": "d82dd666fc4ffadddc9d04c7297c458be4335210be2f24e4f6d6da8fb9d96f7e",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001747",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001747__input_video.mp4",
+      "bytes": 21090885,
+      "sha256": "a041bb44a84e6f236e4b8630207bdd4ad46b603a85f6a21819518b923bbdc8b4",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001747",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001747__target_video.mp4",
+      "bytes": 227033723,
+      "sha256": "ac9de17f88f122c7d9882c2277110ae6751eda530899f485ad96c989fbd33ecf",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001830",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001830__input_video.mp4",
+      "bytes": 773313,
+      "sha256": "a441ecc837f8bbd0ae52d2a3500a1dce370c7d9c4cc3d0b9f902c0b0b2d46958",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001830",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001830__target_video.mp4",
+      "bytes": 17472959,
+      "sha256": "e426377b76b02ffb32e4b1169fe9083c88fe2c0d01839d26c102feddc3004ff6",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001915",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001915__input_video.mp4",
+      "bytes": 5341339,
+      "sha256": "a3297e4e786d3e5b65b2d4602e47227edeeb2255a0a8ab0dd2366790a9418816",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001915",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001915__target_video.mp4",
+      "bytes": 63717384,
+      "sha256": "22e5c29cbce2d409a088fd76f25f609ff464688df0a3a23e80f95d636067a3b0",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001927",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001927__input_video.mp4",
+      "bytes": 29681852,
+      "sha256": "50edd15ad33170acc89ea55b9325349d93bec2956f725904f253e0b89e890f4f",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001927",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001927__target_video.mp4",
+      "bytes": 287672541,
+      "sha256": "87069f0ab2791bb142c566951a0404af473bfb1d2cb153739e435f47bc0b54fe",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002017",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002017__input_video.mp4",
+      "bytes": 751354,
+      "sha256": "01e511ebb4eee6edba87440b28fd502950b65afc38c3cf7c5e2d160633bd6c78",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002017",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002017__target_video.mp4",
+      "bytes": 17385714,
+      "sha256": "18a4f8b430d709e919094381154b81688f4016c2c689927ae5948c8eb909ab2d",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002041",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002041__input_video.mp4",
+      "bytes": 5130727,
+      "sha256": "196232941c402af65e5ce3ef67cd4d7b5d4c313d711866d212678f8c6d3a2bdd",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002041",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002041__target_video.mp4",
+      "bytes": 71668446,
+      "sha256": "bb8593dd71c3fe618f408c5485daf86801b8a4ab0f3caffba001cbad0ae473bc",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002107",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002107__input_video.mp4",
+      "bytes": 25141921,
+      "sha256": "9e72598eb6483d608ee8eb08b92a63833b17a22b3f356485a370429a23f8db31",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002107",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002107__target_video.mp4",
+      "bytes": 285875362,
+      "sha256": "81802548a2f1a325b9eba97c59438d254bb40716991359c6b9eea3f4907cd0bf",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002209",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002209__input_video.mp4",
+      "bytes": 807545,
+      "sha256": "a382988493725a831214fe420e02334e6c944ca80a789c45cf24be6bf8119e50",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002209",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002209__target_video.mp4",
+      "bytes": 19128226,
+      "sha256": "13e373a853539c518d65dbc085a878a0589bbd4b003322237121a08250030d0c",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002220",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002220__input_video.mp4",
+      "bytes": 6546742,
+      "sha256": "27fbb349023a31872c43c99e1fbec248d1db98d1365a386e46b2b3294c7d8cc6",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002220",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002220__target_video.mp4",
+      "bytes": 77585777,
+      "sha256": "ad161e57eae956ae0b07ea571d23fb1c6c06906573b9e27ac4f21bdba305fbf6",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002287",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002287__input_video.mp4",
+      "bytes": 17919895,
+      "sha256": "2193386e7f83940e4d80addefbe540797797675ca79e9146d63ea9c18c1fd190",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002287",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002287__target_video.mp4",
+      "bytes": 190406291,
+      "sha256": "1410530ee870779184e41e82bd71559302003f0c2411e81f5f991484031fd242",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002358",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002358__input_video.mp4",
+      "bytes": 1044808,
+      "sha256": "d35910230c996a1527682cbcaf1bb9a24e6485f26697b0cdb22aefef90be754f",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002358",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002358__target_video.mp4",
+      "bytes": 18876342,
+      "sha256": "e28308a1b933110edd97480514d9f860d8da6c7b1eca62208a590fe4f6179bc2",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002459",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002459__input_video.mp4",
+      "bytes": 5993730,
+      "sha256": "cfadfaf0a3057f0a476b9d46d9ab614e1be978fefd76bd7af311b8c9d593f1df",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002459",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002459__target_video.mp4",
+      "bytes": 55430827,
+      "sha256": "e9f86d157154a070d287d85091cb7df31bb6b54efd487d926b00719f396f2ad3",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002484",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002484__input_video.mp4",
+      "bytes": 25814052,
+      "sha256": "48417d412ced72ec8b2268cb2051b71260be30d7a24a24efc24f03db2a028094",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002484",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002484__target_video.mp4",
+      "bytes": 280829788,
+      "sha256": "75f1a5be5d489cf597a66ff357e140cf08f098b680fdd8f8d5592fd5b4428ff1",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002569",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002569__input_video.mp4",
+      "bytes": 1010152,
+      "sha256": "30dd0420aae43982f43dcfffb374e58f56ecc262802c69121c56dab49e9bb388",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002569",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002569__target_video.mp4",
+      "bytes": 17307532,
+      "sha256": "5c2db7a9c1780490860951e9d0f9d096cbe52837096fe898af056db7682d823b",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002595",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002595__input_video.mp4",
+      "bytes": 6531042,
+      "sha256": "8067634998447e1285b3be3b09fac84e9d910f7183c1395271227e6628e987a1",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002595",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002595__target_video.mp4",
+      "bytes": 63096375,
+      "sha256": "595602a5161f23fe11929d984e6d173f392615fc5f0c651e50c8348f2c15f2a9",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002678",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002678__input_video.mp4",
+      "bytes": 14269860,
+      "sha256": "28463de7710307e417ad3e6d10d0d77208eb8b4ff0c984e5a49f0945f9b5a528",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002678",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002678__target_video.mp4",
+      "bytes": 146120517,
+      "sha256": "efe28670fc7a2527b3b0ed3eea139d4154b7183da56d697bb6be1588b797bd26",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002717",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002717__input_video.mp4",
+      "bytes": 991402,
+      "sha256": "fe76cbe87dd50488335f122b9de725f6af418a109d4c2a4b7288c53d89bd6931",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002717",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002717__target_video.mp4",
+      "bytes": 17565919,
+      "sha256": "9e30bb5c8853123cc40ad86ee2700456630f6fc6fa3e678b1b0241dd3774fa59",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002766",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002766__input_video.mp4",
+      "bytes": 5593380,
+      "sha256": "111dd42e6f2eeb322e6dce8e9f8079e20b6b75bea3367f9c5a47d815ae0f2869",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002766",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002766__target_video.mp4",
+      "bytes": 73709008,
+      "sha256": "7373bf6c46264c8270cca8f7ebef8b7c1e63cf8511e31c9f9db84de28caa5379",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002868",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002868__input_video.mp4",
+      "bytes": 14618825,
+      "sha256": "2d4ded37dda9fc90b711265aad9d3bdac152c3b6b42cfdf0ff7e057df1a9b610",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002868",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002868__target_video.mp4",
+      "bytes": 122843524,
+      "sha256": "137ce76f35bda31106756d473392e9029fe658d2c3394e9dcf0c34647abe0f65",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002915",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002915__input_video.mp4",
+      "bytes": 943914,
+      "sha256": "8a5750e172cbdfe4c87b3865b8ec6a5d22da7c49a62f9327328d7703fbf4ce12",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002915",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002915__target_video.mp4",
+      "bytes": 22342769,
+      "sha256": "7d1145b98e15ab016a9059227bd95d7876bc7d84446b515f2a5b2d29b6655469",
+      "status": "PASS"
+    },
+    {
+      "kind": "input",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002975",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002975__input_video.mp4",
+      "bytes": 6280488,
+      "sha256": "432d567918137d7d8fbf9b588a54449b269a81d69cd220f492bc4287ec2a091a",
+      "status": "PASS"
+    },
+    {
+      "kind": "target",
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002975",
+      "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002975__target_video.mp4",
+      "bytes": 82347490,
+      "sha256": "dd398f90fe1849791e25e5f741f56eeeec018bd6297440ed9225a8f91dac3354",
+      "status": "PASS"
+    }
+  ],
+  "completed_at_utc": "2026-08-28T18:52:36.053328+00:00",
+  "verification_digest": "6ac239d76828351a97b6cce00da2b3cdb32285881a61151a11b3caedfd8d4c0d"
+}

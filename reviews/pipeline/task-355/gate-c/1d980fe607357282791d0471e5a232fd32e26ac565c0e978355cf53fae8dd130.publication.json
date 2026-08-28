@@ -1,0 +1,17 @@
+{
+  "schema_version": "tv2v-publication-receipt/1",
+  "workflow": "engineering-workflow/3.5.0",
+  "stage": "gate-c",
+  "pull_request_number": 783,
+  "producing_commit": "b3c15e15e75a7076bea08e70bd81b6056667b10c",
+  "evidence_digest": "1d980fe607357282791d0471e5a232fd32e26ac565c0e978355cf53fae8dd130",
+  "hosted_url": "https://asysama.github.io/tv2v-task355-review/reviews/pipeline/task-355/gate-c/1d980fe607357282791d0471e5a232fd32e26ac565c0e978355cf53fae8dd130.html",
+  "html_sha256": "5d0083850504c4dcf22de0d81d1547144a9d641492db652e47f8c8538356cac1",
+  "html_bytes": 626345,
+  "resource_count": 101,
+  "resources_sha256": "88c53c359614f8b86eaa3418035def556de298c8d7a919cc5b9c1f5c878c183d",
+  "http_verification_digest": "6ac239d76828351a97b6cce00da2b3cdb32285881a61151a11b3caedfd8d4c0d",
+  "http_verified": true,
+  "verified_at_utc": "2026-08-28T18:52:36.053328+00:00",
+  "publication_digest": "3304c2f5757c932fa18bcbaac0a6f953be4a9c3498fe369ef835a83795e6d1b2"
+}
