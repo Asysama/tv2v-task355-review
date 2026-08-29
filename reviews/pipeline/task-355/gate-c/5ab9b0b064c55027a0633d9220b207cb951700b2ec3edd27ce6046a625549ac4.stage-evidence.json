@@ -1,0 +1,2681 @@
+{
+  "schema_version": "tv2v-stage-evidence/1",
+  "workflow": "engineering-workflow/3.5.0",
+  "stage": "gate-c",
+  "work_type": "pipeline",
+  "human_evaluator_login": "yilan-zhang",
+  "task": {
+    "id": "Task_355",
+    "name": "reference_guided_isolated_sign_word_caption_overlay",
+    "root": "pipelines/ready/Task_355_reference_guided_isolated_sign_word_caption_overlay_data-pipeline"
+  },
+  "pull_request": {
+    "number": 783,
+    "base_branch": "dev",
+    "base_sha": "4ae2f04fcadc924fbeb904842a59dd34546d23cb"
+  },
+  "code": {
+    "producing_commit": "36deff51c3b1909d4855c8804f32f94f5f722dc0",
+    "generation_commit": "c58ff61a52c934d7f69e53f484146f14a7ba1b85",
+    "generation_task_root": "pipelines/not_ready/Task_355_reference_guided_isolated_sign_word_caption_overlay_data-pipeline",
+    "generation_tree_sha256": "130a1ff3fe053c52e92b06199b24d12820870be385a6d3a6ab713ec39c21cefb",
+    "pipeline_name": "task355-popsign-word-caption-overlay",
+    "pipeline_version": "0.2.0",
+    "relevant_paths": [
+      "pipelines/ready/Task_355_reference_guided_isolated_sign_word_caption_overlay_data-pipeline"
+    ],
+    "relevant_tree_sha256": "c8610435cac06b6ce0a788c04e373cd02583725d58712f3cdc175fcb256d16ac"
+  },
+  "data": {
+    "scope": "final",
+    "s3_prefix": "s3://tv2v-data/final/taxonomy/Task_355_reference_guided_isolated_sign_word_caption_overlay/",
+    "review_s3_prefix": "s3://tv2v-data/validation/Task_355_reference_guided_isolated_sign_word_caption_overlay/runs/df5a07257423e9c6937f3ff4ded82ea39c11ffc24e586678b0393c11ab0457b1/gate-c/",
+    "sample_count": 3000,
+    "payload_object_count": 12000,
+    "payload_bytes": 255866261753,
+    "auxiliary_object_count": 1,
+    "expected_full_units": {
+      "count": 3000,
+      "derivation": "50 official PopSign labels x 60 clips per label"
+    },
+    "dataset_identity": "Task_355_reference_guided_isolated_sign_word_caption_overlay@canonical-final:54febe889b5028cd0d6be89219b60d234b411f5e5bcc03a3e37aa57cc9d64ad8"
+  },
+  "generation_run": {
+    "schema_version": "tv2v-generation-run-manifest/1",
+    "workflow": "engineering-workflow/3.5.0",
+    "run_scope": "full",
+    "work_type": "pipeline",
+    "task": {
+      "id": "Task_355",
+      "name": "reference_guided_isolated_sign_word_caption_overlay",
+      "root": "pipelines/not_ready/Task_355_reference_guided_isolated_sign_word_caption_overlay_data-pipeline"
+    },
+    "identity": {
+      "code_commit": "c58ff61a52c934d7f69e53f484146f14a7ba1b85",
+      "task_tree_sha256": "130a1ff3fe053c52e92b06199b24d12820870be385a6d3a6ab713ec39c21cefb",
+      "dependency_lock_sha256": "daf489550ab52369200fe02f072c1881924e29e7b085f654bb0dd63c69ea9a06",
+      "container_image_digest": null,
+      "source_inventory_sha256": "5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5",
+      "entrypoint": "pipelines/not_ready/Task_355_reference_guided_isolated_sign_word_caption_overlay_data-pipeline/scripts/generate.py",
+      "arguments": [
+        "--inventory",
+        "design/2026-08-27_popsign-source-inventory.json",
+        "--raw-cache",
+        "$RAW_CACHE",
+        "--output",
+        "$OUTPUT_DIR",
+        "--ordinals",
+        "0..2999 inclusive ascending",
+        "--workers",
+        "8",
+        "--commit",
+        "c58ff61a52c934d7f69e53f484146f14a7ba1b85"
+      ],
+      "config_sha256": "f8e7755fd48de552b65070074b4518c7330e9ea545558104678e10e05d66a2df",
+      "seed": null,
+      "order": "ascending unique ordinals 0..2999; implementation groups by ascending label_index and preserves ascending ordinal within each label"
+    },
+    "environment": {
+      "python": "CPython 3.11.15",
+      "ffmpeg": "imageio-ffmpeg static FFmpeg 7.0.2",
+      "tools": {
+        "boto3": "1.40.1",
+        "botocore": "1.40.76",
+        "imageio-ffmpeg": "0.6.0",
+        "numpy": "2.2.6",
+        "opencv-python-headless": "4.12.0.88",
+        "Pillow": "12.3.0",
+        "platform": "Amazon Linux 2023 x86_64, Linux 6.18.41-94.142.amzn2023.x86_64"
+      }
+    },
+    "sources": {
+      "inventory_uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json",
+      "inventory_sha256": "5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5",
+      "object_count": 50,
+      "total_bytes": 129657405440,
+      "versioned": true
+    },
+    "invocation": {
+      "command": "python3 pipelines/not_ready/Task_355_reference_guided_isolated_sign_word_caption_overlay_data-pipeline/scripts/generate.py --inventory design/2026-08-27_popsign-source-inventory.json --raw-cache \"$RAW_CACHE\" --output \"$OUTPUT_DIR\" --ordinals $(seq 0 2999) --workers 8 --commit c58ff61a52c934d7f69e53f484146f14a7ba1b85",
+      "config": {
+        "expected_full_units": 3000,
+        "inventory": "design/2026-08-27_popsign-source-inventory.json",
+        "metadata_schema": "1.2",
+        "ordinals": {
+          "count": 3000,
+          "first": 0,
+          "last": 2999
+        },
+        "pipeline_version": "0.2.0",
+        "sample_files": [
+          "input_video.mp4",
+          "metadata.json",
+          "prompt.txt",
+          "target_video.mp4"
+        ],
+        "workers": 8
+      },
+      "credentials_mode": "environment"
+    },
+    "outputs": {
+      "s3_prefix": "s3://tv2v-data/final/taxonomy/Task_355_reference_guided_isolated_sign_word_caption_overlay/",
+      "sample_count": 3000,
+      "payload_object_count": 12000,
+      "payload_bytes": 255866261753,
+      "inventory_uri": "s3://tv2v-data/validation/Task_355_reference_guided_isolated_sign_word_caption_overlay/full/c58ff61a52c934d7f69e53f484146f14a7ba1b85/records/54febe889b5028cd0d6be89219b60d234b411f5e5bcc03a3e37aa57cc9d64ad8/final-inventory.json",
+      "inventory_sha256": "54febe889b5028cd0d6be89219b60d234b411f5e5bcc03a3e37aa57cc9d64ad8"
+    },
+    "reproducibility": {
+      "resume_verified": true,
+      "no_overwrite_verified": true,
+      "clean_checkout_verified": true,
+      "equivalence": "byte-identical",
+      "audit_uri": "s3://tv2v-data/validation/Task_355_reference_guided_isolated_sign_word_caption_overlay/full/c58ff61a52c934d7f69e53f484146f14a7ba1b85/records/28809baf61edbb8bbf6e66ad8dcefc4eeb6e2f927712238f79b04c83de88ff0b/full-audit-bundle.json",
+      "audit_sha256": "28809baf61edbb8bbf6e66ad8dcefc4eeb6e2f927712238f79b04c83de88ff0b"
+    },
+    "created_at_utc": "2026-08-28T17:22:48Z",
+    "generation_run_id": "df5a07257423e9c6937f3ff4ded82ea39c11ffc24e586678b0393c11ab0457b1",
+    "manifest_digest": "25a32ef50194c3b06ebe58107de5177233c3ed517adce03efc5d259b93875a57"
+  },
+  "samples": [
+    {
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000040",
+      "strata": [
+        "caption_length:medium",
+        "participant_count:high",
+        "source_tar_size:small",
+        "sample_input_size:small",
+        "formatting:plain"
+      ],
+      "selection_reason": "deterministic 12-sample risk-lattice representative for AFTER; covers the declared caption, participant, source-size, input-size, or formatting risks without treating each machine-audited word as a separate human-review stratum",
+      "viewing_cues": [
+        "Play the complete synchronized pair and confirm the exact bottom caption 'AFTER' is readable throughout.",
+        "Confirm timing, framing, and all pixels above the bottom caption region remain visually unchanged.",
+        "Cross-check Prompt, Metadata display_label, and source participant 4a.8902 against the media."
+      ],
+      "source": {
+        "dataset": "Georgia Tech PopSign ASL v1.0",
+        "sample_id": "after/4a.8902-after-2023_01_28_18_48_44.497-0.mp4",
+        "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#after/4a.8902-after-2023_01_28_18_48_44.497-0.mp4"
+      },
+      "prompt": "Preserve the complete Input video, including its timing, framing, and scene. Overlay the exact English caption 'AFTER' as a readable bottom caption throughout the video. Do not add, remove, or alter anything outside that caption overlay.",
+      "metadata": {
+        "schema_version": "1.2",
+        "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000040",
+        "task": {
+          "id": "Task_355",
+          "name": "reference_guided_isolated_sign_word_caption_overlay",
+          "modality": "v2v"
+        },
+        "source": {
+          "dataset": "Georgia Tech PopSign ASL v1.0",
+          "split": "game/train",
+          "sample_id": "after/4a.8902-after-2023_01_28_18_48_44.497-0.mp4",
+          "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#after/4a.8902-after-2023_01_28_18_48_44.497-0.mp4"
+        },
+        "media": {
+          "input": {
+            "file": "input_video.mp4",
+            "width": 1080,
+            "height": 1920,
+            "fps": 30.0,
+            "num_frames": 65
+          },
+          "target": {
+            "file": "target_video.mp4",
+            "width": 1080,
+            "height": 1920,
+            "fps": 30.0,
+            "num_frames": 65
+          }
+        },
+        "pipeline": {
+          "name": "task355-popsign-word-caption-overlay",
+          "version": "0.2.0",
+          "commit": "c58ff61a52c934d7f69e53f484146f14a7ba1b85"
+        },
+        "optional": {
+          "source_inventory_sha256": "5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5",
+          "source_catalog_sha256": "5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b",
+          "source_page_sha256": "de5aede5dce892ae4defc26ef9b5730cd4a2aa05552302522d6c89ddcaabf9d7",
+          "source_tar_etag": "903620115",
+          "source_tar_content_length": 2098012160,
+          "source_original_member": "4a.8902-after-2023_01_28_18_48_44.497-0.mp4",
+          "source_preview_name": "104-after.mp4",
+          "anonymous_participant_id": "4a.8902",
+          "official_sign_slug": "after",
+          "display_label": "AFTER",
+          "caption_card_height": 384,
+          "input_video_sha256": "a1dd4c9b098bd14b80f1e4b1026f8245f9288851df29b03a9c271be308059629",
+          "decoded_frame_count": 65,
+          "outside_overlay_max_channel_delta": 0,
+          "changed_overlay_pixels": 26956790
+        },
+        "identity": {
+          "sample_fingerprint": "fd3e14cf169debbe2536b7f9ff137e313d3915f1e758af6f1cf5afdab2255ab8"
+        }
+      },
+      "metadata_text": "{\n  \"schema_version\": \"1.2\",\n  \"sample_id\": \"Task_355_reference_guided_isolated_sign_word_caption_overlay_000000040\",\n  \"task\": {\n    \"id\": \"Task_355\",\n    \"name\": \"reference_guided_isolated_sign_word_caption_overlay\",\n    \"modality\": \"v2v\"\n  },\n  \"source\": {\n    \"dataset\": \"Georgia Tech PopSign ASL v1.0\",\n    \"split\": \"game/train\",\n    \"sample_id\": \"after/4a.8902-after-2023_01_28_18_48_44.497-0.mp4\",\n    \"uri\": \"s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#after/4a.8902-after-2023_01_28_18_48_44.497-0.mp4\"\n  },\n  \"media\": {\n    \"input\": {\n      \"file\": \"input_video.mp4\",\n      \"width\": 1080,\n      \"height\": 1920,\n      \"fps\": 30.0,\n      \"num_frames\": 65\n    },\n    \"target\": {\n      \"file\": \"target_video.mp4\",\n      \"width\": 1080,\n      \"height\": 1920,\n      \"fps\": 30.0,\n      \"num_frames\": 65\n    }\n  },\n  \"pipeline\": {\n    \"name\": \"task355-popsign-word-caption-overlay\",\n    \"version\": \"0.2.0\",\n    \"commit\": \"c58ff61a52c934d7f69e53f484146f14a7ba1b85\"\n  },\n  \"optional\": {\n    \"source_inventory_sha256\": \"5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5\",\n    \"source_catalog_sha256\": \"5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b\",\n    \"source_page_sha256\": \"de5aede5dce892ae4defc26ef9b5730cd4a2aa05552302522d6c89ddcaabf9d7\",\n    \"source_tar_etag\": \"903620115\",\n    \"source_tar_content_length\": 2098012160,\n    \"source_original_member\": \"4a.8902-after-2023_01_28_18_48_44.497-0.mp4\",\n    \"source_preview_name\": \"104-after.mp4\",\n    \"anonymous_participant_id\": \"4a.8902\",\n    \"official_sign_slug\": \"after\",\n    \"display_label\": \"AFTER\",\n    \"caption_card_height\": 384,\n    \"input_video_sha256\": \"a1dd4c9b098bd14b80f1e4b1026f8245f9288851df29b03a9c271be308059629\",\n    \"decoded_frame_count\": 65,\n    \"outside_overlay_max_channel_delta\": 0,\n    \"changed_overlay_pixels\": 26956790\n  },\n  \"identity\": {\n    \"sample_fingerprint\": \"fd3e14cf169debbe2536b7f9ff137e313d3915f1e758af6f1cf5afdab2255ab8\"\n  }\n}\n",
+      "files": {
+        "input_video.mp4": {
+          "bytes": 896247,
+          "sha256": "a1dd4c9b098bd14b80f1e4b1026f8245f9288851df29b03a9c271be308059629"
+        },
+        "metadata.json": {
+          "bytes": 2039,
+          "sha256": "f4752fbdd8f6547ba151d25b364c8300f236dd1eba3d8409db820a7ebd005810"
+        },
+        "prompt.txt": {
+          "bytes": 237,
+          "sha256": "773b29755030eda5b96cdf5c81b61d36aa3e85c9cb722af6dbb533f46883b99d"
+        },
+        "target_video.mp4": {
+          "bytes": 15293812,
+          "sha256": "43cb4f6f6b6ec6e3761c3a5f3aa628dea550b32fb1d645dab6157bde39ec1812"
+        }
+      },
+      "media": {
+        "input": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000040__input_video.mp4",
+          "sha256": "a1dd4c9b098bd14b80f1e4b1026f8245f9288851df29b03a9c271be308059629",
+          "bytes": 896247,
+          "width": 1080,
+          "height": 1920,
+          "fps": 30.0,
+          "num_frames": 65
+        },
+        "target": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000040__target_video.mp4",
+          "sha256": "43cb4f6f6b6ec6e3761c3a5f3aa628dea550b32fb1d645dab6157bde39ec1812",
+          "bytes": 15293812,
+          "width": 1080,
+          "height": 1920,
+          "fps": 30.0,
+          "num_frames": 65
+        }
+      },
+      "automated_checks": [
+        {
+          "id": "four-file-contract",
+          "status": "PASS",
+          "summary": "The exact four non-empty canonical Final files match their create-only Gate C review copies.",
+          "evidence": {
+            "final_version_ids": {
+              "input_video.mp4": "K_mDUTp690IIntDhN6JbBXkM0il8RZwF",
+              "metadata.json": "8OAYdfNnN6bzHhFZsWY1s8aSkvC9LmIm",
+              "prompt.txt": "xd3C.c0.pwgInRvlY2Jv3Er1KixYJia9",
+              "target_video.mp4": "TtN_hIFB5B6BL5ZalpgVcaJFnxGpwImJ"
+            },
+            "review_version_ids": {
+              "input_video.mp4": "III3AVwBRH7q4Cl6Ui0aZW_fyV2PktZR",
+              "metadata.json": "ddTvw9w9QagsnmZyiH2Gw6Ntt_tef0.B",
+              "prompt.txt": "0LuBubNH.F.oSs90hrMXOrgzz4AKkF3J",
+              "target_video.mp4": "rm9Afu_Oe6W6_qvvrrTfml5fze86axo9"
+            },
+            "files": {
+              "input_video.mp4": {
+                "bytes": 896247,
+                "sha256": "a1dd4c9b098bd14b80f1e4b1026f8245f9288851df29b03a9c271be308059629"
+              },
+              "metadata.json": {
+                "bytes": 2039,
+                "sha256": "f4752fbdd8f6547ba151d25b364c8300f236dd1eba3d8409db820a7ebd005810"
+              },
+              "prompt.txt": {
+                "bytes": 237,
+                "sha256": "773b29755030eda5b96cdf5c81b61d36aa3e85c9cb722af6dbb533f46883b99d"
+              },
+              "target_video.mp4": {
+                "bytes": 15293812,
+                "sha256": "43cb4f6f6b6ec6e3761c3a5f3aa628dea550b32fb1d645dab6157bde39ec1812"
+              }
+            }
+          }
+        },
+        {
+          "id": "complete-media-contract",
+          "status": "PASS",
+          "summary": "Input and Target fully decoded with identical dimensions, FPS, frame count, and preserved pixels outside the caption region.",
+          "evidence": {
+            "decoded_frame_count": 65,
+            "changed_overlay_pixels": 26956790,
+            "outside_overlay_max_channel_delta": 0
+          }
+        },
+        {
+          "id": "caption-source-binding",
+          "status": "PASS",
+          "summary": "Prompt, Metadata display label, and the official source label are exactly bound.",
+          "evidence": {
+            "display_label": "AFTER",
+            "official_sign_slug": "after",
+            "source_sample_id": "after/4a.8902-after-2023_01_28_18_48_44.497-0.mp4"
+          }
+        },
+        {
+          "id": "privacy-security",
+          "status": "PASS",
+          "summary": "Public review is compatible with CC BY 4.0 source media; complete human playback remains required for visible people and interiors.",
+          "evidence": {
+            "license": "CC BY 4.0",
+            "owner_review_required": true,
+            "evaluator_review_required": true
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000112",
+      "strata": [
+        "caption_length:medium",
+        "participant_count:high",
+        "source_tar_size:large",
+        "sample_input_size:medium",
+        "formatting:plain"
+      ],
+      "selection_reason": "deterministic 12-sample risk-lattice representative for ANOTHER; covers the declared caption, participant, source-size, input-size, or formatting risks without treating each machine-audited word as a separate human-review stratum",
+      "viewing_cues": [
+        "Play the complete synchronized pair and confirm the exact bottom caption 'ANOTHER' is readable throughout.",
+        "Confirm timing, framing, and all pixels above the bottom caption region remain visually unchanged.",
+        "Cross-check Prompt, Metadata display_label, and source participant gtsignstudy4a.7043 against the media."
+      ],
+      "source": {
+        "dataset": "Georgia Tech PopSign ASL v1.0",
+        "sample_id": "another/gtsignstudy4a.7043-another-2023_01_25_20_32_05.780-0.mp4",
+        "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#another/gtsignstudy4a.7043-another-2023_01_25_20_32_05.780-0.mp4"
+      },
+      "prompt": "Preserve the complete Input video, including its timing, framing, and scene. Overlay the exact English caption 'ANOTHER' as a readable bottom caption throughout the video. Do not add, remove, or alter anything outside that caption overlay.",
+      "metadata": {
+        "schema_version": "1.2",
+        "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000112",
+        "task": {
+          "id": "Task_355",
+          "name": "reference_guided_isolated_sign_word_caption_overlay",
+          "modality": "v2v"
+        },
+        "source": {
+          "dataset": "Georgia Tech PopSign ASL v1.0",
+          "split": "game/train",
+          "sample_id": "another/gtsignstudy4a.7043-another-2023_01_25_20_32_05.780-0.mp4",
+          "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#another/gtsignstudy4a.7043-another-2023_01_25_20_32_05.780-0.mp4"
+        },
+        "media": {
+          "input": {
+            "file": "input_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 29.916666666666668,
+            "num_frames": 58
+          },
+          "target": {
+            "file": "target_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 29.916666666666668,
+            "num_frames": 58
+          }
+        },
+        "pipeline": {
+          "name": "task355-popsign-word-caption-overlay",
+          "version": "0.2.0",
+          "commit": "c58ff61a52c934d7f69e53f484146f14a7ba1b85"
+        },
+        "optional": {
+          "source_inventory_sha256": "5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5",
+          "source_catalog_sha256": "5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b",
+          "source_page_sha256": "7c5aecd208b8301cacc9d41cb8ecbbc7d18f2b9eb3e55c944ec91de459097df5",
+          "source_tar_etag": "3748270934",
+          "source_tar_content_length": 3153049600,
+          "source_original_member": "gtsignstudy4a.7043-another-2023_01_25_20_32_05.780-0.mp4",
+          "source_preview_name": "359-another.mp4",
+          "anonymous_participant_id": "gtsignstudy4a.7043",
+          "official_sign_slug": "another",
+          "display_label": "ANOTHER",
+          "caption_card_height": 518,
+          "input_video_sha256": "af602a1072a72c663d863fadbcf2b8d8dfb7cf01c2529a92903a9baf0d705a35",
+          "decoded_frame_count": 58,
+          "outside_overlay_max_channel_delta": 3,
+          "changed_overlay_pixels": 58405536
+        },
+        "identity": {
+          "sample_fingerprint": "0ec35cb431afe153767503b60abe9c87235b9c42c44010f293dc9d64f514c993"
+        }
+      },
+      "metadata_text": "{\n  \"schema_version\": \"1.2\",\n  \"sample_id\": \"Task_355_reference_guided_isolated_sign_word_caption_overlay_000000112\",\n  \"task\": {\n    \"id\": \"Task_355\",\n    \"name\": \"reference_guided_isolated_sign_word_caption_overlay\",\n    \"modality\": \"v2v\"\n  },\n  \"source\": {\n    \"dataset\": \"Georgia Tech PopSign ASL v1.0\",\n    \"split\": \"game/train\",\n    \"sample_id\": \"another/gtsignstudy4a.7043-another-2023_01_25_20_32_05.780-0.mp4\",\n    \"uri\": \"s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#another/gtsignstudy4a.7043-another-2023_01_25_20_32_05.780-0.mp4\"\n  },\n  \"media\": {\n    \"input\": {\n      \"file\": \"input_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 29.916666666666668,\n      \"num_frames\": 58\n    },\n    \"target\": {\n      \"file\": \"target_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 29.916666666666668,\n      \"num_frames\": 58\n    }\n  },\n  \"pipeline\": {\n    \"name\": \"task355-popsign-word-caption-overlay\",\n    \"version\": \"0.2.0\",\n    \"commit\": \"c58ff61a52c934d7f69e53f484146f14a7ba1b85\"\n  },\n  \"optional\": {\n    \"source_inventory_sha256\": \"5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5\",\n    \"source_catalog_sha256\": \"5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b\",\n    \"source_page_sha256\": \"7c5aecd208b8301cacc9d41cb8ecbbc7d18f2b9eb3e55c944ec91de459097df5\",\n    \"source_tar_etag\": \"3748270934\",\n    \"source_tar_content_length\": 3153049600,\n    \"source_original_member\": \"gtsignstudy4a.7043-another-2023_01_25_20_32_05.780-0.mp4\",\n    \"source_preview_name\": \"359-another.mp4\",\n    \"anonymous_participant_id\": \"gtsignstudy4a.7043\",\n    \"official_sign_slug\": \"another\",\n    \"display_label\": \"ANOTHER\",\n    \"caption_card_height\": 518,\n    \"input_video_sha256\": \"af602a1072a72c663d863fadbcf2b8d8dfb7cf01c2529a92903a9baf0d705a35\",\n    \"decoded_frame_count\": 58,\n    \"outside_overlay_max_channel_delta\": 3,\n    \"changed_overlay_pixels\": 58405536\n  },\n  \"identity\": {\n    \"sample_fingerprint\": \"0ec35cb431afe153767503b60abe9c87235b9c42c44010f293dc9d64f514c993\"\n  }\n}\n",
+      "files": {
+        "input_video.mp4": {
+          "bytes": 6559448,
+          "sha256": "af602a1072a72c663d863fadbcf2b8d8dfb7cf01c2529a92903a9baf0d705a35"
+        },
+        "metadata.json": {
+          "bytes": 2128,
+          "sha256": "0c6ee8cd6d81054d6eb7b2b29f13500842675c3b24c8af0f984437d7ab9083ce"
+        },
+        "prompt.txt": {
+          "bytes": 239,
+          "sha256": "c76552739649334ffaad1579148fd2e6d2ec66e632f5948558a82a0fe2149020"
+        },
+        "target_video.mp4": {
+          "bytes": 77173199,
+          "sha256": "62e2c6f85775086b5455bc27c50aedaa855a1d6783d38a35d240c8560c77d0ca"
+        }
+      },
+      "media": {
+        "input": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000112__input_video.mp4",
+          "sha256": "af602a1072a72c663d863fadbcf2b8d8dfb7cf01c2529a92903a9baf0d705a35",
+          "bytes": 6559448,
+          "width": 1944,
+          "height": 2592,
+          "fps": 29.916666666666668,
+          "num_frames": 58
+        },
+        "target": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000112__target_video.mp4",
+          "sha256": "62e2c6f85775086b5455bc27c50aedaa855a1d6783d38a35d240c8560c77d0ca",
+          "bytes": 77173199,
+          "width": 1944,
+          "height": 2592,
+          "fps": 29.916666666666668,
+          "num_frames": 58
+        }
+      },
+      "automated_checks": [
+        {
+          "id": "four-file-contract",
+          "status": "PASS",
+          "summary": "The exact four non-empty canonical Final files match their create-only Gate C review copies.",
+          "evidence": {
+            "final_version_ids": {
+              "input_video.mp4": "iB7vGVMaU.YxCUkYuOrgYUvGo6hc.0XG",
+              "metadata.json": "f1M7eXH2A_JwCQLkYr97OmvTLGvWolD0",
+              "prompt.txt": "n_VE2L1qJb7ZPwhaKSdjdXJaTtU2Eqkk",
+              "target_video.mp4": "CMaV46JDgsXdb.9cj85vf8LiCis.bz.y"
+            },
+            "review_version_ids": {
+              "input_video.mp4": "lsVYe2HhjZFsINuhV6dvstUys4LViDhb",
+              "metadata.json": "LmcYUT0B1jyZievzcV.uSkgGHGV0QJ9l",
+              "prompt.txt": "lMe1EEIyNT_eraw_UZyJK5OtDAHiLWXx",
+              "target_video.mp4": "9dN5eU96uMsIS8gQAR3l2TF2snXprF5l"
+            },
+            "files": {
+              "input_video.mp4": {
+                "bytes": 6559448,
+                "sha256": "af602a1072a72c663d863fadbcf2b8d8dfb7cf01c2529a92903a9baf0d705a35"
+              },
+              "metadata.json": {
+                "bytes": 2128,
+                "sha256": "0c6ee8cd6d81054d6eb7b2b29f13500842675c3b24c8af0f984437d7ab9083ce"
+              },
+              "prompt.txt": {
+                "bytes": 239,
+                "sha256": "c76552739649334ffaad1579148fd2e6d2ec66e632f5948558a82a0fe2149020"
+              },
+              "target_video.mp4": {
+                "bytes": 77173199,
+                "sha256": "62e2c6f85775086b5455bc27c50aedaa855a1d6783d38a35d240c8560c77d0ca"
+              }
+            }
+          }
+        },
+        {
+          "id": "complete-media-contract",
+          "status": "PASS",
+          "summary": "Input and Target fully decoded with identical dimensions, FPS, frame count, and preserved pixels outside the caption region.",
+          "evidence": {
+            "decoded_frame_count": 58,
+            "changed_overlay_pixels": 58405536,
+            "outside_overlay_max_channel_delta": 3
+          }
+        },
+        {
+          "id": "caption-source-binding",
+          "status": "PASS",
+          "summary": "Prompt, Metadata display label, and the official source label are exactly bound.",
+          "evidence": {
+            "display_label": "ANOTHER",
+            "official_sign_slug": "another",
+            "source_sample_id": "another/gtsignstudy4a.7043-another-2023_01_25_20_32_05.780-0.mp4"
+          }
+        },
+        {
+          "id": "privacy-security",
+          "status": "PASS",
+          "summary": "Public review is compatible with CC BY 4.0 source media; complete human playback remains required for visible people and interiors.",
+          "evidence": {
+            "license": "CC BY 4.0",
+            "owner_review_required": true,
+            "evaluator_review_required": true
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000307",
+      "strata": [
+        "caption_length:short",
+        "participant_count:high",
+        "source_tar_size:medium",
+        "sample_input_size:large",
+        "formatting:plain"
+      ],
+      "selection_reason": "deterministic 12-sample risk-lattice representative for BLUE; covers the declared caption, participant, source-size, input-size, or formatting risks without treating each machine-audited word as a separate human-review stratum",
+      "viewing_cues": [
+        "Play the complete synchronized pair and confirm the exact bottom caption 'BLUE' is readable throughout.",
+        "Confirm timing, framing, and all pixels above the bottom caption region remain visually unchanged.",
+        "Cross-check Prompt, Metadata display_label, and source participant 4a.8014 against the media."
+      ],
+      "source": {
+        "dataset": "Georgia Tech PopSign ASL v1.0",
+        "sample_id": "blue/4a.8014-blue-2023_01_04_19_15_09.687-0.mp4",
+        "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#blue/4a.8014-blue-2023_01_04_19_15_09.687-0.mp4"
+      },
+      "prompt": "Preserve the complete Input video, including its timing, framing, and scene. Overlay the exact English caption 'BLUE' as a readable bottom caption throughout the video. Do not add, remove, or alter anything outside that caption overlay.",
+      "metadata": {
+        "schema_version": "1.2",
+        "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000307",
+        "task": {
+          "id": "Task_355",
+          "name": "reference_guided_isolated_sign_word_caption_overlay",
+          "modality": "v2v"
+        },
+        "source": {
+          "dataset": "Georgia Tech PopSign ASL v1.0",
+          "split": "game/train",
+          "sample_id": "blue/4a.8014-blue-2023_01_04_19_15_09.687-0.mp4",
+          "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#blue/4a.8014-blue-2023_01_04_19_15_09.687-0.mp4"
+        },
+        "media": {
+          "input": {
+            "file": "input_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 120.0,
+            "num_frames": 437
+          },
+          "target": {
+            "file": "target_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 120.0,
+            "num_frames": 437
+          }
+        },
+        "pipeline": {
+          "name": "task355-popsign-word-caption-overlay",
+          "version": "0.2.0",
+          "commit": "c58ff61a52c934d7f69e53f484146f14a7ba1b85"
+        },
+        "optional": {
+          "source_inventory_sha256": "5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5",
+          "source_catalog_sha256": "5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b",
+          "source_page_sha256": "d71241d56d6a16a4371dffddb7514d1d3ca08d618cf63c7279912f20b809a2aa",
+          "source_tar_etag": "915224952",
+          "source_tar_content_length": 2671093760,
+          "source_original_member": "4a.8014-blue-2023_01_04_19_15_09.687-0.mp4",
+          "source_preview_name": "139-blue.mp4",
+          "anonymous_participant_id": "4a.8014",
+          "official_sign_slug": "blue",
+          "display_label": "BLUE",
+          "caption_card_height": 518,
+          "input_video_sha256": "402ce2a9216a40f420742e01844d1e8f9bc427cf8a7e725e90e0e1cc3df76c00",
+          "decoded_frame_count": 437,
+          "outside_overlay_max_channel_delta": 3,
+          "changed_overlay_pixels": 440055492
+        },
+        "identity": {
+          "sample_fingerprint": "dc2e73ac125c429c5f8e035fdb5ec9681597b78fb6a2d3fdf3c009ce7acf38be"
+        }
+      },
+      "metadata_text": "{\n  \"schema_version\": \"1.2\",\n  \"sample_id\": \"Task_355_reference_guided_isolated_sign_word_caption_overlay_000000307\",\n  \"task\": {\n    \"id\": \"Task_355\",\n    \"name\": \"reference_guided_isolated_sign_word_caption_overlay\",\n    \"modality\": \"v2v\"\n  },\n  \"source\": {\n    \"dataset\": \"Georgia Tech PopSign ASL v1.0\",\n    \"split\": \"game/train\",\n    \"sample_id\": \"blue/4a.8014-blue-2023_01_04_19_15_09.687-0.mp4\",\n    \"uri\": \"s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#blue/4a.8014-blue-2023_01_04_19_15_09.687-0.mp4\"\n  },\n  \"media\": {\n    \"input\": {\n      \"file\": \"input_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 120.0,\n      \"num_frames\": 437\n    },\n    \"target\": {\n      \"file\": \"target_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 120.0,\n      \"num_frames\": 437\n    }\n  },\n  \"pipeline\": {\n    \"name\": \"task355-popsign-word-caption-overlay\",\n    \"version\": \"0.2.0\",\n    \"commit\": \"c58ff61a52c934d7f69e53f484146f14a7ba1b85\"\n  },\n  \"optional\": {\n    \"source_inventory_sha256\": \"5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5\",\n    \"source_catalog_sha256\": \"5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b\",\n    \"source_page_sha256\": \"d71241d56d6a16a4371dffddb7514d1d3ca08d618cf63c7279912f20b809a2aa\",\n    \"source_tar_etag\": \"915224952\",\n    \"source_tar_content_length\": 2671093760,\n    \"source_original_member\": \"4a.8014-blue-2023_01_04_19_15_09.687-0.mp4\",\n    \"source_preview_name\": \"139-blue.mp4\",\n    \"anonymous_participant_id\": \"4a.8014\",\n    \"official_sign_slug\": \"blue\",\n    \"display_label\": \"BLUE\",\n    \"caption_card_height\": 518,\n    \"input_video_sha256\": \"402ce2a9216a40f420742e01844d1e8f9bc427cf8a7e725e90e0e1cc3df76c00\",\n    \"decoded_frame_count\": 437,\n    \"outside_overlay_max_channel_delta\": 3,\n    \"changed_overlay_pixels\": 440055492\n  },\n  \"identity\": {\n    \"sample_fingerprint\": \"dc2e73ac125c429c5f8e035fdb5ec9681597b78fb6a2d3fdf3c009ce7acf38be\"\n  }\n}\n",
+      "files": {
+        "input_video.mp4": {
+          "bytes": 14265702,
+          "sha256": "402ce2a9216a40f420742e01844d1e8f9bc427cf8a7e725e90e0e1cc3df76c00"
+        },
+        "metadata.json": {
+          "bytes": 2037,
+          "sha256": "d46b47cc862dff3f2c8d494805597e39081b1449cb4930a57068d2d4b78ccc9f"
+        },
+        "prompt.txt": {
+          "bytes": 236,
+          "sha256": "87ec9ae4694763196b9806cd787ab6a731d78c30b2860cfbb1e98a940f83f30c"
+        },
+        "target_video.mp4": {
+          "bytes": 159498535,
+          "sha256": "92a3bdd40fde6995c581d83ad395c74af16636d306a1ef4f171556e9d00bc890"
+        }
+      },
+      "media": {
+        "input": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000307__input_video.mp4",
+          "sha256": "402ce2a9216a40f420742e01844d1e8f9bc427cf8a7e725e90e0e1cc3df76c00",
+          "bytes": 14265702,
+          "width": 1944,
+          "height": 2592,
+          "fps": 120.0,
+          "num_frames": 437
+        },
+        "target": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000307__target_video.mp4",
+          "sha256": "92a3bdd40fde6995c581d83ad395c74af16636d306a1ef4f171556e9d00bc890",
+          "bytes": 159498535,
+          "width": 1944,
+          "height": 2592,
+          "fps": 120.0,
+          "num_frames": 437
+        }
+      },
+      "automated_checks": [
+        {
+          "id": "four-file-contract",
+          "status": "PASS",
+          "summary": "The exact four non-empty canonical Final files match their create-only Gate C review copies.",
+          "evidence": {
+            "final_version_ids": {
+              "input_video.mp4": "hff0awWkn5H28LZX59WDmh6PMpLHcLOD",
+              "metadata.json": "u.fwzWc33Bo9AlWw_d6258lUjZEb0dD2",
+              "prompt.txt": "oaYU4nhul2CfCAMmavz8mnlrMukDj.E4",
+              "target_video.mp4": "TBJ1s6U3lpgKpndXdw4Jkf_VWRgmslmg"
+            },
+            "review_version_ids": {
+              "input_video.mp4": "nxMJxQqs99884Hie2KiqCOwTnPozA6xk",
+              "metadata.json": "aPKwUkc4bKwVcY_PNcomdBXUyhbTetXC",
+              "prompt.txt": "Xy70BMfG0urcejRQ6kT5Sj_skxsTZm.Q",
+              "target_video.mp4": "bAUH.Dqm054VJ0DCNlmhlFZCP7ykcTGg"
+            },
+            "files": {
+              "input_video.mp4": {
+                "bytes": 14265702,
+                "sha256": "402ce2a9216a40f420742e01844d1e8f9bc427cf8a7e725e90e0e1cc3df76c00"
+              },
+              "metadata.json": {
+                "bytes": 2037,
+                "sha256": "d46b47cc862dff3f2c8d494805597e39081b1449cb4930a57068d2d4b78ccc9f"
+              },
+              "prompt.txt": {
+                "bytes": 236,
+                "sha256": "87ec9ae4694763196b9806cd787ab6a731d78c30b2860cfbb1e98a940f83f30c"
+              },
+              "target_video.mp4": {
+                "bytes": 159498535,
+                "sha256": "92a3bdd40fde6995c581d83ad395c74af16636d306a1ef4f171556e9d00bc890"
+              }
+            }
+          }
+        },
+        {
+          "id": "complete-media-contract",
+          "status": "PASS",
+          "summary": "Input and Target fully decoded with identical dimensions, FPS, frame count, and preserved pixels outside the caption region.",
+          "evidence": {
+            "decoded_frame_count": 437,
+            "changed_overlay_pixels": 440055492,
+            "outside_overlay_max_channel_delta": 3
+          }
+        },
+        {
+          "id": "caption-source-binding",
+          "status": "PASS",
+          "summary": "Prompt, Metadata display label, and the official source label are exactly bound.",
+          "evidence": {
+            "display_label": "BLUE",
+            "official_sign_slug": "blue",
+            "source_sample_id": "blue/4a.8014-blue-2023_01_04_19_15_09.687-0.mp4"
+          }
+        },
+        {
+          "id": "privacy-security",
+          "status": "PASS",
+          "summary": "Public review is compatible with CC BY 4.0 source media; complete human playback remains required for visible people and interiors.",
+          "evidence": {
+            "license": "CC BY 4.0",
+            "owner_review_required": true,
+            "evaluator_review_required": true
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000429",
+      "strata": [
+        "caption_length:short",
+        "participant_count:low",
+        "source_tar_size:small",
+        "sample_input_size:medium",
+        "formatting:plain"
+      ],
+      "selection_reason": "deterministic 12-sample risk-lattice representative for CAR; covers the declared caption, participant, source-size, input-size, or formatting risks without treating each machine-audited word as a separate human-review stratum",
+      "viewing_cues": [
+        "Play the complete synchronized pair and confirm the exact bottom caption 'CAR' is readable throughout.",
+        "Confirm timing, framing, and all pixels above the bottom caption region remain visually unchanged.",
+        "Cross-check Prompt, Metadata display_label, and source participant gtsignstudy4a.7041 against the media."
+      ],
+      "source": {
+        "dataset": "Georgia Tech PopSign ASL v1.0",
+        "sample_id": "car/gtsignstudy4a.7041-car-2023_01_26_16_05_40.104-0.mp4",
+        "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#car/gtsignstudy4a.7041-car-2023_01_26_16_05_40.104-0.mp4"
+      },
+      "prompt": "Preserve the complete Input video, including its timing, framing, and scene. Overlay the exact English caption 'CAR' as a readable bottom caption throughout the video. Do not add, remove, or alter anything outside that caption overlay.",
+      "metadata": {
+        "schema_version": "1.2",
+        "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000429",
+        "task": {
+          "id": "Task_355",
+          "name": "reference_guided_isolated_sign_word_caption_overlay",
+          "modality": "v2v"
+        },
+        "source": {
+          "dataset": "Georgia Tech PopSign ASL v1.0",
+          "split": "game/train",
+          "sample_id": "car/gtsignstudy4a.7041-car-2023_01_26_16_05_40.104-0.mp4",
+          "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#car/gtsignstudy4a.7041-car-2023_01_26_16_05_40.104-0.mp4"
+        },
+        "media": {
+          "input": {
+            "file": "input_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 29.97002997002997,
+            "num_frames": 72
+          },
+          "target": {
+            "file": "target_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 29.97002997002997,
+            "num_frames": 72
+          }
+        },
+        "pipeline": {
+          "name": "task355-popsign-word-caption-overlay",
+          "version": "0.2.0",
+          "commit": "c58ff61a52c934d7f69e53f484146f14a7ba1b85"
+        },
+        "optional": {
+          "source_inventory_sha256": "5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5",
+          "source_catalog_sha256": "5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b",
+          "source_page_sha256": "dfb94563c5c864220c8fba507272178ce69d130f0416a71ff2f33c6c7dde2d97",
+          "source_tar_etag": "419387935",
+          "source_tar_content_length": 1389701120,
+          "source_original_member": "gtsignstudy4a.7041-car-2023_01_26_16_05_40.104-0.mp4",
+          "source_preview_name": "218-car.mp4",
+          "anonymous_participant_id": "gtsignstudy4a.7041",
+          "official_sign_slug": "car",
+          "display_label": "CAR",
+          "caption_card_height": 518,
+          "input_video_sha256": "aeaed9e252e729643db415f5e879410910284890b7fc375757c13379a32b0d57",
+          "decoded_frame_count": 72,
+          "outside_overlay_max_channel_delta": 3,
+          "changed_overlay_pixels": 72498166
+        },
+        "identity": {
+          "sample_fingerprint": "16b4fff4df1e272347230bdfc4eb3134cb6adda201e94bd2ab01352b6c8eb05c"
+        }
+      },
+      "metadata_text": "{\n  \"schema_version\": \"1.2\",\n  \"sample_id\": \"Task_355_reference_guided_isolated_sign_word_caption_overlay_000000429\",\n  \"task\": {\n    \"id\": \"Task_355\",\n    \"name\": \"reference_guided_isolated_sign_word_caption_overlay\",\n    \"modality\": \"v2v\"\n  },\n  \"source\": {\n    \"dataset\": \"Georgia Tech PopSign ASL v1.0\",\n    \"split\": \"game/train\",\n    \"sample_id\": \"car/gtsignstudy4a.7041-car-2023_01_26_16_05_40.104-0.mp4\",\n    \"uri\": \"s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#car/gtsignstudy4a.7041-car-2023_01_26_16_05_40.104-0.mp4\"\n  },\n  \"media\": {\n    \"input\": {\n      \"file\": \"input_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 29.97002997002997,\n      \"num_frames\": 72\n    },\n    \"target\": {\n      \"file\": \"target_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 29.97002997002997,\n      \"num_frames\": 72\n    }\n  },\n  \"pipeline\": {\n    \"name\": \"task355-popsign-word-caption-overlay\",\n    \"version\": \"0.2.0\",\n    \"commit\": \"c58ff61a52c934d7f69e53f484146f14a7ba1b85\"\n  },\n  \"optional\": {\n    \"source_inventory_sha256\": \"5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5\",\n    \"source_catalog_sha256\": \"5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b\",\n    \"source_page_sha256\": \"dfb94563c5c864220c8fba507272178ce69d130f0416a71ff2f33c6c7dde2d97\",\n    \"source_tar_etag\": \"419387935\",\n    \"source_tar_content_length\": 1389701120,\n    \"source_original_member\": \"gtsignstudy4a.7041-car-2023_01_26_16_05_40.104-0.mp4\",\n    \"source_preview_name\": \"218-car.mp4\",\n    \"anonymous_participant_id\": \"gtsignstudy4a.7041\",\n    \"official_sign_slug\": \"car\",\n    \"display_label\": \"CAR\",\n    \"caption_card_height\": 518,\n    \"input_video_sha256\": \"aeaed9e252e729643db415f5e879410910284890b7fc375757c13379a32b0d57\",\n    \"decoded_frame_count\": 72,\n    \"outside_overlay_max_channel_delta\": 3,\n    \"changed_overlay_pixels\": 72498166\n  },\n  \"identity\": {\n    \"sample_fingerprint\": \"16b4fff4df1e272347230bdfc4eb3134cb6adda201e94bd2ab01352b6c8eb05c\"\n  }\n}\n",
+      "files": {
+        "input_video.mp4": {
+          "bytes": 6595437,
+          "sha256": "aeaed9e252e729643db415f5e879410910284890b7fc375757c13379a32b0d57"
+        },
+        "metadata.json": {
+          "bytes": 2093,
+          "sha256": "184051ed7e2506a5a5e85087006121907178fcb5cd7455490198c49d9d1d5c40"
+        },
+        "prompt.txt": {
+          "bytes": 235,
+          "sha256": "f23c4ba6a0de5663cef2038cf52eb16ac47afbdc0d47e637e31e58664a9893bb"
+        },
+        "target_video.mp4": {
+          "bytes": 69388117,
+          "sha256": "c12f6b788fb38c1c1230d967d9df98a8a861607111b44c854a67dc27d13b7b61"
+        }
+      },
+      "media": {
+        "input": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000429__input_video.mp4",
+          "sha256": "aeaed9e252e729643db415f5e879410910284890b7fc375757c13379a32b0d57",
+          "bytes": 6595437,
+          "width": 1944,
+          "height": 2592,
+          "fps": 29.97002997002997,
+          "num_frames": 72
+        },
+        "target": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000429__target_video.mp4",
+          "sha256": "c12f6b788fb38c1c1230d967d9df98a8a861607111b44c854a67dc27d13b7b61",
+          "bytes": 69388117,
+          "width": 1944,
+          "height": 2592,
+          "fps": 29.97002997002997,
+          "num_frames": 72
+        }
+      },
+      "automated_checks": [
+        {
+          "id": "four-file-contract",
+          "status": "PASS",
+          "summary": "The exact four non-empty canonical Final files match their create-only Gate C review copies.",
+          "evidence": {
+            "final_version_ids": {
+              "input_video.mp4": "i2WEaH27dmmLJ3u4Wb2B5OHpffOD__BX",
+              "metadata.json": "n03RWlk82Z0xlWykwzj_otdRCl3p9kdB",
+              "prompt.txt": "4q8iPt6mXc0E8Dqee15Q2bVoBoRtxUpV",
+              "target_video.mp4": "NJayF32aGySGG8CbosU6QsC_P_05sb6T"
+            },
+            "review_version_ids": {
+              "input_video.mp4": "lmauw5iaNeb6FEs0Iq0eO3DGVMIbakq0",
+              "metadata.json": "RmXGOqk0Dz0MkYo2KdCznhzNXemlpsiE",
+              "prompt.txt": "Pe9fIuQ5S31nZBbB5VaJklPyU2T4jtW3",
+              "target_video.mp4": "nWeF7t9UO_LIOdFDOhdmfiLfaJanXDGe"
+            },
+            "files": {
+              "input_video.mp4": {
+                "bytes": 6595437,
+                "sha256": "aeaed9e252e729643db415f5e879410910284890b7fc375757c13379a32b0d57"
+              },
+              "metadata.json": {
+                "bytes": 2093,
+                "sha256": "184051ed7e2506a5a5e85087006121907178fcb5cd7455490198c49d9d1d5c40"
+              },
+              "prompt.txt": {
+                "bytes": 235,
+                "sha256": "f23c4ba6a0de5663cef2038cf52eb16ac47afbdc0d47e637e31e58664a9893bb"
+              },
+              "target_video.mp4": {
+                "bytes": 69388117,
+                "sha256": "c12f6b788fb38c1c1230d967d9df98a8a861607111b44c854a67dc27d13b7b61"
+              }
+            }
+          }
+        },
+        {
+          "id": "complete-media-contract",
+          "status": "PASS",
+          "summary": "Input and Target fully decoded with identical dimensions, FPS, frame count, and preserved pixels outside the caption region.",
+          "evidence": {
+            "decoded_frame_count": 72,
+            "changed_overlay_pixels": 72498166,
+            "outside_overlay_max_channel_delta": 3
+          }
+        },
+        {
+          "id": "caption-source-binding",
+          "status": "PASS",
+          "summary": "Prompt, Metadata display label, and the official source label are exactly bound.",
+          "evidence": {
+            "display_label": "CAR",
+            "official_sign_slug": "car",
+            "source_sample_id": "car/gtsignstudy4a.7041-car-2023_01_26_16_05_40.104-0.mp4"
+          }
+        },
+        {
+          "id": "privacy-security",
+          "status": "PASS",
+          "summary": "Public review is compatible with CC BY 4.0 source media; complete human playback remains required for visible people and interiors.",
+          "evidence": {
+            "license": "CC BY 4.0",
+            "owner_review_required": true,
+            "evaluator_review_required": true
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000520",
+      "strata": [
+        "caption_length:medium",
+        "participant_count:medium",
+        "source_tar_size:small",
+        "sample_input_size:large",
+        "formatting:plain"
+      ],
+      "selection_reason": "deterministic 12-sample risk-lattice representative for CHEEK; covers the declared caption, participant, source-size, input-size, or formatting risks without treating each machine-audited word as a separate human-review stratum",
+      "viewing_cues": [
+        "Play the complete synchronized pair and confirm the exact bottom caption 'CHEEK' is readable throughout.",
+        "Confirm timing, framing, and all pixels above the bottom caption region remain visually unchanged.",
+        "Cross-check Prompt, Metadata display_label, and source participant gtsignstudy4a.8045 against the media."
+      ],
+      "source": {
+        "dataset": "Georgia Tech PopSign ASL v1.0",
+        "sample_id": "cheek/gtsignstudy4a.8045-cheek-2023_01_26_17_40_00.476-0.mp4",
+        "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#cheek/gtsignstudy4a.8045-cheek-2023_01_26_17_40_00.476-0.mp4"
+      },
+      "prompt": "Preserve the complete Input video, including its timing, framing, and scene. Overlay the exact English caption 'CHEEK' as a readable bottom caption throughout the video. Do not add, remove, or alter anything outside that caption overlay.",
+      "metadata": {
+        "schema_version": "1.2",
+        "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000520",
+        "task": {
+          "id": "Task_355",
+          "name": "reference_guided_isolated_sign_word_caption_overlay",
+          "modality": "v2v"
+        },
+        "source": {
+          "dataset": "Georgia Tech PopSign ASL v1.0",
+          "split": "game/train",
+          "sample_id": "cheek/gtsignstudy4a.8045-cheek-2023_01_26_17_40_00.476-0.mp4",
+          "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#cheek/gtsignstudy4a.8045-cheek-2023_01_26_17_40_00.476-0.mp4"
+        },
+        "media": {
+          "input": {
+            "file": "input_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 29.916666666666668,
+            "num_frames": 214
+          },
+          "target": {
+            "file": "target_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 29.916666666666668,
+            "num_frames": 214
+          }
+        },
+        "pipeline": {
+          "name": "task355-popsign-word-caption-overlay",
+          "version": "0.2.0",
+          "commit": "c58ff61a52c934d7f69e53f484146f14a7ba1b85"
+        },
+        "optional": {
+          "source_inventory_sha256": "5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5",
+          "source_catalog_sha256": "5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b",
+          "source_page_sha256": "ab2894eeeba0f422fbfda333f991acbb80a81f605f5b4ab426554acfa0c2e649",
+          "source_tar_etag": "920325874",
+          "source_tar_content_length": 2076241920,
+          "source_original_member": "gtsignstudy4a.8045-cheek-2023_01_26_17_40_00.476-0.mp4",
+          "source_preview_name": "72-cheek.mp4",
+          "anonymous_participant_id": "gtsignstudy4a.8045",
+          "official_sign_slug": "cheek",
+          "display_label": "CHEEK",
+          "caption_card_height": 518,
+          "input_video_sha256": "efaa7172b7a9cc6552ec6a84130370d6278523e5827d5aade82ae8dc978006b0",
+          "decoded_frame_count": 214,
+          "outside_overlay_max_channel_delta": 3,
+          "changed_overlay_pixels": 215479598
+        },
+        "identity": {
+          "sample_fingerprint": "1f493a5b69c33a867c0e047141b49285bea3cd176c5fe573a178288dc3401f43"
+        }
+      },
+      "metadata_text": "{\n  \"schema_version\": \"1.2\",\n  \"sample_id\": \"Task_355_reference_guided_isolated_sign_word_caption_overlay_000000520\",\n  \"task\": {\n    \"id\": \"Task_355\",\n    \"name\": \"reference_guided_isolated_sign_word_caption_overlay\",\n    \"modality\": \"v2v\"\n  },\n  \"source\": {\n    \"dataset\": \"Georgia Tech PopSign ASL v1.0\",\n    \"split\": \"game/train\",\n    \"sample_id\": \"cheek/gtsignstudy4a.8045-cheek-2023_01_26_17_40_00.476-0.mp4\",\n    \"uri\": \"s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#cheek/gtsignstudy4a.8045-cheek-2023_01_26_17_40_00.476-0.mp4\"\n  },\n  \"media\": {\n    \"input\": {\n      \"file\": \"input_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 29.916666666666668,\n      \"num_frames\": 214\n    },\n    \"target\": {\n      \"file\": \"target_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 29.916666666666668,\n      \"num_frames\": 214\n    }\n  },\n  \"pipeline\": {\n    \"name\": \"task355-popsign-word-caption-overlay\",\n    \"version\": \"0.2.0\",\n    \"commit\": \"c58ff61a52c934d7f69e53f484146f14a7ba1b85\"\n  },\n  \"optional\": {\n    \"source_inventory_sha256\": \"5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5\",\n    \"source_catalog_sha256\": \"5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b\",\n    \"source_page_sha256\": \"ab2894eeeba0f422fbfda333f991acbb80a81f605f5b4ab426554acfa0c2e649\",\n    \"source_tar_etag\": \"920325874\",\n    \"source_tar_content_length\": 2076241920,\n    \"source_original_member\": \"gtsignstudy4a.8045-cheek-2023_01_26_17_40_00.476-0.mp4\",\n    \"source_preview_name\": \"72-cheek.mp4\",\n    \"anonymous_participant_id\": \"gtsignstudy4a.8045\",\n    \"official_sign_slug\": \"cheek\",\n    \"display_label\": \"CHEEK\",\n    \"caption_card_height\": 518,\n    \"input_video_sha256\": \"efaa7172b7a9cc6552ec6a84130370d6278523e5827d5aade82ae8dc978006b0\",\n    \"decoded_frame_count\": 214,\n    \"outside_overlay_max_channel_delta\": 3,\n    \"changed_overlay_pixels\": 215479598\n  },\n  \"identity\": {\n    \"sample_fingerprint\": \"1f493a5b69c33a867c0e047141b49285bea3cd176c5fe573a178288dc3401f43\"\n  }\n}\n",
+      "files": {
+        "input_video.mp4": {
+          "bytes": 32689969,
+          "sha256": "efaa7172b7a9cc6552ec6a84130370d6278523e5827d5aade82ae8dc978006b0"
+        },
+        "metadata.json": {
+          "bytes": 2114,
+          "sha256": "9542627986c2fbc1c793fabd1e0107de0e83fbc0dd69be33185518dd6776f92d"
+        },
+        "prompt.txt": {
+          "bytes": 237,
+          "sha256": "7c8ce948aaf858833487610aa1645fc0d2cbba40016795bcc2d795623cfcc2c5"
+        },
+        "target_video.mp4": {
+          "bytes": 349352784,
+          "sha256": "4a26b6177638ea94b6fae9290d55ad58e88e3756d6f72de22ab2dff1394417ea"
+        }
+      },
+      "media": {
+        "input": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000520__input_video.mp4",
+          "sha256": "efaa7172b7a9cc6552ec6a84130370d6278523e5827d5aade82ae8dc978006b0",
+          "bytes": 32689969,
+          "width": 1944,
+          "height": 2592,
+          "fps": 29.916666666666668,
+          "num_frames": 214
+        },
+        "target": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000520__target_video.mp4",
+          "sha256": "4a26b6177638ea94b6fae9290d55ad58e88e3756d6f72de22ab2dff1394417ea",
+          "bytes": 349352784,
+          "width": 1944,
+          "height": 2592,
+          "fps": 29.916666666666668,
+          "num_frames": 214
+        }
+      },
+      "automated_checks": [
+        {
+          "id": "four-file-contract",
+          "status": "PASS",
+          "summary": "The exact four non-empty canonical Final files match their create-only Gate C review copies.",
+          "evidence": {
+            "final_version_ids": {
+              "input_video.mp4": "IJje8eS8nov0ppPpBhu4zJmNhTcHR4AT",
+              "metadata.json": "Kxk12IYMlfhVAU_nQX.etbtXo0XSruqo",
+              "prompt.txt": "Zts7bbDBA662KJefN6wqwrGibTelePew",
+              "target_video.mp4": "m3nDDe8mcXmmrL27Z.MbGui5pVPB62DU"
+            },
+            "review_version_ids": {
+              "input_video.mp4": "cXQiis5tzFqhrJEhWzGZ0kMVnicU0gVZ",
+              "metadata.json": "Ow__239ls7iAY6wSoEkaRlfSZSSdSotC",
+              "prompt.txt": "K6Z7mmNuhZm_omGsY5N0V9wGT7aX7tH5",
+              "target_video.mp4": "2rNp_9sEUFCjj571P.oZv_miBPSr4jdo"
+            },
+            "files": {
+              "input_video.mp4": {
+                "bytes": 32689969,
+                "sha256": "efaa7172b7a9cc6552ec6a84130370d6278523e5827d5aade82ae8dc978006b0"
+              },
+              "metadata.json": {
+                "bytes": 2114,
+                "sha256": "9542627986c2fbc1c793fabd1e0107de0e83fbc0dd69be33185518dd6776f92d"
+              },
+              "prompt.txt": {
+                "bytes": 237,
+                "sha256": "7c8ce948aaf858833487610aa1645fc0d2cbba40016795bcc2d795623cfcc2c5"
+              },
+              "target_video.mp4": {
+                "bytes": 349352784,
+                "sha256": "4a26b6177638ea94b6fae9290d55ad58e88e3756d6f72de22ab2dff1394417ea"
+              }
+            }
+          }
+        },
+        {
+          "id": "complete-media-contract",
+          "status": "PASS",
+          "summary": "Input and Target fully decoded with identical dimensions, FPS, frame count, and preserved pixels outside the caption region.",
+          "evidence": {
+            "decoded_frame_count": 214,
+            "changed_overlay_pixels": 215479598,
+            "outside_overlay_max_channel_delta": 3
+          }
+        },
+        {
+          "id": "caption-source-binding",
+          "status": "PASS",
+          "summary": "Prompt, Metadata display label, and the official source label are exactly bound.",
+          "evidence": {
+            "display_label": "CHEEK",
+            "official_sign_slug": "cheek",
+            "source_sample_id": "cheek/gtsignstudy4a.8045-cheek-2023_01_26_17_40_00.476-0.mp4"
+          }
+        },
+        {
+          "id": "privacy-security",
+          "status": "PASS",
+          "summary": "Public review is compatible with CC BY 4.0 source media; complete human playback remains required for visible people and interiors.",
+          "evidence": {
+            "license": "CC BY 4.0",
+            "owner_review_required": true,
+            "evaluator_review_required": true
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000667",
+      "strata": [
+        "caption_length:medium",
+        "participant_count:high",
+        "source_tar_size:large",
+        "sample_input_size:large",
+        "formatting:plain"
+      ],
+      "selection_reason": "deterministic 12-sample risk-lattice representative for DANCE; covers the declared caption, participant, source-size, input-size, or formatting risks without treating each machine-audited word as a separate human-review stratum",
+      "viewing_cues": [
+        "Play the complete synchronized pair and confirm the exact bottom caption 'DANCE' is readable throughout.",
+        "Confirm timing, framing, and all pixels above the bottom caption region remain visually unchanged.",
+        "Cross-check Prompt, Metadata display_label, and source participant 4a.8014 against the media."
+      ],
+      "source": {
+        "dataset": "Georgia Tech PopSign ASL v1.0",
+        "sample_id": "dance/4a.8014-dance-2023_01_04_18_54_58.187-0.mp4",
+        "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#dance/4a.8014-dance-2023_01_04_18_54_58.187-0.mp4"
+      },
+      "prompt": "Preserve the complete Input video, including its timing, framing, and scene. Overlay the exact English caption 'DANCE' as a readable bottom caption throughout the video. Do not add, remove, or alter anything outside that caption overlay.",
+      "metadata": {
+        "schema_version": "1.2",
+        "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000667",
+        "task": {
+          "id": "Task_355",
+          "name": "reference_guided_isolated_sign_word_caption_overlay",
+          "modality": "v2v"
+        },
+        "source": {
+          "dataset": "Georgia Tech PopSign ASL v1.0",
+          "split": "game/train",
+          "sample_id": "dance/4a.8014-dance-2023_01_04_18_54_58.187-0.mp4",
+          "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#dance/4a.8014-dance-2023_01_04_18_54_58.187-0.mp4"
+        },
+        "media": {
+          "input": {
+            "file": "input_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 120.0,
+            "num_frames": 577
+          },
+          "target": {
+            "file": "target_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 120.0,
+            "num_frames": 577
+          }
+        },
+        "pipeline": {
+          "name": "task355-popsign-word-caption-overlay",
+          "version": "0.2.0",
+          "commit": "c58ff61a52c934d7f69e53f484146f14a7ba1b85"
+        },
+        "optional": {
+          "source_inventory_sha256": "5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5",
+          "source_catalog_sha256": "5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b",
+          "source_page_sha256": "a10baa8cac31d52d5fa97423922d839bb1b91863cc77cf214ea32338c6e6f79c",
+          "source_tar_etag": "2928313335",
+          "source_tar_content_length": 3606722560,
+          "source_original_member": "4a.8014-dance-2023_01_04_18_54_58.187-0.mp4",
+          "source_preview_name": "509-dance.mp4",
+          "anonymous_participant_id": "4a.8014",
+          "official_sign_slug": "dance",
+          "display_label": "DANCE",
+          "caption_card_height": 518,
+          "input_video_sha256": "9d31301a42e36ee7e4b7e7e349da7f95ad1f107085a195424ea6a8738321a238",
+          "decoded_frame_count": 577,
+          "outside_overlay_max_channel_delta": 3,
+          "changed_overlay_pixels": 581034334
+        },
+        "identity": {
+          "sample_fingerprint": "839c46980c59841784a40cf281bde27c56816d03ee53ea283995b59fe0415702"
+        }
+      },
+      "metadata_text": "{\n  \"schema_version\": \"1.2\",\n  \"sample_id\": \"Task_355_reference_guided_isolated_sign_word_caption_overlay_000000667\",\n  \"task\": {\n    \"id\": \"Task_355\",\n    \"name\": \"reference_guided_isolated_sign_word_caption_overlay\",\n    \"modality\": \"v2v\"\n  },\n  \"source\": {\n    \"dataset\": \"Georgia Tech PopSign ASL v1.0\",\n    \"split\": \"game/train\",\n    \"sample_id\": \"dance/4a.8014-dance-2023_01_04_18_54_58.187-0.mp4\",\n    \"uri\": \"s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#dance/4a.8014-dance-2023_01_04_18_54_58.187-0.mp4\"\n  },\n  \"media\": {\n    \"input\": {\n      \"file\": \"input_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 120.0,\n      \"num_frames\": 577\n    },\n    \"target\": {\n      \"file\": \"target_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 120.0,\n      \"num_frames\": 577\n    }\n  },\n  \"pipeline\": {\n    \"name\": \"task355-popsign-word-caption-overlay\",\n    \"version\": \"0.2.0\",\n    \"commit\": \"c58ff61a52c934d7f69e53f484146f14a7ba1b85\"\n  },\n  \"optional\": {\n    \"source_inventory_sha256\": \"5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5\",\n    \"source_catalog_sha256\": \"5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b\",\n    \"source_page_sha256\": \"a10baa8cac31d52d5fa97423922d839bb1b91863cc77cf214ea32338c6e6f79c\",\n    \"source_tar_etag\": \"2928313335\",\n    \"source_tar_content_length\": 3606722560,\n    \"source_original_member\": \"4a.8014-dance-2023_01_04_18_54_58.187-0.mp4\",\n    \"source_preview_name\": \"509-dance.mp4\",\n    \"anonymous_participant_id\": \"4a.8014\",\n    \"official_sign_slug\": \"dance\",\n    \"display_label\": \"DANCE\",\n    \"caption_card_height\": 518,\n    \"input_video_sha256\": \"9d31301a42e36ee7e4b7e7e349da7f95ad1f107085a195424ea6a8738321a238\",\n    \"decoded_frame_count\": 577,\n    \"outside_overlay_max_channel_delta\": 3,\n    \"changed_overlay_pixels\": 581034334\n  },\n  \"identity\": {\n    \"sample_fingerprint\": \"839c46980c59841784a40cf281bde27c56816d03ee53ea283995b59fe0415702\"\n  }\n}\n",
+      "files": {
+        "input_video.mp4": {
+          "bytes": 22039472,
+          "sha256": "9d31301a42e36ee7e4b7e7e349da7f95ad1f107085a195424ea6a8738321a238"
+        },
+        "metadata.json": {
+          "bytes": 2046,
+          "sha256": "4c608764039ce0de4333d3edd27d59bb596e0b6889aceccad1bcd2359d8b24f9"
+        },
+        "prompt.txt": {
+          "bytes": 237,
+          "sha256": "9e4b36a5ec87cfc93fd83edff58e0c81a72491e4908753d42aa9e96d72520073"
+        },
+        "target_video.mp4": {
+          "bytes": 228632879,
+          "sha256": "2fddcb3cc4af69286ee3aa42a67a9eea87f034eb60c1021cdfa4b3bd2cf54c98"
+        }
+      },
+      "media": {
+        "input": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000667__input_video.mp4",
+          "sha256": "9d31301a42e36ee7e4b7e7e349da7f95ad1f107085a195424ea6a8738321a238",
+          "bytes": 22039472,
+          "width": 1944,
+          "height": 2592,
+          "fps": 120.0,
+          "num_frames": 577
+        },
+        "target": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000667__target_video.mp4",
+          "sha256": "2fddcb3cc4af69286ee3aa42a67a9eea87f034eb60c1021cdfa4b3bd2cf54c98",
+          "bytes": 228632879,
+          "width": 1944,
+          "height": 2592,
+          "fps": 120.0,
+          "num_frames": 577
+        }
+      },
+      "automated_checks": [
+        {
+          "id": "four-file-contract",
+          "status": "PASS",
+          "summary": "The exact four non-empty canonical Final files match their create-only Gate C review copies.",
+          "evidence": {
+            "final_version_ids": {
+              "input_video.mp4": "txEdmoXC4QChOdhc2lALglqMzZS9Zde4",
+              "metadata.json": "xGSnSNXZ5zK1PKYr2cd7dD06ViA2aR3e",
+              "prompt.txt": "O3IhjdKpX9xloYMUTVm43kQdP7.zcY0f",
+              "target_video.mp4": "kUqiH7mDMG7.MseVbt28LduC2_VcmovO"
+            },
+            "review_version_ids": {
+              "input_video.mp4": "ccGbGF1v.0loQK.k8XGpNopP4t7Dd6ht",
+              "metadata.json": "b7ENq2tfdbuxB9RK_ierVBwEdiXYdYNP",
+              "prompt.txt": "Z3toy7KRxSf8NoK0K30P186PmJe4P9mq",
+              "target_video.mp4": "dYB72VWPuzLuYi_NqcdWdpz8KMXmQW45"
+            },
+            "files": {
+              "input_video.mp4": {
+                "bytes": 22039472,
+                "sha256": "9d31301a42e36ee7e4b7e7e349da7f95ad1f107085a195424ea6a8738321a238"
+              },
+              "metadata.json": {
+                "bytes": 2046,
+                "sha256": "4c608764039ce0de4333d3edd27d59bb596e0b6889aceccad1bcd2359d8b24f9"
+              },
+              "prompt.txt": {
+                "bytes": 237,
+                "sha256": "9e4b36a5ec87cfc93fd83edff58e0c81a72491e4908753d42aa9e96d72520073"
+              },
+              "target_video.mp4": {
+                "bytes": 228632879,
+                "sha256": "2fddcb3cc4af69286ee3aa42a67a9eea87f034eb60c1021cdfa4b3bd2cf54c98"
+              }
+            }
+          }
+        },
+        {
+          "id": "complete-media-contract",
+          "status": "PASS",
+          "summary": "Input and Target fully decoded with identical dimensions, FPS, frame count, and preserved pixels outside the caption region.",
+          "evidence": {
+            "decoded_frame_count": 577,
+            "changed_overlay_pixels": 581034334,
+            "outside_overlay_max_channel_delta": 3
+          }
+        },
+        {
+          "id": "caption-source-binding",
+          "status": "PASS",
+          "summary": "Prompt, Metadata display label, and the official source label are exactly bound.",
+          "evidence": {
+            "display_label": "DANCE",
+            "official_sign_slug": "dance",
+            "source_sample_id": "dance/4a.8014-dance-2023_01_04_18_54_58.187-0.mp4"
+          }
+        },
+        {
+          "id": "privacy-security",
+          "status": "PASS",
+          "summary": "Public review is compatible with CC BY 4.0 source media; complete human playback remains required for visible people and interiors.",
+          "evidence": {
+            "license": "CC BY 4.0",
+            "owner_review_required": true,
+            "evaluator_review_required": true
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000914",
+      "strata": [
+        "caption_length:short",
+        "participant_count:medium",
+        "source_tar_size:small",
+        "sample_input_size:small",
+        "formatting:plain"
+      ],
+      "selection_reason": "deterministic 12-sample risk-lattice representative for FAST; covers the declared caption, participant, source-size, input-size, or formatting risks without treating each machine-audited word as a separate human-review stratum",
+      "viewing_cues": [
+        "Play the complete synchronized pair and confirm the exact bottom caption 'FAST' is readable throughout.",
+        "Confirm timing, framing, and all pixels above the bottom caption region remain visually unchanged.",
+        "Cross-check Prompt, Metadata display_label, and source participant 4a.8902 against the media."
+      ],
+      "source": {
+        "dataset": "Georgia Tech PopSign ASL v1.0",
+        "sample_id": "fast/4a.8902-fast-2023_01_28_18_11_03.786-0.mp4",
+        "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#fast/4a.8902-fast-2023_01_28_18_11_03.786-0.mp4"
+      },
+      "prompt": "Preserve the complete Input video, including its timing, framing, and scene. Overlay the exact English caption 'FAST' as a readable bottom caption throughout the video. Do not add, remove, or alter anything outside that caption overlay.",
+      "metadata": {
+        "schema_version": "1.2",
+        "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000914",
+        "task": {
+          "id": "Task_355",
+          "name": "reference_guided_isolated_sign_word_caption_overlay",
+          "modality": "v2v"
+        },
+        "source": {
+          "dataset": "Georgia Tech PopSign ASL v1.0",
+          "split": "game/train",
+          "sample_id": "fast/4a.8902-fast-2023_01_28_18_11_03.786-0.mp4",
+          "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#fast/4a.8902-fast-2023_01_28_18_11_03.786-0.mp4"
+        },
+        "media": {
+          "input": {
+            "file": "input_video.mp4",
+            "width": 1080,
+            "height": 1920,
+            "fps": 30.0,
+            "num_frames": 50
+          },
+          "target": {
+            "file": "target_video.mp4",
+            "width": 1080,
+            "height": 1920,
+            "fps": 30.0,
+            "num_frames": 50
+          }
+        },
+        "pipeline": {
+          "name": "task355-popsign-word-caption-overlay",
+          "version": "0.2.0",
+          "commit": "c58ff61a52c934d7f69e53f484146f14a7ba1b85"
+        },
+        "optional": {
+          "source_inventory_sha256": "5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5",
+          "source_catalog_sha256": "5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b",
+          "source_page_sha256": "005e8454162140fa54c972473d4d22f4a6f30b77e25181d83cbec7063cfe83cc",
+          "source_tar_etag": "1061861117",
+          "source_tar_content_length": 1879285760,
+          "source_original_member": "4a.8902-fast-2023_01_28_18_11_03.786-0.mp4",
+          "source_preview_name": "166-fast.mp4",
+          "anonymous_participant_id": "4a.8902",
+          "official_sign_slug": "fast",
+          "display_label": "FAST",
+          "caption_card_height": 384,
+          "input_video_sha256": "ab1bb60397943ff9031824b0eb1d35ad36693654128834fb3ba739085cc112a0",
+          "decoded_frame_count": 50,
+          "outside_overlay_max_channel_delta": 0,
+          "changed_overlay_pixels": 20736000
+        },
+        "identity": {
+          "sample_fingerprint": "ab73a437d952f74e2462deaae0008003d40c456c28bc37295c4622ae28148e5f"
+        }
+      },
+      "metadata_text": "{\n  \"schema_version\": \"1.2\",\n  \"sample_id\": \"Task_355_reference_guided_isolated_sign_word_caption_overlay_000000914\",\n  \"task\": {\n    \"id\": \"Task_355\",\n    \"name\": \"reference_guided_isolated_sign_word_caption_overlay\",\n    \"modality\": \"v2v\"\n  },\n  \"source\": {\n    \"dataset\": \"Georgia Tech PopSign ASL v1.0\",\n    \"split\": \"game/train\",\n    \"sample_id\": \"fast/4a.8902-fast-2023_01_28_18_11_03.786-0.mp4\",\n    \"uri\": \"s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#fast/4a.8902-fast-2023_01_28_18_11_03.786-0.mp4\"\n  },\n  \"media\": {\n    \"input\": {\n      \"file\": \"input_video.mp4\",\n      \"width\": 1080,\n      \"height\": 1920,\n      \"fps\": 30.0,\n      \"num_frames\": 50\n    },\n    \"target\": {\n      \"file\": \"target_video.mp4\",\n      \"width\": 1080,\n      \"height\": 1920,\n      \"fps\": 30.0,\n      \"num_frames\": 50\n    }\n  },\n  \"pipeline\": {\n    \"name\": \"task355-popsign-word-caption-overlay\",\n    \"version\": \"0.2.0\",\n    \"commit\": \"c58ff61a52c934d7f69e53f484146f14a7ba1b85\"\n  },\n  \"optional\": {\n    \"source_inventory_sha256\": \"5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5\",\n    \"source_catalog_sha256\": \"5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b\",\n    \"source_page_sha256\": \"005e8454162140fa54c972473d4d22f4a6f30b77e25181d83cbec7063cfe83cc\",\n    \"source_tar_etag\": \"1061861117\",\n    \"source_tar_content_length\": 1879285760,\n    \"source_original_member\": \"4a.8902-fast-2023_01_28_18_11_03.786-0.mp4\",\n    \"source_preview_name\": \"166-fast.mp4\",\n    \"anonymous_participant_id\": \"4a.8902\",\n    \"official_sign_slug\": \"fast\",\n    \"display_label\": \"FAST\",\n    \"caption_card_height\": 384,\n    \"input_video_sha256\": \"ab1bb60397943ff9031824b0eb1d35ad36693654128834fb3ba739085cc112a0\",\n    \"decoded_frame_count\": 50,\n    \"outside_overlay_max_channel_delta\": 0,\n    \"changed_overlay_pixels\": 20736000\n  },\n  \"identity\": {\n    \"sample_fingerprint\": \"ab73a437d952f74e2462deaae0008003d40c456c28bc37295c4622ae28148e5f\"\n  }\n}\n",
+      "files": {
+        "input_video.mp4": {
+          "bytes": 770076,
+          "sha256": "ab1bb60397943ff9031824b0eb1d35ad36693654128834fb3ba739085cc112a0"
+        },
+        "metadata.json": {
+          "bytes": 2032,
+          "sha256": "daa72be4b25b7d4b65e2c347423eb8ca70b6b695d1de4bde2cae02242b981dc8"
+        },
+        "prompt.txt": {
+          "bytes": 236,
+          "sha256": "8d53c344799785226e8ac070a41c96cf5d9e80d0380794ce08a053e8b2ff9630"
+        },
+        "target_video.mp4": {
+          "bytes": 13459019,
+          "sha256": "7121e17c4446db60fbe82278ff2a7f3d6738e7a3e468f8c847065bf37f45841d"
+        }
+      },
+      "media": {
+        "input": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000914__input_video.mp4",
+          "sha256": "ab1bb60397943ff9031824b0eb1d35ad36693654128834fb3ba739085cc112a0",
+          "bytes": 770076,
+          "width": 1080,
+          "height": 1920,
+          "fps": 30.0,
+          "num_frames": 50
+        },
+        "target": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000000914__target_video.mp4",
+          "sha256": "7121e17c4446db60fbe82278ff2a7f3d6738e7a3e468f8c847065bf37f45841d",
+          "bytes": 13459019,
+          "width": 1080,
+          "height": 1920,
+          "fps": 30.0,
+          "num_frames": 50
+        }
+      },
+      "automated_checks": [
+        {
+          "id": "four-file-contract",
+          "status": "PASS",
+          "summary": "The exact four non-empty canonical Final files match their create-only Gate C review copies.",
+          "evidence": {
+            "final_version_ids": {
+              "input_video.mp4": "2P7Y4lxSAaJTVHoSYfnyZ8XjSYYN0aRr",
+              "metadata.json": "XmR8uv5oKKto3JyoT8DHmTNYN_Kq8MCg",
+              "prompt.txt": "sGMn_.5KmnpJkEO4_1vtJd8Jygq2EOc.",
+              "target_video.mp4": "ZtI76WppQG12uW9Y0eYgjmYer2TGz8qN"
+            },
+            "review_version_ids": {
+              "input_video.mp4": "bdiK438wvkUJEGFhDBorJvlL.Miob8EU",
+              "metadata.json": "Cen89OHtMhx7NjpM4jJgzCZURTmVtdiV",
+              "prompt.txt": "NcwpE2J2I0ZexJl6yotXvB2.XlxG.9RE",
+              "target_video.mp4": "PKjVvoHqXp6vqlGIHPtKVCLlKRJXIrVJ"
+            },
+            "files": {
+              "input_video.mp4": {
+                "bytes": 770076,
+                "sha256": "ab1bb60397943ff9031824b0eb1d35ad36693654128834fb3ba739085cc112a0"
+              },
+              "metadata.json": {
+                "bytes": 2032,
+                "sha256": "daa72be4b25b7d4b65e2c347423eb8ca70b6b695d1de4bde2cae02242b981dc8"
+              },
+              "prompt.txt": {
+                "bytes": 236,
+                "sha256": "8d53c344799785226e8ac070a41c96cf5d9e80d0380794ce08a053e8b2ff9630"
+              },
+              "target_video.mp4": {
+                "bytes": 13459019,
+                "sha256": "7121e17c4446db60fbe82278ff2a7f3d6738e7a3e468f8c847065bf37f45841d"
+              }
+            }
+          }
+        },
+        {
+          "id": "complete-media-contract",
+          "status": "PASS",
+          "summary": "Input and Target fully decoded with identical dimensions, FPS, frame count, and preserved pixels outside the caption region.",
+          "evidence": {
+            "decoded_frame_count": 50,
+            "changed_overlay_pixels": 20736000,
+            "outside_overlay_max_channel_delta": 0
+          }
+        },
+        {
+          "id": "caption-source-binding",
+          "status": "PASS",
+          "summary": "Prompt, Metadata display label, and the official source label are exactly bound.",
+          "evidence": {
+            "display_label": "FAST",
+            "official_sign_slug": "fast",
+            "source_sample_id": "fast/4a.8902-fast-2023_01_28_18_11_03.786-0.mp4"
+          }
+        },
+        {
+          "id": "privacy-security",
+          "status": "PASS",
+          "summary": "Public review is compatible with CC BY 4.0 source media; complete human playback remains required for visible people and interiors.",
+          "evidence": {
+            "license": "CC BY 4.0",
+            "owner_review_required": true,
+            "evaluator_review_required": true
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001146",
+      "strata": [
+        "caption_length:long",
+        "participant_count:low",
+        "source_tar_size:small",
+        "sample_input_size:medium",
+        "formatting:compound_slash"
+      ],
+      "selection_reason": "deterministic 12-sample risk-lattice representative for GLASS / WINDOW; covers the declared caption, participant, source-size, input-size, or formatting risks without treating each machine-audited word as a separate human-review stratum",
+      "viewing_cues": [
+        "Play the complete synchronized pair and confirm the exact bottom caption 'GLASS / WINDOW' is readable throughout.",
+        "Confirm timing, framing, and all pixels above the bottom caption region remain visually unchanged.",
+        "Cross-check Prompt, Metadata display_label, and source participant 4a.8020 against the media."
+      ],
+      "source": {
+        "dataset": "Georgia Tech PopSign ASL v1.0",
+        "sample_id": "glasswindow/4a.8020-glasswindow-2023_01_12_19_00_01.119-0.mp4",
+        "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#glasswindow/4a.8020-glasswindow-2023_01_12_19_00_01.119-0.mp4"
+      },
+      "prompt": "Preserve the complete Input video, including its timing, framing, and scene. Overlay the exact English caption 'GLASS / WINDOW' as a readable bottom caption throughout the video. Do not add, remove, or alter anything outside that caption overlay.",
+      "metadata": {
+        "schema_version": "1.2",
+        "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001146",
+        "task": {
+          "id": "Task_355",
+          "name": "reference_guided_isolated_sign_word_caption_overlay",
+          "modality": "v2v"
+        },
+        "source": {
+          "dataset": "Georgia Tech PopSign ASL v1.0",
+          "split": "game/train",
+          "sample_id": "glasswindow/4a.8020-glasswindow-2023_01_12_19_00_01.119-0.mp4",
+          "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#glasswindow/4a.8020-glasswindow-2023_01_12_19_00_01.119-0.mp4"
+        },
+        "media": {
+          "input": {
+            "file": "input_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 120.0,
+            "num_frames": 261
+          },
+          "target": {
+            "file": "target_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 120.0,
+            "num_frames": 261
+          }
+        },
+        "pipeline": {
+          "name": "task355-popsign-word-caption-overlay",
+          "version": "0.2.0",
+          "commit": "c58ff61a52c934d7f69e53f484146f14a7ba1b85"
+        },
+        "optional": {
+          "source_inventory_sha256": "5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5",
+          "source_catalog_sha256": "5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b",
+          "source_page_sha256": "00e7c0f0fb0db95c9c4007da997e94b30a53b761c8d41db26f7097719a31658f",
+          "source_tar_etag": "304472085",
+          "source_tar_content_length": 1651445760,
+          "source_original_member": "4a.8020-glasswindow-2023_01_12_19_00_01.119-0.mp4",
+          "source_preview_name": "178-glasswindow.mp4",
+          "anonymous_participant_id": "4a.8020",
+          "official_sign_slug": "glasswindow",
+          "display_label": "GLASS / WINDOW",
+          "caption_card_height": 518,
+          "input_video_sha256": "451eb23db721a11f3172e3c9606529aabd9fff11c0ae81ed7dbf3559ce5d4cc7",
+          "decoded_frame_count": 261,
+          "outside_overlay_max_channel_delta": 3,
+          "changed_overlay_pixels": 262824912
+        },
+        "identity": {
+          "sample_fingerprint": "2604f568eaada144515431cf5572ec9b5e96c238e7091d84f6349ba5b1b6b85b"
+        }
+      },
+      "metadata_text": "{\n  \"schema_version\": \"1.2\",\n  \"sample_id\": \"Task_355_reference_guided_isolated_sign_word_caption_overlay_000001146\",\n  \"task\": {\n    \"id\": \"Task_355\",\n    \"name\": \"reference_guided_isolated_sign_word_caption_overlay\",\n    \"modality\": \"v2v\"\n  },\n  \"source\": {\n    \"dataset\": \"Georgia Tech PopSign ASL v1.0\",\n    \"split\": \"game/train\",\n    \"sample_id\": \"glasswindow/4a.8020-glasswindow-2023_01_12_19_00_01.119-0.mp4\",\n    \"uri\": \"s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#glasswindow/4a.8020-glasswindow-2023_01_12_19_00_01.119-0.mp4\"\n  },\n  \"media\": {\n    \"input\": {\n      \"file\": \"input_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 120.0,\n      \"num_frames\": 261\n    },\n    \"target\": {\n      \"file\": \"target_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 120.0,\n      \"num_frames\": 261\n    }\n  },\n  \"pipeline\": {\n    \"name\": \"task355-popsign-word-caption-overlay\",\n    \"version\": \"0.2.0\",\n    \"commit\": \"c58ff61a52c934d7f69e53f484146f14a7ba1b85\"\n  },\n  \"optional\": {\n    \"source_inventory_sha256\": \"5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5\",\n    \"source_catalog_sha256\": \"5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b\",\n    \"source_page_sha256\": \"00e7c0f0fb0db95c9c4007da997e94b30a53b761c8d41db26f7097719a31658f\",\n    \"source_tar_etag\": \"304472085\",\n    \"source_tar_content_length\": 1651445760,\n    \"source_original_member\": \"4a.8020-glasswindow-2023_01_12_19_00_01.119-0.mp4\",\n    \"source_preview_name\": \"178-glasswindow.mp4\",\n    \"anonymous_participant_id\": \"4a.8020\",\n    \"official_sign_slug\": \"glasswindow\",\n    \"display_label\": \"GLASS / WINDOW\",\n    \"caption_card_height\": 518,\n    \"input_video_sha256\": \"451eb23db721a11f3172e3c9606529aabd9fff11c0ae81ed7dbf3559ce5d4cc7\",\n    \"decoded_frame_count\": 261,\n    \"outside_overlay_max_channel_delta\": 3,\n    \"changed_overlay_pixels\": 262824912\n  },\n  \"identity\": {\n    \"sample_fingerprint\": \"2604f568eaada144515431cf5572ec9b5e96c238e7091d84f6349ba5b1b6b85b\"\n  }\n}\n",
+      "files": {
+        "input_video.mp4": {
+          "bytes": 6063719,
+          "sha256": "451eb23db721a11f3172e3c9606529aabd9fff11c0ae81ed7dbf3559ce5d4cc7"
+        },
+        "metadata.json": {
+          "bytes": 2096,
+          "sha256": "2b57964c26cd816597670953158117ce88dd05104c339346d829d1f4dcb8b7a1"
+        },
+        "prompt.txt": {
+          "bytes": 246,
+          "sha256": "de068dcda88cde24d32415d877e096a0a445387fd937eae1ba634e181d411965"
+        },
+        "target_video.mp4": {
+          "bytes": 80420259,
+          "sha256": "ef250dc45e9305444bcad3288b9960c37d379a0833cf7427565df3f1a70863a8"
+        }
+      },
+      "media": {
+        "input": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001146__input_video.mp4",
+          "sha256": "451eb23db721a11f3172e3c9606529aabd9fff11c0ae81ed7dbf3559ce5d4cc7",
+          "bytes": 6063719,
+          "width": 1944,
+          "height": 2592,
+          "fps": 120.0,
+          "num_frames": 261
+        },
+        "target": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001146__target_video.mp4",
+          "sha256": "ef250dc45e9305444bcad3288b9960c37d379a0833cf7427565df3f1a70863a8",
+          "bytes": 80420259,
+          "width": 1944,
+          "height": 2592,
+          "fps": 120.0,
+          "num_frames": 261
+        }
+      },
+      "automated_checks": [
+        {
+          "id": "four-file-contract",
+          "status": "PASS",
+          "summary": "The exact four non-empty canonical Final files match their create-only Gate C review copies.",
+          "evidence": {
+            "final_version_ids": {
+              "input_video.mp4": "K0TYqqljm4VI8PrFVKMUPcrYu5w2Z4r1",
+              "metadata.json": "4HkV7W4mTYQ2QwINesHcf6X7T5SaZDE7",
+              "prompt.txt": "p31q3qpp485hLajh9pB6aHbHjWqBKxK6",
+              "target_video.mp4": "tISSeXy83nYVOKHzIxBPrCJiVs86.MnO"
+            },
+            "review_version_ids": {
+              "input_video.mp4": "vGCsk375akhbaN5_j4xkiWPAboVwZU5K",
+              "metadata.json": "sbvjW2Z4Li7B_dQokYXiU_fxv5I5Vikz",
+              "prompt.txt": "gmlZ7v0bkrX0IfG3qvz6aYf1caV8lesM",
+              "target_video.mp4": "J8A.hmj.8ofVrwz5vvE1VHlBkfCZ6QUD"
+            },
+            "files": {
+              "input_video.mp4": {
+                "bytes": 6063719,
+                "sha256": "451eb23db721a11f3172e3c9606529aabd9fff11c0ae81ed7dbf3559ce5d4cc7"
+              },
+              "metadata.json": {
+                "bytes": 2096,
+                "sha256": "2b57964c26cd816597670953158117ce88dd05104c339346d829d1f4dcb8b7a1"
+              },
+              "prompt.txt": {
+                "bytes": 246,
+                "sha256": "de068dcda88cde24d32415d877e096a0a445387fd937eae1ba634e181d411965"
+              },
+              "target_video.mp4": {
+                "bytes": 80420259,
+                "sha256": "ef250dc45e9305444bcad3288b9960c37d379a0833cf7427565df3f1a70863a8"
+              }
+            }
+          }
+        },
+        {
+          "id": "complete-media-contract",
+          "status": "PASS",
+          "summary": "Input and Target fully decoded with identical dimensions, FPS, frame count, and preserved pixels outside the caption region.",
+          "evidence": {
+            "decoded_frame_count": 261,
+            "changed_overlay_pixels": 262824912,
+            "outside_overlay_max_channel_delta": 3
+          }
+        },
+        {
+          "id": "caption-source-binding",
+          "status": "PASS",
+          "summary": "Prompt, Metadata display label, and the official source label are exactly bound.",
+          "evidence": {
+            "display_label": "GLASS / WINDOW",
+            "official_sign_slug": "glasswindow",
+            "source_sample_id": "glasswindow/4a.8020-glasswindow-2023_01_12_19_00_01.119-0.mp4"
+          }
+        },
+        {
+          "id": "privacy-security",
+          "status": "PASS",
+          "summary": "Public review is compatible with CC BY 4.0 source media; complete human playback remains required for visible people and interiors.",
+          "evidence": {
+            "license": "CC BY 4.0",
+            "owner_review_required": true,
+            "evaluator_review_required": true
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001385",
+      "strata": [
+        "caption_length:short",
+        "participant_count:medium",
+        "source_tar_size:medium",
+        "sample_input_size:large",
+        "formatting:plain"
+      ],
+      "selection_reason": "deterministic 12-sample risk-lattice representative for HIDE; covers the declared caption, participant, source-size, input-size, or formatting risks without treating each machine-audited word as a separate human-review stratum",
+      "viewing_cues": [
+        "Play the complete synchronized pair and confirm the exact bottom caption 'HIDE' is readable throughout.",
+        "Confirm timing, framing, and all pixels above the bottom caption region remain visually unchanged.",
+        "Cross-check Prompt, Metadata display_label, and source participant 4a.8014 against the media."
+      ],
+      "source": {
+        "dataset": "Georgia Tech PopSign ASL v1.0",
+        "sample_id": "hide/4a.8014-hide-2023_01_04_19_15_09.687-0.mp4",
+        "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#hide/4a.8014-hide-2023_01_04_19_15_09.687-0.mp4"
+      },
+      "prompt": "Preserve the complete Input video, including its timing, framing, and scene. Overlay the exact English caption 'HIDE' as a readable bottom caption throughout the video. Do not add, remove, or alter anything outside that caption overlay.",
+      "metadata": {
+        "schema_version": "1.2",
+        "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001385",
+        "task": {
+          "id": "Task_355",
+          "name": "reference_guided_isolated_sign_word_caption_overlay",
+          "modality": "v2v"
+        },
+        "source": {
+          "dataset": "Georgia Tech PopSign ASL v1.0",
+          "split": "game/train",
+          "sample_id": "hide/4a.8014-hide-2023_01_04_19_15_09.687-0.mp4",
+          "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#hide/4a.8014-hide-2023_01_04_19_15_09.687-0.mp4"
+        },
+        "media": {
+          "input": {
+            "file": "input_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 120.0,
+            "num_frames": 829
+          },
+          "target": {
+            "file": "target_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 120.0,
+            "num_frames": 829
+          }
+        },
+        "pipeline": {
+          "name": "task355-popsign-word-caption-overlay",
+          "version": "0.2.0",
+          "commit": "c58ff61a52c934d7f69e53f484146f14a7ba1b85"
+        },
+        "optional": {
+          "source_inventory_sha256": "5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5",
+          "source_catalog_sha256": "5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b",
+          "source_page_sha256": "658b30e354a0e9279c11b53004e256202f19576c124aa77d4357cd7ca494cdb7",
+          "source_tar_etag": "1397612011",
+          "source_tar_content_length": 2231787520,
+          "source_original_member": "4a.8014-hide-2023_01_04_19_15_09.687-0.mp4",
+          "source_preview_name": "179-hide.mp4",
+          "anonymous_participant_id": "4a.8014",
+          "official_sign_slug": "hide",
+          "display_label": "HIDE",
+          "caption_card_height": 518,
+          "input_video_sha256": "2513ab9a2df9aca5d29067e2a226ee3dd9085aaf47182a8a12d7f7778ce49808",
+          "decoded_frame_count": 829,
+          "outside_overlay_max_channel_delta": 3,
+          "changed_overlay_pixels": 834796334
+        },
+        "identity": {
+          "sample_fingerprint": "167e6daba1d5a4e5acf431bb5149cc34702ff4f9dc30876b0ecbcada41d82d93"
+        }
+      },
+      "metadata_text": "{\n  \"schema_version\": \"1.2\",\n  \"sample_id\": \"Task_355_reference_guided_isolated_sign_word_caption_overlay_000001385\",\n  \"task\": {\n    \"id\": \"Task_355\",\n    \"name\": \"reference_guided_isolated_sign_word_caption_overlay\",\n    \"modality\": \"v2v\"\n  },\n  \"source\": {\n    \"dataset\": \"Georgia Tech PopSign ASL v1.0\",\n    \"split\": \"game/train\",\n    \"sample_id\": \"hide/4a.8014-hide-2023_01_04_19_15_09.687-0.mp4\",\n    \"uri\": \"s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#hide/4a.8014-hide-2023_01_04_19_15_09.687-0.mp4\"\n  },\n  \"media\": {\n    \"input\": {\n      \"file\": \"input_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 120.0,\n      \"num_frames\": 829\n    },\n    \"target\": {\n      \"file\": \"target_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 120.0,\n      \"num_frames\": 829\n    }\n  },\n  \"pipeline\": {\n    \"name\": \"task355-popsign-word-caption-overlay\",\n    \"version\": \"0.2.0\",\n    \"commit\": \"c58ff61a52c934d7f69e53f484146f14a7ba1b85\"\n  },\n  \"optional\": {\n    \"source_inventory_sha256\": \"5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5\",\n    \"source_catalog_sha256\": \"5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b\",\n    \"source_page_sha256\": \"658b30e354a0e9279c11b53004e256202f19576c124aa77d4357cd7ca494cdb7\",\n    \"source_tar_etag\": \"1397612011\",\n    \"source_tar_content_length\": 2231787520,\n    \"source_original_member\": \"4a.8014-hide-2023_01_04_19_15_09.687-0.mp4\",\n    \"source_preview_name\": \"179-hide.mp4\",\n    \"anonymous_participant_id\": \"4a.8014\",\n    \"official_sign_slug\": \"hide\",\n    \"display_label\": \"HIDE\",\n    \"caption_card_height\": 518,\n    \"input_video_sha256\": \"2513ab9a2df9aca5d29067e2a226ee3dd9085aaf47182a8a12d7f7778ce49808\",\n    \"decoded_frame_count\": 829,\n    \"outside_overlay_max_channel_delta\": 3,\n    \"changed_overlay_pixels\": 834796334\n  },\n  \"identity\": {\n    \"sample_fingerprint\": \"167e6daba1d5a4e5acf431bb5149cc34702ff4f9dc30876b0ecbcada41d82d93\"\n  }\n}\n",
+      "files": {
+        "input_video.mp4": {
+          "bytes": 28516423,
+          "sha256": "2513ab9a2df9aca5d29067e2a226ee3dd9085aaf47182a8a12d7f7778ce49808"
+        },
+        "metadata.json": {
+          "bytes": 2038,
+          "sha256": "14630fd5052b34ea59087c4ccf5447152e438fe06a87867128ca312fd8d11a5a"
+        },
+        "prompt.txt": {
+          "bytes": 236,
+          "sha256": "a9f1a4223f986060f8c49a3ab710906562ca85704df666bd1363a547afff02f9"
+        },
+        "target_video.mp4": {
+          "bytes": 309947093,
+          "sha256": "a5ff17708c5e761f48f2be0cc4e897c941210b8fd96e070cf73ed40a1f0f85ad"
+        }
+      },
+      "media": {
+        "input": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001385__input_video.mp4",
+          "sha256": "2513ab9a2df9aca5d29067e2a226ee3dd9085aaf47182a8a12d7f7778ce49808",
+          "bytes": 28516423,
+          "width": 1944,
+          "height": 2592,
+          "fps": 120.0,
+          "num_frames": 829
+        },
+        "target": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001385__target_video.mp4",
+          "sha256": "a5ff17708c5e761f48f2be0cc4e897c941210b8fd96e070cf73ed40a1f0f85ad",
+          "bytes": 309947093,
+          "width": 1944,
+          "height": 2592,
+          "fps": 120.0,
+          "num_frames": 829
+        }
+      },
+      "automated_checks": [
+        {
+          "id": "four-file-contract",
+          "status": "PASS",
+          "summary": "The exact four non-empty canonical Final files match their create-only Gate C review copies.",
+          "evidence": {
+            "final_version_ids": {
+              "input_video.mp4": "YkvNUTuFnzFW8blaba.8v27k2E6o5qMS",
+              "metadata.json": "5qKlLTPQ8R.aLgMqA2YKsnyWTe6NpGOB",
+              "prompt.txt": "iQlztacdWAvgnZ3xYBdZDdwP63eZvXX0",
+              "target_video.mp4": "bNOReTUMKOk3aD7DktIuoBKzPgJoBUCU"
+            },
+            "review_version_ids": {
+              "input_video.mp4": "VbMbTqzclRyamSlJhuevx65PfOC3yBig",
+              "metadata.json": "DZf7muyHMCb3HWuzoyovsZgT4VBVowFZ",
+              "prompt.txt": "gOzByjV7x3hpcbfLQ55RgQPRlG8Ka1IV",
+              "target_video.mp4": "H2xdpgsi1S5m_.8klwD1G3MidI8vVtaA"
+            },
+            "files": {
+              "input_video.mp4": {
+                "bytes": 28516423,
+                "sha256": "2513ab9a2df9aca5d29067e2a226ee3dd9085aaf47182a8a12d7f7778ce49808"
+              },
+              "metadata.json": {
+                "bytes": 2038,
+                "sha256": "14630fd5052b34ea59087c4ccf5447152e438fe06a87867128ca312fd8d11a5a"
+              },
+              "prompt.txt": {
+                "bytes": 236,
+                "sha256": "a9f1a4223f986060f8c49a3ab710906562ca85704df666bd1363a547afff02f9"
+              },
+              "target_video.mp4": {
+                "bytes": 309947093,
+                "sha256": "a5ff17708c5e761f48f2be0cc4e897c941210b8fd96e070cf73ed40a1f0f85ad"
+              }
+            }
+          }
+        },
+        {
+          "id": "complete-media-contract",
+          "status": "PASS",
+          "summary": "Input and Target fully decoded with identical dimensions, FPS, frame count, and preserved pixels outside the caption region.",
+          "evidence": {
+            "decoded_frame_count": 829,
+            "changed_overlay_pixels": 834796334,
+            "outside_overlay_max_channel_delta": 3
+          }
+        },
+        {
+          "id": "caption-source-binding",
+          "status": "PASS",
+          "summary": "Prompt, Metadata display label, and the official source label are exactly bound.",
+          "evidence": {
+            "display_label": "HIDE",
+            "official_sign_slug": "hide",
+            "source_sample_id": "hide/4a.8014-hide-2023_01_04_19_15_09.687-0.mp4"
+          }
+        },
+        {
+          "id": "privacy-security",
+          "status": "PASS",
+          "summary": "Public review is compatible with CC BY 4.0 source media; complete human playback remains required for visible people and interiors.",
+          "evidence": {
+            "license": "CC BY 4.0",
+            "owner_review_required": true,
+            "evaluator_review_required": true
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001830",
+      "strata": [
+        "caption_length:medium",
+        "participant_count:low",
+        "source_tar_size:small",
+        "sample_input_size:small",
+        "formatting:plain"
+      ],
+      "selection_reason": "deterministic 12-sample risk-lattice representative for NAPKIN; covers the declared caption, participant, source-size, input-size, or formatting risks without treating each machine-audited word as a separate human-review stratum",
+      "viewing_cues": [
+        "Play the complete synchronized pair and confirm the exact bottom caption 'NAPKIN' is readable throughout.",
+        "Confirm timing, framing, and all pixels above the bottom caption region remain visually unchanged.",
+        "Cross-check Prompt, Metadata display_label, and source participant 4a.8902 against the media."
+      ],
+      "source": {
+        "dataset": "Georgia Tech PopSign ASL v1.0",
+        "sample_id": "napkin/4a.8902-napkin-2023_01_28_18_24_26.168-0.mp4",
+        "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#napkin/4a.8902-napkin-2023_01_28_18_24_26.168-0.mp4"
+      },
+      "prompt": "Preserve the complete Input video, including its timing, framing, and scene. Overlay the exact English caption 'NAPKIN' as a readable bottom caption throughout the video. Do not add, remove, or alter anything outside that caption overlay.",
+      "metadata": {
+        "schema_version": "1.2",
+        "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001830",
+        "task": {
+          "id": "Task_355",
+          "name": "reference_guided_isolated_sign_word_caption_overlay",
+          "modality": "v2v"
+        },
+        "source": {
+          "dataset": "Georgia Tech PopSign ASL v1.0",
+          "split": "game/train",
+          "sample_id": "napkin/4a.8902-napkin-2023_01_28_18_24_26.168-0.mp4",
+          "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#napkin/4a.8902-napkin-2023_01_28_18_24_26.168-0.mp4"
+        },
+        "media": {
+          "input": {
+            "file": "input_video.mp4",
+            "width": 1080,
+            "height": 1920,
+            "fps": 30.0,
+            "num_frames": 46
+          },
+          "target": {
+            "file": "target_video.mp4",
+            "width": 1080,
+            "height": 1920,
+            "fps": 30.0,
+            "num_frames": 46
+          }
+        },
+        "pipeline": {
+          "name": "task355-popsign-word-caption-overlay",
+          "version": "0.2.0",
+          "commit": "c58ff61a52c934d7f69e53f484146f14a7ba1b85"
+        },
+        "optional": {
+          "source_inventory_sha256": "5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5",
+          "source_catalog_sha256": "5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b",
+          "source_page_sha256": "877d89f0cc4cf02a5d827c2e3203e51023167b95f08f1f5fb914ae02eed9af0b",
+          "source_tar_etag": "3356898659",
+          "source_tar_content_length": 1771509760,
+          "source_original_member": "4a.8902-napkin-2023_01_28_18_24_26.168-0.mp4",
+          "source_preview_name": "54-napkin.mp4",
+          "anonymous_participant_id": "4a.8902",
+          "official_sign_slug": "napkin",
+          "display_label": "NAPKIN",
+          "caption_card_height": 384,
+          "input_video_sha256": "a441ecc837f8bbd0ae52d2a3500a1dce370c7d9c4cc3d0b9f902c0b0b2d46958",
+          "decoded_frame_count": 46,
+          "outside_overlay_max_channel_delta": 0,
+          "changed_overlay_pixels": 19077120
+        },
+        "identity": {
+          "sample_fingerprint": "2619569d552abdbea4ea062d8e5b854b03f8063c9c8a9d89d38c95c88f529b44"
+        }
+      },
+      "metadata_text": "{\n  \"schema_version\": \"1.2\",\n  \"sample_id\": \"Task_355_reference_guided_isolated_sign_word_caption_overlay_000001830\",\n  \"task\": {\n    \"id\": \"Task_355\",\n    \"name\": \"reference_guided_isolated_sign_word_caption_overlay\",\n    \"modality\": \"v2v\"\n  },\n  \"source\": {\n    \"dataset\": \"Georgia Tech PopSign ASL v1.0\",\n    \"split\": \"game/train\",\n    \"sample_id\": \"napkin/4a.8902-napkin-2023_01_28_18_24_26.168-0.mp4\",\n    \"uri\": \"s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#napkin/4a.8902-napkin-2023_01_28_18_24_26.168-0.mp4\"\n  },\n  \"media\": {\n    \"input\": {\n      \"file\": \"input_video.mp4\",\n      \"width\": 1080,\n      \"height\": 1920,\n      \"fps\": 30.0,\n      \"num_frames\": 46\n    },\n    \"target\": {\n      \"file\": \"target_video.mp4\",\n      \"width\": 1080,\n      \"height\": 1920,\n      \"fps\": 30.0,\n      \"num_frames\": 46\n    }\n  },\n  \"pipeline\": {\n    \"name\": \"task355-popsign-word-caption-overlay\",\n    \"version\": \"0.2.0\",\n    \"commit\": \"c58ff61a52c934d7f69e53f484146f14a7ba1b85\"\n  },\n  \"optional\": {\n    \"source_inventory_sha256\": \"5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5\",\n    \"source_catalog_sha256\": \"5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b\",\n    \"source_page_sha256\": \"877d89f0cc4cf02a5d827c2e3203e51023167b95f08f1f5fb914ae02eed9af0b\",\n    \"source_tar_etag\": \"3356898659\",\n    \"source_tar_content_length\": 1771509760,\n    \"source_original_member\": \"4a.8902-napkin-2023_01_28_18_24_26.168-0.mp4\",\n    \"source_preview_name\": \"54-napkin.mp4\",\n    \"anonymous_participant_id\": \"4a.8902\",\n    \"official_sign_slug\": \"napkin\",\n    \"display_label\": \"NAPKIN\",\n    \"caption_card_height\": 384,\n    \"input_video_sha256\": \"a441ecc837f8bbd0ae52d2a3500a1dce370c7d9c4cc3d0b9f902c0b0b2d46958\",\n    \"decoded_frame_count\": 46,\n    \"outside_overlay_max_channel_delta\": 0,\n    \"changed_overlay_pixels\": 19077120\n  },\n  \"identity\": {\n    \"sample_fingerprint\": \"2619569d552abdbea4ea062d8e5b854b03f8063c9c8a9d89d38c95c88f529b44\"\n  }\n}\n",
+      "files": {
+        "input_video.mp4": {
+          "bytes": 773313,
+          "sha256": "a441ecc837f8bbd0ae52d2a3500a1dce370c7d9c4cc3d0b9f902c0b0b2d46958"
+        },
+        "metadata.json": {
+          "bytes": 2047,
+          "sha256": "f42bd899070b79049b14b877b4fbfc555649b5861c9265dbebda5eed8c3c998b"
+        },
+        "prompt.txt": {
+          "bytes": 238,
+          "sha256": "6bad1962ca0468dc1436fb0bfbfa1545d4f42584783ba43733add638c1697298"
+        },
+        "target_video.mp4": {
+          "bytes": 17472959,
+          "sha256": "e426377b76b02ffb32e4b1169fe9083c88fe2c0d01839d26c102feddc3004ff6"
+        }
+      },
+      "media": {
+        "input": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001830__input_video.mp4",
+          "sha256": "a441ecc837f8bbd0ae52d2a3500a1dce370c7d9c4cc3d0b9f902c0b0b2d46958",
+          "bytes": 773313,
+          "width": 1080,
+          "height": 1920,
+          "fps": 30.0,
+          "num_frames": 46
+        },
+        "target": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000001830__target_video.mp4",
+          "sha256": "e426377b76b02ffb32e4b1169fe9083c88fe2c0d01839d26c102feddc3004ff6",
+          "bytes": 17472959,
+          "width": 1080,
+          "height": 1920,
+          "fps": 30.0,
+          "num_frames": 46
+        }
+      },
+      "automated_checks": [
+        {
+          "id": "four-file-contract",
+          "status": "PASS",
+          "summary": "The exact four non-empty canonical Final files match their create-only Gate C review copies.",
+          "evidence": {
+            "final_version_ids": {
+              "input_video.mp4": "UbbP7YmeEzpT1yH.3JmT3IDYZ.U0kYYI",
+              "metadata.json": "RQ9Qsys58ZtrSapdjZuiQ28OoKdrnhNQ",
+              "prompt.txt": "xi2Tdo5rZZ2N7sRpr8hIX5OmPScv1i20",
+              "target_video.mp4": "NT5RUdZXdeuE9C9Kr_ZGD1vkVHeyuvGS"
+            },
+            "review_version_ids": {
+              "input_video.mp4": "aUyGU87yc5L.Lvxqj8Gj_VEtZO9cJlpk",
+              "metadata.json": "IbJKwcZqjhnIS76YGLcwrNxuakmh1_gs",
+              "prompt.txt": "_8EV4X5LiPE3HQBMgfe4cBlUeG7iJ_z2",
+              "target_video.mp4": "aNsFpvpL4wuO2eCV413n0N_uNKCQTwxc"
+            },
+            "files": {
+              "input_video.mp4": {
+                "bytes": 773313,
+                "sha256": "a441ecc837f8bbd0ae52d2a3500a1dce370c7d9c4cc3d0b9f902c0b0b2d46958"
+              },
+              "metadata.json": {
+                "bytes": 2047,
+                "sha256": "f42bd899070b79049b14b877b4fbfc555649b5861c9265dbebda5eed8c3c998b"
+              },
+              "prompt.txt": {
+                "bytes": 238,
+                "sha256": "6bad1962ca0468dc1436fb0bfbfa1545d4f42584783ba43733add638c1697298"
+              },
+              "target_video.mp4": {
+                "bytes": 17472959,
+                "sha256": "e426377b76b02ffb32e4b1169fe9083c88fe2c0d01839d26c102feddc3004ff6"
+              }
+            }
+          }
+        },
+        {
+          "id": "complete-media-contract",
+          "status": "PASS",
+          "summary": "Input and Target fully decoded with identical dimensions, FPS, frame count, and preserved pixels outside the caption region.",
+          "evidence": {
+            "decoded_frame_count": 46,
+            "changed_overlay_pixels": 19077120,
+            "outside_overlay_max_channel_delta": 0
+          }
+        },
+        {
+          "id": "caption-source-binding",
+          "status": "PASS",
+          "summary": "Prompt, Metadata display label, and the official source label are exactly bound.",
+          "evidence": {
+            "display_label": "NAPKIN",
+            "official_sign_slug": "napkin",
+            "source_sample_id": "napkin/4a.8902-napkin-2023_01_28_18_24_26.168-0.mp4"
+          }
+        },
+        {
+          "id": "privacy-security",
+          "status": "PASS",
+          "summary": "Public review is compatible with CC BY 4.0 source media; complete human playback remains required for visible people and interiors.",
+          "evidence": {
+            "license": "CC BY 4.0",
+            "owner_review_required": true,
+            "evaluator_review_required": true
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002220",
+      "strata": [
+        "caption_length:long",
+        "participant_count:low",
+        "source_tar_size:small",
+        "sample_input_size:medium",
+        "formatting:plain"
+      ],
+      "selection_reason": "deterministic 12-sample risk-lattice representative for REFRIGERATOR; covers the declared caption, participant, source-size, input-size, or formatting risks without treating each machine-audited word as a separate human-review stratum",
+      "viewing_cues": [
+        "Play the complete synchronized pair and confirm the exact bottom caption 'REFRIGERATOR' is readable throughout.",
+        "Confirm timing, framing, and all pixels above the bottom caption region remain visually unchanged.",
+        "Cross-check Prompt, Metadata display_label, and source participant 4a.7003 against the media."
+      ],
+      "source": {
+        "dataset": "Georgia Tech PopSign ASL v1.0",
+        "sample_id": "refrigerator/4a.7003-refrigerator-2022_12_26_18_32_41.422-0.mp4",
+        "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#refrigerator/4a.7003-refrigerator-2022_12_26_18_32_41.422-0.mp4"
+      },
+      "prompt": "Preserve the complete Input video, including its timing, framing, and scene. Overlay the exact English caption 'REFRIGERATOR' as a readable bottom caption throughout the video. Do not add, remove, or alter anything outside that caption overlay.",
+      "metadata": {
+        "schema_version": "1.2",
+        "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002220",
+        "task": {
+          "id": "Task_355",
+          "name": "reference_guided_isolated_sign_word_caption_overlay",
+          "modality": "v2v"
+        },
+        "source": {
+          "dataset": "Georgia Tech PopSign ASL v1.0",
+          "split": "game/train",
+          "sample_id": "refrigerator/4a.7003-refrigerator-2022_12_26_18_32_41.422-0.mp4",
+          "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#refrigerator/4a.7003-refrigerator-2022_12_26_18_32_41.422-0.mp4"
+        },
+        "media": {
+          "input": {
+            "file": "input_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 30.0,
+            "num_frames": 88
+          },
+          "target": {
+            "file": "target_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 30.0,
+            "num_frames": 88
+          }
+        },
+        "pipeline": {
+          "name": "task355-popsign-word-caption-overlay",
+          "version": "0.2.0",
+          "commit": "c58ff61a52c934d7f69e53f484146f14a7ba1b85"
+        },
+        "optional": {
+          "source_inventory_sha256": "5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5",
+          "source_catalog_sha256": "5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b",
+          "source_page_sha256": "d2ff2c71d9961f68a9ea513a08b8bef9aa0b707dea3aedb6bd0bcaa3f40eced9",
+          "source_tar_etag": "3816426826",
+          "source_tar_content_length": 1647063040,
+          "source_original_member": "4a.7003-refrigerator-2022_12_26_18_32_41.422-0.mp4",
+          "source_preview_name": "169-refrigerator.mp4",
+          "anonymous_participant_id": "4a.7003",
+          "official_sign_slug": "refrigerator",
+          "display_label": "REFRIGERATOR",
+          "caption_card_height": 518,
+          "input_video_sha256": "27fbb349023a31872c43c99e1fbec248d1db98d1365a386e46b2b3294c7d8cc6",
+          "decoded_frame_count": 88,
+          "outside_overlay_max_channel_delta": 3,
+          "changed_overlay_pixels": 88615246
+        },
+        "identity": {
+          "sample_fingerprint": "4ca9e4bced0a700d34892450519e2476aeb66eb75da9efca075118989ad16feb"
+        }
+      },
+      "metadata_text": "{\n  \"schema_version\": \"1.2\",\n  \"sample_id\": \"Task_355_reference_guided_isolated_sign_word_caption_overlay_000002220\",\n  \"task\": {\n    \"id\": \"Task_355\",\n    \"name\": \"reference_guided_isolated_sign_word_caption_overlay\",\n    \"modality\": \"v2v\"\n  },\n  \"source\": {\n    \"dataset\": \"Georgia Tech PopSign ASL v1.0\",\n    \"split\": \"game/train\",\n    \"sample_id\": \"refrigerator/4a.7003-refrigerator-2022_12_26_18_32_41.422-0.mp4\",\n    \"uri\": \"s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#refrigerator/4a.7003-refrigerator-2022_12_26_18_32_41.422-0.mp4\"\n  },\n  \"media\": {\n    \"input\": {\n      \"file\": \"input_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 30.0,\n      \"num_frames\": 88\n    },\n    \"target\": {\n      \"file\": \"target_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 30.0,\n      \"num_frames\": 88\n    }\n  },\n  \"pipeline\": {\n    \"name\": \"task355-popsign-word-caption-overlay\",\n    \"version\": \"0.2.0\",\n    \"commit\": \"c58ff61a52c934d7f69e53f484146f14a7ba1b85\"\n  },\n  \"optional\": {\n    \"source_inventory_sha256\": \"5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5\",\n    \"source_catalog_sha256\": \"5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b\",\n    \"source_page_sha256\": \"d2ff2c71d9961f68a9ea513a08b8bef9aa0b707dea3aedb6bd0bcaa3f40eced9\",\n    \"source_tar_etag\": \"3816426826\",\n    \"source_tar_content_length\": 1647063040,\n    \"source_original_member\": \"4a.7003-refrigerator-2022_12_26_18_32_41.422-0.mp4\",\n    \"source_preview_name\": \"169-refrigerator.mp4\",\n    \"anonymous_participant_id\": \"4a.7003\",\n    \"official_sign_slug\": \"refrigerator\",\n    \"display_label\": \"REFRIGERATOR\",\n    \"caption_card_height\": 518,\n    \"input_video_sha256\": \"27fbb349023a31872c43c99e1fbec248d1db98d1365a386e46b2b3294c7d8cc6\",\n    \"decoded_frame_count\": 88,\n    \"outside_overlay_max_channel_delta\": 3,\n    \"changed_overlay_pixels\": 88615246\n  },\n  \"identity\": {\n    \"sample_fingerprint\": \"4ca9e4bced0a700d34892450519e2476aeb66eb75da9efca075118989ad16feb\"\n  }\n}\n",
+      "files": {
+        "input_video.mp4": {
+          "bytes": 6546742,
+          "sha256": "27fbb349023a31872c43c99e1fbec248d1db98d1365a386e46b2b3294c7d8cc6"
+        },
+        "metadata.json": {
+          "bytes": 2096,
+          "sha256": "a7621325f5ba5ac93d15808d1569f66f7d0725bda69daeb568b6acd40ab29929"
+        },
+        "prompt.txt": {
+          "bytes": 244,
+          "sha256": "b17982770bb7e8e523553170814d5e940f0c72b4eee2b20ec878d7955a32ebcf"
+        },
+        "target_video.mp4": {
+          "bytes": 77585777,
+          "sha256": "ad161e57eae956ae0b07ea571d23fb1c6c06906573b9e27ac4f21bdba305fbf6"
+        }
+      },
+      "media": {
+        "input": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002220__input_video.mp4",
+          "sha256": "27fbb349023a31872c43c99e1fbec248d1db98d1365a386e46b2b3294c7d8cc6",
+          "bytes": 6546742,
+          "width": 1944,
+          "height": 2592,
+          "fps": 30.0,
+          "num_frames": 88
+        },
+        "target": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002220__target_video.mp4",
+          "sha256": "ad161e57eae956ae0b07ea571d23fb1c6c06906573b9e27ac4f21bdba305fbf6",
+          "bytes": 77585777,
+          "width": 1944,
+          "height": 2592,
+          "fps": 30.0,
+          "num_frames": 88
+        }
+      },
+      "automated_checks": [
+        {
+          "id": "four-file-contract",
+          "status": "PASS",
+          "summary": "The exact four non-empty canonical Final files match their create-only Gate C review copies.",
+          "evidence": {
+            "final_version_ids": {
+              "input_video.mp4": "PflVqKmbTaxbWeyQ8_cpeeOrpzx.vgok",
+              "metadata.json": "o0FtU8ULmfkW4oia.ahbttMRC7b166Zh",
+              "prompt.txt": "WgTOmQQNaMV6p4sZkCgWtN7RESEFc3NG",
+              "target_video.mp4": "dc3H2C.W4YM5fwwGTOZdeUa2zVKTuJ4g"
+            },
+            "review_version_ids": {
+              "input_video.mp4": "Iu3EytPcQ_Qw63rfuZoK9ntUHq33J7nI",
+              "metadata.json": "D_NEdI3usuSIamkv0SVjUMyhv4o.UVQW",
+              "prompt.txt": "8lY4X2kvp0ndiUGLL7.PflXl3.hJcm7.",
+              "target_video.mp4": "DTB3H5H9jSPJoO0Ogwnexh.i7FNPeQHz"
+            },
+            "files": {
+              "input_video.mp4": {
+                "bytes": 6546742,
+                "sha256": "27fbb349023a31872c43c99e1fbec248d1db98d1365a386e46b2b3294c7d8cc6"
+              },
+              "metadata.json": {
+                "bytes": 2096,
+                "sha256": "a7621325f5ba5ac93d15808d1569f66f7d0725bda69daeb568b6acd40ab29929"
+              },
+              "prompt.txt": {
+                "bytes": 244,
+                "sha256": "b17982770bb7e8e523553170814d5e940f0c72b4eee2b20ec878d7955a32ebcf"
+              },
+              "target_video.mp4": {
+                "bytes": 77585777,
+                "sha256": "ad161e57eae956ae0b07ea571d23fb1c6c06906573b9e27ac4f21bdba305fbf6"
+              }
+            }
+          }
+        },
+        {
+          "id": "complete-media-contract",
+          "status": "PASS",
+          "summary": "Input and Target fully decoded with identical dimensions, FPS, frame count, and preserved pixels outside the caption region.",
+          "evidence": {
+            "decoded_frame_count": 88,
+            "changed_overlay_pixels": 88615246,
+            "outside_overlay_max_channel_delta": 3
+          }
+        },
+        {
+          "id": "caption-source-binding",
+          "status": "PASS",
+          "summary": "Prompt, Metadata display label, and the official source label are exactly bound.",
+          "evidence": {
+            "display_label": "REFRIGERATOR",
+            "official_sign_slug": "refrigerator",
+            "source_sample_id": "refrigerator/4a.7003-refrigerator-2022_12_26_18_32_41.422-0.mp4"
+          }
+        },
+        {
+          "id": "privacy-security",
+          "status": "PASS",
+          "summary": "Public review is compatible with CC BY 4.0 source media; complete human playback remains required for visible people and interiors.",
+          "evidence": {
+            "license": "CC BY 4.0",
+            "owner_review_required": true,
+            "evaluator_review_required": true
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002975",
+      "strata": [
+        "caption_length:long",
+        "participant_count:medium",
+        "source_tar_size:medium",
+        "sample_input_size:medium",
+        "formatting:plain"
+      ],
+      "selection_reason": "deterministic 12-sample risk-lattice representative for YESTERDAY; covers the declared caption, participant, source-size, input-size, or formatting risks without treating each machine-audited word as a separate human-review stratum",
+      "viewing_cues": [
+        "Play the complete synchronized pair and confirm the exact bottom caption 'YESTERDAY' is readable throughout.",
+        "Confirm timing, framing, and all pixels above the bottom caption region remain visually unchanged.",
+        "Cross-check Prompt, Metadata display_label, and source participant 4a.8054 against the media."
+      ],
+      "source": {
+        "dataset": "Georgia Tech PopSign ASL v1.0",
+        "sample_id": "yesterday/4a.8054-yesterday-2023_02_10_20_51_35.435-0.mp4",
+        "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#yesterday/4a.8054-yesterday-2023_02_10_20_51_35.435-0.mp4"
+      },
+      "prompt": "Preserve the complete Input video, including its timing, framing, and scene. Overlay the exact English caption 'YESTERDAY' as a readable bottom caption throughout the video. Do not add, remove, or alter anything outside that caption overlay.",
+      "metadata": {
+        "schema_version": "1.2",
+        "sample_id": "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002975",
+        "task": {
+          "id": "Task_355",
+          "name": "reference_guided_isolated_sign_word_caption_overlay",
+          "modality": "v2v"
+        },
+        "source": {
+          "dataset": "Georgia Tech PopSign ASL v1.0",
+          "split": "game/train",
+          "sample_id": "yesterday/4a.8054-yesterday-2023_02_10_20_51_35.435-0.mp4",
+          "uri": "s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#yesterday/4a.8054-yesterday-2023_02_10_20_51_35.435-0.mp4"
+        },
+        "media": {
+          "input": {
+            "file": "input_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 29.916666666666668,
+            "num_frames": 67
+          },
+          "target": {
+            "file": "target_video.mp4",
+            "width": 1944,
+            "height": 2592,
+            "fps": 29.916666666666668,
+            "num_frames": 67
+          }
+        },
+        "pipeline": {
+          "name": "task355-popsign-word-caption-overlay",
+          "version": "0.2.0",
+          "commit": "c58ff61a52c934d7f69e53f484146f14a7ba1b85"
+        },
+        "optional": {
+          "source_inventory_sha256": "5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5",
+          "source_catalog_sha256": "5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b",
+          "source_page_sha256": "681f424d1fe8a3649be6d202cd0eab30d2b6cff9e77a121a456c82cedf3e4601",
+          "source_tar_etag": "3291481534",
+          "source_tar_content_length": 2225786880,
+          "source_original_member": "4a.8054-yesterday-2023_02_10_20_51_35.435-0.mp4",
+          "source_preview_name": "105-yesterday.mp4",
+          "anonymous_participant_id": "4a.8054",
+          "official_sign_slug": "yesterday",
+          "display_label": "YESTERDAY",
+          "caption_card_height": 518,
+          "input_video_sha256": "432d567918137d7d8fbf9b588a54449b269a81d69cd220f492bc4287ec2a091a",
+          "decoded_frame_count": 67,
+          "outside_overlay_max_channel_delta": 3,
+          "changed_overlay_pixels": 67468464
+        },
+        "identity": {
+          "sample_fingerprint": "1f7832297071d9dc814bfcd790565c872faca334ac7a9a1e045b12e9fc450a0c"
+        }
+      },
+      "metadata_text": "{\n  \"schema_version\": \"1.2\",\n  \"sample_id\": \"Task_355_reference_guided_isolated_sign_word_caption_overlay_000002975\",\n  \"task\": {\n    \"id\": \"Task_355\",\n    \"name\": \"reference_guided_isolated_sign_word_caption_overlay\",\n    \"modality\": \"v2v\"\n  },\n  \"source\": {\n    \"dataset\": \"Georgia Tech PopSign ASL v1.0\",\n    \"split\": \"game/train\",\n    \"sample_id\": \"yesterday/4a.8054-yesterday-2023_02_10_20_51_35.435-0.mp4\",\n    \"uri\": \"s3://tv2v-data/raw/taxonomy/Task_355_popsign_v1_0/source-inventory-5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5.json#yesterday/4a.8054-yesterday-2023_02_10_20_51_35.435-0.mp4\"\n  },\n  \"media\": {\n    \"input\": {\n      \"file\": \"input_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 29.916666666666668,\n      \"num_frames\": 67\n    },\n    \"target\": {\n      \"file\": \"target_video.mp4\",\n      \"width\": 1944,\n      \"height\": 2592,\n      \"fps\": 29.916666666666668,\n      \"num_frames\": 67\n    }\n  },\n  \"pipeline\": {\n    \"name\": \"task355-popsign-word-caption-overlay\",\n    \"version\": \"0.2.0\",\n    \"commit\": \"c58ff61a52c934d7f69e53f484146f14a7ba1b85\"\n  },\n  \"optional\": {\n    \"source_inventory_sha256\": \"5873fd659e19708c3d0145b13e6ae14989f730562215eb774f8deaa2b434c1c5\",\n    \"source_catalog_sha256\": \"5f3eebe5edf7b03d1544c3d47760cadbdd962451fc9d7053587cc023b019889b\",\n    \"source_page_sha256\": \"681f424d1fe8a3649be6d202cd0eab30d2b6cff9e77a121a456c82cedf3e4601\",\n    \"source_tar_etag\": \"3291481534\",\n    \"source_tar_content_length\": 2225786880,\n    \"source_original_member\": \"4a.8054-yesterday-2023_02_10_20_51_35.435-0.mp4\",\n    \"source_preview_name\": \"105-yesterday.mp4\",\n    \"anonymous_participant_id\": \"4a.8054\",\n    \"official_sign_slug\": \"yesterday\",\n    \"display_label\": \"YESTERDAY\",\n    \"caption_card_height\": 518,\n    \"input_video_sha256\": \"432d567918137d7d8fbf9b588a54449b269a81d69cd220f492bc4287ec2a091a\",\n    \"decoded_frame_count\": 67,\n    \"outside_overlay_max_channel_delta\": 3,\n    \"changed_overlay_pixels\": 67468464\n  },\n  \"identity\": {\n    \"sample_fingerprint\": \"1f7832297071d9dc814bfcd790565c872faca334ac7a9a1e045b12e9fc450a0c\"\n  }\n}\n",
+      "files": {
+        "input_video.mp4": {
+          "bytes": 6280488,
+          "sha256": "432d567918137d7d8fbf9b588a54449b269a81d69cd220f492bc4287ec2a091a"
+        },
+        "metadata.json": {
+          "bytes": 2100,
+          "sha256": "79931682539aa0f295b2c4a8791dd22f5a82451c70721e61726f97a8a4d56124"
+        },
+        "prompt.txt": {
+          "bytes": 241,
+          "sha256": "4d78a960ea26140dfff5eda6ca445052c1c5e311c4d3a44a74f255947590faf6"
+        },
+        "target_video.mp4": {
+          "bytes": 82347490,
+          "sha256": "dd398f90fe1849791e25e5f741f56eeeec018bd6297440ed9225a8f91dac3354"
+        }
+      },
+      "media": {
+        "input": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002975__input_video.mp4",
+          "sha256": "432d567918137d7d8fbf9b588a54449b269a81d69cd220f492bc4287ec2a091a",
+          "bytes": 6280488,
+          "width": 1944,
+          "height": 2592,
+          "fps": 29.916666666666668,
+          "num_frames": 67
+        },
+        "target": {
+          "url": "https://github.com/Asysama/tv2v-task355-review/releases/download/gate-c-df5a0725/Task_355_reference_guided_isolated_sign_word_caption_overlay_000002975__target_video.mp4",
+          "sha256": "dd398f90fe1849791e25e5f741f56eeeec018bd6297440ed9225a8f91dac3354",
+          "bytes": 82347490,
+          "width": 1944,
+          "height": 2592,
+          "fps": 29.916666666666668,
+          "num_frames": 67
+        }
+      },
+      "automated_checks": [
+        {
+          "id": "four-file-contract",
+          "status": "PASS",
+          "summary": "The exact four non-empty canonical Final files match their create-only Gate C review copies.",
+          "evidence": {
+            "final_version_ids": {
+              "input_video.mp4": "aBYak1bpxuFY7K6h0WIc_lH1NVjersYr",
+              "metadata.json": "QznLvBQjYhpzHZEXU5hbAlZyk5ffF.8m",
+              "prompt.txt": "Eqy6ABZjVooG8TQqSeCJ6T.brQ4YE81F",
+              "target_video.mp4": ".aCC23PB9mhInmrTVa7zI7pqQukeRQTA"
+            },
+            "review_version_ids": {
+              "input_video.mp4": "nMT5U5nYKHPJ42ZgSkVKc3AtHTa3P6Pi",
+              "metadata.json": "hVR5Y.WGqLdkLPCmIyV1dy6bRHJmYX6A",
+              "prompt.txt": "Q4JxB4f56g.gGXbZo2yAZJIORuv2QJwO",
+              "target_video.mp4": "nf0HS0vvS48xsg1tEsbWTZbMTYdCZk7M"
+            },
+            "files": {
+              "input_video.mp4": {
+                "bytes": 6280488,
+                "sha256": "432d567918137d7d8fbf9b588a54449b269a81d69cd220f492bc4287ec2a091a"
+              },
+              "metadata.json": {
+                "bytes": 2100,
+                "sha256": "79931682539aa0f295b2c4a8791dd22f5a82451c70721e61726f97a8a4d56124"
+              },
+              "prompt.txt": {
+                "bytes": 241,
+                "sha256": "4d78a960ea26140dfff5eda6ca445052c1c5e311c4d3a44a74f255947590faf6"
+              },
+              "target_video.mp4": {
+                "bytes": 82347490,
+                "sha256": "dd398f90fe1849791e25e5f741f56eeeec018bd6297440ed9225a8f91dac3354"
+              }
+            }
+          }
+        },
+        {
+          "id": "complete-media-contract",
+          "status": "PASS",
+          "summary": "Input and Target fully decoded with identical dimensions, FPS, frame count, and preserved pixels outside the caption region.",
+          "evidence": {
+            "decoded_frame_count": 67,
+            "changed_overlay_pixels": 67468464,
+            "outside_overlay_max_channel_delta": 3
+          }
+        },
+        {
+          "id": "caption-source-binding",
+          "status": "PASS",
+          "summary": "Prompt, Metadata display label, and the official source label are exactly bound.",
+          "evidence": {
+            "display_label": "YESTERDAY",
+            "official_sign_slug": "yesterday",
+            "source_sample_id": "yesterday/4a.8054-yesterday-2023_02_10_20_51_35.435-0.mp4"
+          }
+        },
+        {
+          "id": "privacy-security",
+          "status": "PASS",
+          "summary": "Public review is compatible with CC BY 4.0 source media; complete human playback remains required for visible people and interiors.",
+          "evidence": {
+            "license": "CC BY 4.0",
+            "owner_review_required": true,
+            "evaluator_review_required": true
+          }
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stratum": "caption_length:long",
+      "count": 3,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001146",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002220",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002975"
+      ]
+    },
+    {
+      "stratum": "caption_length:medium",
+      "count": 5,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000040",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000112",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000520",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000667",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001830"
+      ]
+    },
+    {
+      "stratum": "caption_length:short",
+      "count": 4,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000307",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000429",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000914",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001385"
+      ]
+    },
+    {
+      "stratum": "formatting:compound_slash",
+      "count": 1,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001146"
+      ]
+    },
+    {
+      "stratum": "formatting:plain",
+      "count": 11,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000040",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000112",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000307",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000429",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000520",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000667",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000914",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001385",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001830",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002220",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002975"
+      ]
+    },
+    {
+      "stratum": "participant_count:high",
+      "count": 4,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000040",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000112",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000307",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000667"
+      ]
+    },
+    {
+      "stratum": "participant_count:low",
+      "count": 4,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000429",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001146",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001830",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002220"
+      ]
+    },
+    {
+      "stratum": "participant_count:medium",
+      "count": 4,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000520",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000914",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001385",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002975"
+      ]
+    },
+    {
+      "stratum": "sample_input_size:large",
+      "count": 4,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000307",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000520",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000667",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001385"
+      ]
+    },
+    {
+      "stratum": "sample_input_size:medium",
+      "count": 5,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000112",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000429",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001146",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002220",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002975"
+      ]
+    },
+    {
+      "stratum": "sample_input_size:small",
+      "count": 3,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000040",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000914",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001830"
+      ]
+    },
+    {
+      "stratum": "source_tar_size:large",
+      "count": 2,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000112",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000667"
+      ]
+    },
+    {
+      "stratum": "source_tar_size:medium",
+      "count": 3,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000307",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001385",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002975"
+      ]
+    },
+    {
+      "stratum": "source_tar_size:small",
+      "count": 7,
+      "sample_ids": [
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000040",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000429",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000520",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000000914",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001146",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000001830",
+        "Task_355_reference_guided_isolated_sign_word_caption_overlay_000002220"
+      ]
+    }
+  ],
+  "automated_checks": [
+    {
+      "id": "merged-generation-commit",
+      "status": "PASS",
+      "summary": "Full used the exact merged Gate B commit and unchanged not_ready task tree.",
+      "evidence": {
+        "commit": "c58ff61a52c934d7f69e53f484146f14a7ba1b85",
+        "task_tree_sha256": "130a1ff3fe053c52e92b06199b24d12820870be385a6d3a6ab713ec39c21cefb",
+        "gate_b_pr": 761
+      }
+    },
+    {
+      "id": "complete-final-four-file-contract",
+      "status": "PASS",
+      "summary": "All 3,000 canonical Final samples contain exactly four non-empty files.",
+      "evidence": {
+        "samples": 3000,
+        "payload_objects": 12000,
+        "payload_bytes": 255866261753
+      }
+    },
+    {
+      "id": "complete-metadata-1.2-set",
+      "status": "PASS",
+      "summary": "Every Final Metadata 1.2 record binds the merged generation commit and canonical task identity.",
+      "evidence": {
+        "records": 3000,
+        "commit": "c58ff61a52c934d7f69e53f484146f14a7ba1b85",
+        "census_sha256": "1e4e1c4565bc3f76d64e878a74d6c9076a4a79b8fe48304197bb4b7945f5f260"
+      }
+    },
+    {
+      "id": "final-identity-counts-bytes",
+      "status": "PASS",
+      "summary": "Canonical Final identity is fixed by exact counts, bytes, and inventory digest.",
+      "evidence": {
+        "samples": 3000,
+        "objects": 12000,
+        "bytes": 255866261753,
+        "inventory_sha256": "54febe889b5028cd0d6be89219b60d234b411f5e5bcc03a3e37aa57cc9d64ad8"
+      }
+    },
+    {
+      "id": "checksums-and-version-readback",
+      "status": "PASS",
+      "summary": "All 12,000 exact Final VersionIds were independently streamed and SHA-256 verified.",
+      "evidence": {
+        "objects": 12000,
+        "complete_readback": true,
+        "summary_sha256": "e7974b74bdfbce91410ca133489679c1886d21c3c808421bc51258e50a1164cc",
+        "checkpoint_sha256": "68c3fa70fe1741a9ae4df959650c3d405855bc1c7511a9d982d851a3d482b5cf"
+      }
+    },
+    {
+      "id": "unique-sample-source-and-fingerprint",
+      "status": "PASS",
+      "summary": "The complete Final set has unique sample IDs, source IDs, input hashes, and Metadata fingerprints.",
+      "evidence": {
+        "unique_sample_ids": 3000,
+        "unique_source_ids": 3000,
+        "unique_input_sha256": 3000,
+        "unique_fingerprints": 3000
+      }
+    },
+    {
+      "id": "distribution-and-exclusions",
+      "status": "PASS",
+      "summary": "The frozen population delivers 60 clips for each of 50 official labels with no post-freeze exclusions.",
+      "evidence": {
+        "delivered": 3000,
+        "excluded": 0,
+        "official_labels": 50,
+        "clips_per_label": 60,
+        "anonymous_participants": 31
+      }
+    },
+    {
+      "id": "deterministic-resume",
+      "status": "PASS",
+      "summary": "The standard entry point revalidated all 3,000 samples with zero writes; clean reproduction was byte-identical.",
+      "evidence": {
+        "requested": 3000,
+        "generated": 0,
+        "skipped": 3000,
+        "resume_sha256": "e748a0c588d0d8e4364667a45d7de57d25e93445f4e1365cfbb66b10ba60c861",
+        "reproduction_sha256": "e3be5cbcf33992101d8a67118d268257d62fbdea265b1025979ba2145dbdf102"
+      }
+    },
+    {
+      "id": "manifest-readme-eval-agreement",
+      "status": "PASS",
+      "summary": "README, DATA_MANIFEST, EVAL, Full run manifest, and complete audit agree on Final identity and Gate C policy.",
+      "evidence": {
+        "samples": 3000,
+        "objects": 12000,
+        "bytes": 255866261753,
+        "selection_sha256": "5328a55efe1fea416ed75e57f6c87e37ab50b339f9dca0b7c0e477f25cb85f30",
+        "human_decisions_claimed": false
+      }
+    },
+    {
+      "id": "promotion-only-diff",
+      "status": "PASS",
+      "summary": "Gate C only moves the approved task to ready and updates README, DATA_MANIFEST, and EVAL; behavior is byte-identical.",
+      "evidence": {
+        "producing_commit": "36deff51c3b1909d4855c8804f32f94f5f722dc0",
+        "behavior_changed": false,
+        "documentation": [
+          "README.md",
+          "DATA_MANIFEST.md",
+          "eval/EVAL.md"
+        ]
+      }
+    },
+    {
+      "id": "review-publication-binding",
+      "status": "PASS",
+      "summary": "All 48 selected review payload objects are exact create-only copies of canonical Final versions within the previously verified 50-sample review pool.",
+      "evidence": {
+        "samples": 12,
+        "payload_objects": 48,
+        "payload_bytes": 1612596687,
+        "review_inventory_sha256": "a512f5c3740edcc0934f05c0f5b4145930901799cecbbbe27e18f89b0da6a060",
+        "selection_sha256": "5328a55efe1fea416ed75e57f6c87e37ab50b339f9dca0b7c0e477f25cb85f30",
+        "auxiliary_objects": 1
+      }
+    },
+    {
+      "id": "coverage",
+      "status": "PASS",
+      "summary": "The 12-sample risk set spans Full order and covers every declared caption, participant, source-size, input-size, and formatting stratum.",
+      "evidence": {
+        "samples": 12,
+        "reviewed_distinct_labels": 12,
+        "machine_audited_official_labels": 50,
+        "declared_strata": 14
+      }
+    },
+    {
+      "id": "privacy-security",
+      "status": "PASS",
+      "summary": "The CC BY 4.0 source permits public review; independent Owner and evaluator playback remains mandatory for quality, privacy, and safety.",
+      "evidence": {
+        "license": "CC BY 4.0",
+        "owner_review_required": true,
+        "evaluator_review_required": true
+      }
+    }
+  ],
+  "presentation": {
+    "playback_mode": "synchronized",
+    "privacy_mode": "public",
+    "task_summary": "Input 是 Georgia Tech PopSign ASL 的孤立手语词视频；Target 保留完整 Input 的时序、构图和画面，仅在底部持续叠加与官方标签完全一致的英文字幕。",
+    "review_question": "完整检查全部 12 对视频后，Target 是否始终显示正确、清晰、完整的英文底部字幕，同时保持 Input 的帧序、画面和非字幕区域不变，并且没有截断、错词、闪烁、冻结、空白或隐私安全问题？"
+  },
+  "audit": {
+    "report_uri": "s3://tv2v-data/validation/Task_355_reference_guided_isolated_sign_word_caption_overlay/full/c58ff61a52c934d7f69e53f484146f14a7ba1b85/records/6fa3d954f850262fba7b9293544e026d0ab5feb7316aa4fb3881f5b4b9a1e63a/full-audit-bundle-12.json?versionId=7KnnxoqV1k1JkbLgkX5jJodUDEZBZvFa",
+    "sha256": "6fa3d954f850262fba7b9293544e026d0ab5feb7316aa4fb3881f5b4b9a1e63a"
+  },
+  "generated_at_utc": "2026-08-29T00:58:52.150045Z",
+  "evidence_digest": "5ab9b0b064c55027a0633d9220b207cb951700b2ec3edd27ce6046a625549ac4"
+}
